@@ -1,0 +1,326 @@
+<script>
+
+  window.onload=function(){
+     var b1=document.getElementById('b1');
+      var b2=document.getElementById('b2');
+       var b3=document.getElementById('b3');
+        var b4=document.getElementById('b4');
+	 if(window.location.href.match(/\w+$/)=='b1'){
+       b1.style.display='block';
+       b2.style.display='none';
+       b3.style.display='none';
+       b4.style.display='none';
+     }else if(window.location.href.match(/\w+$/)=='b2'){
+       b1.style.display='none';
+       b2.style.display='block';
+       b3.style.display='none';
+       b4.style.display='none';
+     }else if(window.location.href.match(/\w+$/)=='b3'){
+       b1.style.display='none';
+       b2.style.display='none';
+       b3.style.display='block';
+       b4.style.display='none';
+     }else if(window.location.href.match(/\w+$/)=='b4'){
+       b1.style.display='none';
+       b2.style.display='none';
+       b3.style.display='none';
+       b4.style.display='block';
+     }
+  }
+
+
+  function xchangetab(i){
+  if(i=="1"){
+    $("#tabl1").attr("class","xtb1");$("#tab11").css("display","inline");
+    $("#tabl2").attr("class","xtb2");$("#tab21").css("display","none");
+    $("#tabl3").attr("class","xtb2");$("#tab31").css("display","none");
+    $("#tabl4").attr("class","xtb2");$("#tab41").css("display","none");
+    $("#tabl5").attr("class","xtb2");$("#tab51").css("display","none");
+  }else if(i=="2"){
+    $("#tabl2").attr("class","xtb1");$("#tab21").css("display","inline");
+    $("#tabl1").attr("class","xtb2");$("#tab11").css("display","none");
+    $("#tabl3").attr("class","xtb2");$("#tab31").css("display","none");
+    $("#tabl4").attr("class","xtb2");$("#tab41").css("display","none");
+     $("#tabl5").attr("class","xtb2");$("#tab51").css("display","none");
+  }else if(i=="3"){
+    $("#tabl3").attr("class","xtb1");$("#tab31").css("display","inline");
+    $("#tabl2").attr("class","xtb2");$("#tab21").css("display","none");
+    $("#tabl1").attr("class","xtb2");$("#tab11").css("display","none");
+    $("#tabl4").attr("class","xtb2");$("#tab41").css("display","none");
+     $("#tabl5").attr("class","xtb2");$("#tab51").css("display","none");
+  }else if(i=="4"){
+    $("#tabl4").attr("class","xtb1");$("#tab41").css("display","inline");
+    $("#tabl3").attr("class","xtb2");$("#tab31").css("display","none");
+    $("#tabl2").attr("class","xtb2");$("#tab21").css("display","none");
+    $("#tabl1").attr("class","xtb2");$("#tab11").css("display","none");
+     $("#tabl5").attr("class","xtb2");$("#tab51").css("display","none");
+        
+  }else if(i=="5"){
+    $("#tabl5").attr("class","xtb1");$("#tab51").css("display","inline");
+    $("#tabl4").attr("class","xtb2");$("#tab41").css("display","none");
+    $("#tabl3").attr("class","xtb2");$("#tab31").css("display","none");
+    $("#tabl2").attr("class","xtb2");$("#tab21").css("display","none");
+    $("#tabl1").attr("class","xtb2");$("#tab11").css("display","none");
+        
+ }else if(i=="6"){
+    $("#tabl6").attr("class","xtb1");$("#tab61").css("display","inline");
+    $("#tabl7").attr("class","xtb2");$("#tab71").css("display","none");
+    $("#tabl8").attr("class","xtb2");$("#tab81").css("display","none");
+    $("#tabl9").attr("class","xtb2");$("#tab91").css("display","none");
+    $("#tabl10").attr("class","xtb2");$("#tab101").css("display","none");
+    $("#tabl11").attr("class","xtb2");$("#tab111").css("display","none");
+        
+ }else if(i=="7"){
+    $("#tabl6").attr("class","xtb2");$("#tab61").css("display","none");
+    $("#tabl7").attr("class","xtb1");$("#tab71").css("display","inline");
+    $("#tabl8").attr("class","xtb2");$("#tab81").css("display","none");
+    $("#tabl9").attr("class","xtb2");$("#tab91").css("display","none");
+    $("#tabl10").attr("class","xtb2");$("#tab101").css("display","none");
+    $("#tabl11").attr("class","xtb2");$("#tab111").css("display","none");
+        
+ } else if(i=="8"){
+   $("#tabl6").attr("class","xtb2");$("#tab61").css("display","none");
+    $("#tabl7").attr("class","xtb2");$("#tab71").css("display","none");
+    $("#tabl8").attr("class","xtb1");$("#tab81").css("display","inline");
+    $("#tabl9").attr("class","xtb2");$("#tab91").css("display","none");
+    $("#tabl10").attr("class","xtb2");$("#tab101").css("display","none");
+    $("#tabl11").attr("class","xtb2");$("#tab111").css("display","none");
+        
+ } else if(i=="9"){
+    $("#tabl6").attr("class","xtb2");$("#tab61").css("display","none");
+    $("#tabl7").attr("class","xtb2");$("#tab71").css("display","none");
+    $("#tabl8").attr("class","xtb2");$("#tab81").css("display","none");
+    $("#tabl9").attr("class","xtb1");$("#tab91").css("display","inline");
+    $("#tabl10").attr("class","xtb2");$("#tab101").css("display","none");
+    $("#tabl11").attr("class","xtb2");$("#tab111").css("display","none");
+        
+ }  else if(i=="10"){
+    $("#tabl6").attr("class","xtb2");$("#tab61").css("display","none");
+    $("#tabl7").attr("class","xtb2");$("#tab71").css("display","none");
+    $("#tabl8").attr("class","xtb2");$("#tab81").css("display","none");
+    $("#tabl9").attr("class","xtb2");$("#tab91").css("display","none");
+    $("#tabl10").attr("class","xtb1");$("#tab101").css("display","inline");
+    $("#tabl11").attr("class","xtb2");$("#tab111").css("display","none");
+        
+ }  else if(i=="11"){
+    $("#tabl6").attr("class","xtb2");$("#tab61").css("display","none");
+    $("#tabl7").attr("class","xtb2");$("#tab71").css("display","none");
+    $("#tabl8").attr("class","xtb2");$("#tab81").css("display","none");
+    $("#tabl9").attr("class","xtb2");$("#tab91").css("display","none");
+    $("#tabl10").attr("class","xtb2");$("#tab101").css("display","none");
+    $("#tabl11").attr("class","xtb1");$("#tab111").css("display","inline");
+        
+ }        
+}
+</script>
+<div style='height:107px;width:100%;background-color:#DFDFDF;'></div>
+
+<div id="zibody" style="background-color:#DFDFDF;">
+<div style="margin:0 auto;width:864px;">
+   
+<div id='b1'>
+
+  <div style="margin:0 auto;width:864px;"><br/><br/>
+      <span class="zi_menu_t" style="color:black"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮度假主题&nbsp;&nbsp;/&nbsp;&nbsp;海外邮轮推荐&nbsp;&nbsp;/&nbsp;&nbsp;荷美邮轮</span>
+      <p>&nbsp;</p>
+  </div>
+   <br/>
+
+	<img src="images/advertising/fm1.jpg" width="100%">
+	<div style='background:#FFFFFF'>
+		
+<br/>
+
+	   <div style="text-align: center;width:100%;font-weight: bold;font-size:18px;font-family:微软雅黑;">荷美邮轮</div>
+	   <p style="padding:20px;font-size:14px">荷美邮轮 - 追求卓越的标志<br/>
+作为中型邮轮，拥有15艘船舰，巡游100国家，超过500条线路。<br/>
+在阿拉斯加线路上60年丰富的经验，几乎每条线路都涵盖冰川观光之旅。更配有独家行程和专用酒店。<br/>
+荷美邮轮最大的秘密武器，便是他们无以伦比的员工。屡获“5星钻石服务奖”
+成为TravelAge West全球客户满意度最高的邮轮公司！
+
+	   </p>
+
+    
+     <table width="400" border="0"  cellspacing="0" style='margin:0 auto'>
+       <tr>
+         <td><div class="xtb1" id="tabl1" onclick="xchangetab('1')">邮轮介绍</div></td>
+         <td><div class="xtb2" id="tabl5" onclick="xchangetab('5')">餐饮服务</div></td>
+         <td><div class="xtb2" id="tabl2" onclick="xchangetab('2')">舒适舱房</div></td>
+         <td><div class="xtb2" id="tabl3" onclick="xchangetab('3')">精选行程-地中海</div></td>
+         <td><div class="xtb2" id="tabl4" onclick="xchangetab('4')">精选行程-阿拉斯加</div></td>
+       </tr>
+      </table><div style=' background-image:url(images/deepbule.png);height: 4px;width:660px;position:relative;left:99px'></div>
+      
+    <br/>
+	   
+
+	   <div id='tab11' style="">
+      <img src="images/advertising/indexHMYL.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/2_1hmdpz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/2_2hmdpz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/2_3hmdpz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/4_3hmdjz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/4_4hmdjz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/4_5hmdjz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   	<img src="images/advertising/4_6hmdjz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+	   </div>
+
+     <div id='tab21' style="display:none">
+        <img src="images/advertising/sscf1.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/sscf2.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/sscf3.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab31' style="display:none">
+        <img src="images/advertising/dzh1.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh2.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh3.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh4.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh5.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh6.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh7.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/dzh8.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab41' style="display:none">
+        <img src="images/advertising/alsj1.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj2.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj3.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj4.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj5.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj6.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj7.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+        <img src="images/advertising/alsj8.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab51' style="">
+      <img src="images/advertising/3_1hmdpw.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/3_2hmdpw.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/3_3hmdpw.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/3_4hmdpw.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/3_5hmdpw.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/3_6hmdpw.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/4_1hmdjz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/4_2hmdjz.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+	</div>
+</div>
+
+<div id='b2'>
+
+    <div style="margin:0 auto;width:864px;"><br/><br/>
+      <span class="zi_menu_t" style="color:black"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮度假主题&nbsp;&nbsp;/&nbsp;&nbsp;海外邮轮推荐&nbsp;&nbsp;/&nbsp;&nbsp;迪士尼邮轮</span>
+      <p>&nbsp;</p>
+  </div>
+   <br/>
+
+   <img src="images/advertising/dsn1.jpg" width="100%">
+  <div style='background:#FFFFFF'>
+    
+ <br/>
+
+     <div style="text-align: center;width:100%;font-weight: bold;font-size:18px;font-family:微软雅黑;">迪士尼邮轮</div>
+     <p style="padding:20px;font-size:14px">迪士尼邮轮-最适合家庭出游 五度获Travel+Leisure等旅游杂志评选为世界最佳家庭型邮轮。<br/>旗下四艘邮轮分别为迪士尼幻想号、迪士尼梦想号、迪士尼奇迹号和迪士尼魔力号，它们宛若一座座移动的迪士尼乐园。<br/>让孩子在国际化全英文环境中与世界各地的孩子们一起交流、玩耍，和杰克船长一起去探险，感受童话王国的魅力与风采！
+以上是迪士尼邮轮的介绍
+
+
+     </p>
+
+    
+     <table width="400" border="0"  cellspacing="0" style='margin:0 auto'>
+       <tr>
+         <td><div class="xtb1" id="tabl6" onclick="xchangetab('6')">邮轮介绍</div></td>
+         <td><div class="xtb2" id="tabl7" onclick="xchangetab('7')">安心服务</div></td>
+         <td><div class="xtb2" id="tabl8" onclick="xchangetab('8')">舒适舱房</div></td>
+         <td><div class="xtb2" id="tabl9" onclick="xchangetab('9')">精选行程-巴哈马</div></td>
+         <td><div class="xtb2" id="tabl10" onclick="xchangetab('10')">精选行程-加勒比</div></td>
+         <td><div class="xtb2" id="tabl11" onclick="xchangetab('11')">精选行程-阿拉斯加</div></td>
+       </tr>
+      </table><div style=' background-image:url(images/deepbule.png);height: 4px;width:793px;position:relative;left:33px'></div>
+      
+    <br/>
+     
+
+     <div id='tab61' style="">
+     <img src="images/advertising/dsn2.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn3.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn4.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn5.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn6.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn7.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn8.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn9.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn10.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn11.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn12.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn13.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab71' style="display:none">
+     <img src="images/advertising/dsn48.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn49.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn50.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn51.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn52.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn53.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn54.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn55.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn56.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn57.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn58.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn59.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn60.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn61.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab81' style="display:none">
+     <img src="images/advertising/dsn14.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn15.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn16.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn17.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn18.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn19.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn20.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn21.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn22.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab91' style="display:none">
+     <img src="images/advertising/dsn28.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn29.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn30.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn31.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn32.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn33.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn34.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn25.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn26.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn27.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+     <div id='tab101' style="">
+     <img src="images/advertising/dsn35.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn36.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn37.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn38.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn39.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn40.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn41.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn42.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn43.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     <img src="images/advertising/dsn44.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+
+      <div id='tab111' style="">
+      <img src="images/advertising/dsn45.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/dsn46.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+      <img src="images/advertising/dsn47.jpg" width="824px" style='padding-bottom:5px;padding-left:20px;padding-right:20px;'>
+     </div>
+  </div>
+</div>
+<div id='b3'></div>
+<div id='b4'></div>
+<br/><br/>
+</div>
+</div>

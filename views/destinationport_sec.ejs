@@ -1,0 +1,262 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div id="menu_path" style="margin:0 auto;width:864px;">
+<br/><br/>
+<%
+for (var i in med) {
+var strpath = menu_path;
+var temp = strpath.split("@");
+if(med[i].txtCruiseAreaNo==temp[0]){
+	var name1 = med[i].txtCruiseArea;
+	var img1 = med[i].rtfImg;
+	var tmp = img1.split("@");
+	var str1 = med[i].txtAreaDescription;
+var img1_1 = med[i].rtfImg_1;
+var img1_2 = med[i].rtfImg_2;
+var img1_3 = med[i].rtfImg_3;
+var img1_4 = med[i].rtfImg_4;
+var tmp1 = img1_1.split("@");
+var tmp2 = img1_2.split("@");
+var tmp3 = img1_3.split("@");
+var tmp4 = img1_4.split("@");
+var imgid;var titleid;var txtid;
+if(temp[1]=="1"){imgid=tmp1[1];titleid=med[i].txtSellingPoint_1;txtid=med[i].txtSellingPointExponent_1;}
+else if(temp[1]=="2"){imgid=tmp2[1];titleid=med[i].txtSellingPoint_2;txtid=med[i].txtSellingPointExponent_2;}
+else if(temp[1]=="3"){imgid=tmp3[1];titleid=med[i].txtSellingPoint_3;txtid=med[i].txtSellingPointExponent_3;}
+else if(temp[1]=="4"){imgid=tmp4[1];titleid=med[i].txtSellingPoint_4;txtid=med[i].txtSellingPointExponent_4;}
+
+for (var j in port) {
+	if(port[j].id==temp[1]){
+		var p1 = port[j].txtPortCityName;
+		var m1 = port[j].rtfPortImg.split("@");
+		var t1 = port[j].txtPortCityInfo;
+		var c1 = port[j].txtCountry;
+	}
+}
+%>
+<span class="zi_menu_t"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮度假目的地&nbsp;&nbsp;/&nbsp;&nbsp;<%= name1 %>&nbsp;&nbsp;/&nbsp;&nbsp;<%= p1 %></span>
+</div>
+<img id="destion" src="/databaseimages/<%=m1[1]%>.jpg" alt="" />
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<table width="100%" border="0">
+  <tr>
+    <td style="vertical-align:top;padding-left: 10px;line-height:150%">
+	<div class="myh1l"><%= p1 %>，<%= c1 %></div><br/>
+	<p class="myp1" style="padding-left: 0px;text-indent: 2em;text-align: justify"><%= t1 %></p><br/>
+	</td>
+    <td width="250px" style="text-align:center;line-height:150%;vertical-align: top">
+
+	<span class="myh1">关注我们的微信公众号:</span><span class="myh1blue">邮轮时代</span><br/>
+	<img src="/images/qrcode_for_gh_d38dec1e7532_430.jpg" width="128px" height="128px" /><br/>
+	</td>
+  </tr>
+</table>
+    <br/><br/>
+    <div class="myh1" style="font-size: 14px;">特色港口</div> <a name="top1" id="top1"></a>
+    <br/>
+    <div class="myh1ju">
+        <div id="shipFour">
+            <%
+                var k = 0;
+                    for (var j in port) {
+                var img1z = port[j].rtfPortImg;
+                    if(port[j].txtCruiseAreaNo == med[i].txtCruiseAreaNo){
+                    if(k<12){
+                k = k + 1;
+            %>
+            <div style="height:25px;margin-bottom:8px;display:inline-block;text-align:center;border:1px;width:203px;word-break:break-all;border: 1px;text-align: left;vertical-align: top;background-image:url('images/portsbg.png');padding-left: 10px;padding-top: 10px;">
+                <%
+                if(img1z!="NULL"){
+                %>
+                <span class="port" style="cursor:pointer;padding-right: 20px" onclick="window.location='loading?page=/destinationport/<%=med[i].txtCruiseAreaNo%>@<%=port[j].id%>';"><%=port[j].txtPortCityName%>，<%=port[j].txtCountry%></span>
+                <%
+                }else{
+                %>
+                <span class="myh1" style="cursor:pointer;padding-right: 20px;font-weight: normal"><%=port[j].txtPortCityName%>，<%=port[j].txtCountry%></span>
+                <%
+                }
+                %>
+            </div>
+            <%
+            }
+            }
+            }
+            %>
+            <div style="clear:both;"></div>
+            <div class="myh1" style="color:#43B0D3;width: 100%;text-align: right;cursor: pointer" onclick="$('#shipFour').css('display','none');$('#shipAll').css('display','inline');" >查看全部港口</div>
+        </div>
+
+        <div id="shipAll" style="display: none">
+            <%
+                var k = 0;
+                    for (var j in port) {
+                var img1z = port[j].rtfPortImg;
+                    if(port[j].txtCruiseAreaNo == med[i].txtCruiseAreaNo){
+
+                k = k + 1;
+            %>
+            <div style="height:25px;margin-bottom:8px;display:inline-block;text-align:center;border:1px;width:203px;word-break:break-all;border: 1px;text-align: left;vertical-align: top;background-image:url('images/portsbg.png');padding-left: 10px;padding-top: 10px;">
+                <%
+                if(img1z!="NULL"){
+                %>
+                <span class="port" style="cursor:pointer;padding-right: 20px" onclick="window.location='loading?page=/destinationport/<%=med[i].txtCruiseAreaNo%>@<%=port[j].id%>';"><%=port[j].txtPortCityName%>，<%=port[j].txtCountry%></span>
+                <%
+                }else{
+                %>
+                <span class="myh1" style="cursor:pointer;padding-right: 20px;font-weight: normal"><%=port[j].txtPortCityName%>，<%=port[j].txtCountry%></span>
+                <%
+                }
+                %>
+            </div>
+            <%
+
+            }
+            }
+            %>
+            <div style="clear:both;"></div>
+            <div class="myh1" style="width: 100%;text-align: right;cursor: pointer" onclick="$('#shipFour').css('display','inline');$('#shipAll').css('display','none');" ><a  href="#top1" style="color:#43B0D3;" target="_self">收起全部港口</a></div>
+        </div>
+
+    </div>
+    <br/>
+<img src="/images/advertisement_1.png" width="864px" />
+<br/><br/>
+    <div style="width: 100%;text-align: center"><span class="myh1" style="font-size: 15px;">让她们带您去</span><span style="font-size: 15px;" class="myh1b"><%=name1%></span><span style="font-size: 15px;" class="myh1">度假！</span></div>
+    <div>
+        <%
+        var sname1 = "";
+        for(var b in lines){
+        if(lines[b].txtRoutingArea == name1){
+        sname1 = sname1 + "@" + lines[b].txtShipNo;
+        }
+        }
+        var e = 0;
+        for (var j in cship) {
+        if(sname1.indexOf(cship[j].txtShipNo)>0){
+        var imgc = cship[j].rtfShipImg;
+
+
+
+
+
+
+
+
+        var imgc1 = imgc+"_sm.jpg";
+        if(e<4){
+        %>
+        <div style="float: left;width: 215px">
+            <a href="loading?page=/curisecompanyship/<%=cship[i].txtCompanyNo%>@<%=cship[j].txtShipNo%>"><img class="img_4" src="/dataimages/<%=imgc1%>" width="200px"/></a><br/>
+            <span class="myh1"><%=cship[j].txtShipEnName%></span><br/>
+            <span class="myh1"><%=cship[j].txtShipName%></span><br/>
+            <br/>
+        </div>
+        <%
+        e = e + 1;
+        }
+        }
+        }
+        %>
+        <div style="clear:both;"></div>
+    </div>
+    <br/><br/>
+    <table width="100%"  style="font-size:12px;font-family:微软雅黑;background-repeat: no-repeat;background-image: url('/images/point.png')" border="0">
+        <tr><td colspan="4">&nbsp;</td></tr>
+        <%
+            var k = 0;
+                for(var j in lines1){
+                if(lines1[j].txtCruiselineALLPort){
+                if(lines1[j].txtCruiselineALLPort.indexOf(p1)!=-1){
+                if(k<5){
+        %>
+        <tr style="cursor: pointer" onclick="window.location = 'loading?page=/curiseship?p=<%=lines1[j].txtCruiselineNo%>&q=<%=lines1[j].txtSailingDate1%>';">
+            <td style="font-weight: bold;padding-left: 15px;"><%=lines1[j].txtSailingDate1%></td>
+            <td><%=lines1[j].txtCruiselineName%></td>
+            <td style="width:350px"><%=lines1[j].txtCruiselineALLPort.substring(0,28)%>...</td>
+            <td style="text-align: center;width: 150px">
+                <%
+                if(lines1[j].currencyNo){
+                %>
+                <span style="color: #F15A24;font-weight: bold"><%="RMB "+lines1[j].numPriceLast%>/人起</span>
+                <%
+                }else{
+                %>
+                <span style="color: #F15A24;font-weight: bold">电询</span>
+                <%
+                }
+                %>
+            </td>
+        </tr>
+        <% if(k<4){ %>
+        <tr><td colspan="4"><hr style="width: 95%;margin-left: 15px;"></td></tr>
+        <%    }  %>
+        <%
+            k = k + 1;
+        }
+        }
+        }
+        }
+        %>
+        <tr><td colspan="4">&nbsp;</td></tr>
+        <tr><td colspan="4" style="text-align: right;padding-top: 5px;"><div class="tohq" style="cursor: pointer" onclick="$('#mdd').val('<%=name1%>');document.forms[0].submit();">查看更多产品&nbsp;</div></td></tr>
+    </table>
+<br/><br/>
+<div class="myh1" style="font-size: 14px;">相关内容</div>
+<br/>
+<table width="100%" border="0">
+  <tr>
+     <td width="220px"><a href="loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@1"><img class="img_4" src="/databaseimages/<%=tmp1[0]%>.jpg" width="200px" /></a>
+	<br/><div class="myh1sm"><%=med[i].txtSellingPoint_1%></div>
+	<div class="myp1sm"><%=med[i].txtSellingPointExponent_1.substring(0,40)%>...</div>
+	<div class="myh1b" onclick="window.location='loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@1';">查看更多 >>></div>
+	</td>
+    <td width="220px"><a href="loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@2"><img class="img_4" src="/databaseimages/<%=tmp2[0]%>.jpg" width="200px" /></a>
+	<br/><div class="myh1sm"><%=med[i].txtSellingPoint_2%></div>
+	<div class="myp1sm"><%=med[i].txtSellingPointExponent_2.substring(0,40)%>...</div>
+	<div class="myh1b" onclick="window.location='loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@2';">查看更多 >>></div>
+	</td>
+    <td width="220px"><a href="loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@3"><img class="img_4" src="/databaseimages/<%=tmp3[0]%>.jpg" width="200px" /></a>
+	<br/><div class="myh1sm"><%=med[i].txtSellingPoint_3%></div>
+	<div class="myp1sm"><%=med[i].txtSellingPointExponent_3.substring(0,40)%>...</div>
+	<div class="myh1b" onclick="window.location='loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@3';">查看更多 >>></div>
+	</td>
+    <td width="220px"><a href="loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@4"><img class="img_4" src="/databaseimages/<%=tmp4[0]%>.jpg" width="200px" /></a>
+	<br/><div class="myh1sm"><%=med[i].txtSellingPoint_4%></div>
+	<div class="myp1sm"><%=med[i].txtSellingPointExponent_4.substring(0,40)%>...</div>
+	<div class="myh1b" onclick="window.location='loading?page=/destinationsp/<%=med[i].txtCruiseAreaNo%>@4';">查看更多 >>></div>
+	</td>
+  </tr>
+</table>
+<br/>
+<div>
+    <%
+    for (var j in r1) {
+            if(r1[j].txtCategory3.indexOf(name1)!= -1){
+        var imgc = r1[j].rtfImg;
+        if(r1[j].txtCategory1=="邮轮视频"){
+            imgc = "/video/"+r1[j].rtfImg+".jpg";
+
+        }else{
+
+        }
+    %>
+    <div style="float: left;width: 215px;height: 300px;">
+        <a href="loading?page=/sharemid/<%=r1[j].id%>"><img src="<%=imgc%>" width="200px" height="124"/></a><br/><br/>
+        <div style="overflow:hidden;height: 35px;width:200px" class="myh1"><%=r1[j].txtTitle%></div>
+        <div id="yj<%=menu_path%><%=j%>" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=r1[j].txtAbbr%></div>
+        <div class="myh1b" onclick="window.location='loading?page=/sharemid/<%=r1[j].id%>';">查看详情 >>></div>
+        <br/><br/>
+    </div>
+    <%
+    }
+    }
+    %>
+    <div style="clear:both;"></div>
+</div>
+<br/>
+<%}}%>
+</div>
+</div>
+<form style="display: none" method="post">
+    <input type="text" id="mdd" name = "mdd" />
+</form>

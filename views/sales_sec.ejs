@@ -1,0 +1,25 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮促销信息&nbsp;&nbsp;/&nbsp;&nbsp;<%=r10[0].txtProduceName%></span>
+<br/><br/>
+   <%
+        for(var i=1;i<r10[0].numPic;i++){
+   %>
+        <img src="databaseimages/<%=r10[0].txtProduceNo%>_<%=i%>.jpg" /><br/><br/>
+   <%
+        }
+   %>
+   <table style="width: 100%;font-size: 14px;">
+       <tr>
+           <td class="cx" style="width:22%;height:40px;background-color: #002F67;font-weight: bold;color: #DFDFDF;text-align: center;cursor: pointer" onclick="window.location='/curiseship?p=<%=r10[0].txtCruiselineNo%>&q=<%=r10[0].txtDay%>';">点击了解详情</td>
+           <td></td>
+           <td class="cx" style="width:22%;background-color: #002F67;font-weight: bold;color: #DFDFDF;text-align: center;cursor: pointer" onclick="window.open('/databaseimages/<%=r10[0].txtProduceNo%>.pdf');">下载本页</td>
+           <td></td>
+           <td class="cx" style="width:22%;background-color: #002F67;font-weight: bold;color: #DFDFDF;text-align: center;cursor: pointer" onclick="window.location='help?p=a4';">联系我们</td>
+           <td></td>
+           <td class="cx" style="width:22%;background-color: #002F67;font-weight: bold;color: #DFDFDF;text-align: center;cursor: pointer" onclick="window.location='help?p=a2';">立即预定</td>
+       </tr>
+   </table>
+</div>
+</div>

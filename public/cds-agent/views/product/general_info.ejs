@@ -1,0 +1,242 @@
+<div id="product-title" class="product_block_item clearfix" style="width:100%;max-width:864px;"> 
+</div>
+<div style="clear:both"></div>  
+<div style="width:854px;background:#FFFFFF;"><!--标题-->
+
+        <div style="width:100px;text-align:center;float:left;margin-top:20px;margin-left:-10px">
+             <span style="padding:1px 3px;color:rgba(230, 116, 31, 0.93);border:1px solid rgba(230,116,31,0.93)"><%=(product.type==2?'团队游':'单船票')%></span>
+        </div>
+
+            <div style="width:754px;float:right;margin-top:20px;margin-right:10px;margin-bottom:10px">
+
+                <div  style="width:454px;float:left;margin-left:-10px">
+                    <p class="fontSize16 fontWeight"><%=product.title%></p>
+                    <p style="color:#F37041;font-size:14px;">【<%=product.startLocation%>出发】出发日期:<%=product.startDate%></p>
+                </div>
+
+                <div style="width:300px;float:right">
+                    <img src="images/style/download.png" style="float:left;cursor:pointer;vertical-align:middle;margin-top:3px;margin-left:50px">
+                    <span onclick="window.open('http://www.huiyoulun.com/routedownloadpublic?p=<%=product.productNumber%>');" style="font-size:16px;color:#8CC63F;vertical-align:middle;font-weight:bold;padding-left:5px;cursor:pointer;">下载行程</span>
+
+                    <div class="wxdtb1" style="float:right;cursor:pointer;padding-bottom:15px">
+                        <div  style="float:none" >
+                         <img  src="images/style/scan.png" style="vertical- align:bottom;margin-top:2px">
+                         <span style="font-size:16px;color:#3EAACE;vertical-align:top;font-weight:bold;padding-left:5px;">微信扫描分享</span>
+                       </div>
+                    </div> <!--微信图标-->
+
+                </div>
+
+                <div style="width:520px;float:left;font-size:14px;margin-left:-10px">【行程路线】<%=product.route%></div>
+
+                <div id="code" style="position:absolute;margin-left:580px;margin-top:35px;cursor:pointer"></div>
+            
+            </div>
+                <div style="clear:both"></div>
+      
+    </div><!--end标题-->
+
+    <div style="width:854px;background:#FFFFFF;">
+        <% if(product.keyFeature && product.keyFeature.length > 0 ){%>
+        <div style="padding:10px 10px 10px 20px;">
+            <h3 style="font-size:14px;font-weight:bold;color:black">推荐理由:</h3>
+            <p style="font-size:13px;color:#666666"> <%=product.keyFeature%></p>
+        </div>
+        <% }%> 
+    </div>
+<!--舱房-->
+<!-- cabin info -->
+<div class="p_hr p_hr_8"></div>
+<%for (var i in cabins) {%>
+<%
+    var category = cabins[i].categories;
+    var checkInMin = (category&&category.length>0) ? category[0].checkInMax : '';
+    var checkInMax = checkInMin;
+    var minPrice = (category&&category.length>0) ? category[0].price : '';
+    for(k in category) {
+        if (minPrice > category[k].price) minPrice = category[k].price;
+        if (checkInMin > category[k].checkInMax)checkInMin = category[k].checkInMax;
+        if (checkInMax < category[k].checkInMax)checkInMax = category[k].checkInMax;
+    }
+    if ( checkInMax != checkInMin ) {
+        checkInMax = checkInMin + '-' + checkInMax;
+    }
+%>
+<div class="p_hr p_hr_8"></div>
+<div class="product_block_item cabin">
+    <div>
+        <ul style="list-style: none">
+                <li>
+                    <div id="product-list1" style="font-size:14px;margin-top:10px;background:#FFFFFF">
+                        <div style="float:left;width:255px;"><!--left-->
+                            <img src="<%=cabins[i].imageUrl%>" style="width:255px;height:150px">
+                        </div>
+                        <div style="float:right;width:589px"><!--right-->
+
+                            <div style="float:left;width:449px;"><!--right中的left-->
+                                <p style="margin-top:10px;font-weight:bold;font-size:14px"><%=cabins[i].cabinType%></p><br/>
+                                <p style="font-weight:bold;font-size:14px">面积&nbsp;&nbsp;&nbsp;<span style="color:#666666;font-weight:100"><%=cabins[i].size%></span></p>
+                                <p style="font-weight:bold;font-size:14px">可住人数&nbsp;&nbsp;<span style="color:#666666;font-weight:100"><%=checkInMax%>人</span></p>
+                                <p style="font-weight:bold;font-size:14px">甲板层&nbsp;&nbsp;<span style="color:#666666;font-weight:100"><%=cabins[i].decks%></span></p>
+                                <p style="font-weight:bold;font-size:14px">舱房设施&nbsp;&nbsp;<span style="color:#666666;font-weight:100"><%=cabins[i].facility%></span></p>
+                            </div>
+
+                            <div style="float:right;width:130px"><!--right中的right-->
+                                <div style="background:#F15A24;font-weight:bold;color:#FFFFFF;padding:10px 20px 10px 25px;margin-top:15px;box-shadow:3px 3px 10px #8D8D8D;-webkit-box-shadow:3px 3px 10px #8D8D8D;-moz-box-shadow:3px 3px 10px #8D8D8D">
+                                    <span style="font-family:georgia;color:#FFFFFF">RMB</span>&nbsp;<span style="font-size:18px;font-family:georgia;color:#FFFFFF"><%=minPrice%></span>
+                                    <p style="text-align:right;font-size:13px;font-family:微软雅黑;color:#FFFFFF">/人起</p>
+                                </div>
+                                <p style="padding-top:30px;text-align:left"><span onclick="onClickBooking(<%=i%>)" style="cursor:pointer;color:#F37041;font-size:14px;font-weight:bold">详细价格>>></span></p>
+                            </div>
+
+                        </div>
+                           <div style="clear:both"></div>
+                    </div>
+                </li>
+
+        </ul>
+    </div>
+    
+</div>
+<!-- cabin price detail -->
+<div id="prices<%=i%>" class="cabin-prices" style="display:none">
+    <table style="width:100%;margin-top:0px;border:0" cellspacing="0" cellpadding="0">
+        <tr style="text-align: center;color: #000000;font-weight: bold;"><td style="width:160px;">舱房类型</td><td style="width:60px;">最多入住</td><td style="width: 105px;">第1/2人价</td><td style="width:105px;" >第3/4人价</td><td style="width:105px;">儿童价</td><td style="width:105px;">成人</td><td style="width:45px;">儿童</td><td style="width:125px;">合计</td></tr>
+        <%
+            var category = cabins[i].categories;
+                for(var k in category){%>
+        <tr style="text-align: center"><td><%=category[k].cabinName%></td><td><%=category[k].checkInMax%>人</td><td>￥<%=category[k].price%></td><td><%if(category[k].price2){%>￥<%=category[k].price2%><%}else{%>-<%}%></td><td><%if(category[k].priceChild){%>￥<%=category[k].priceChild%><%}else{%>-<%}%></td>
+            <td><span id="a<%=category[k].posId%>">0</span>&nbsp;&nbsp;<i title="减一个成人" class="fa fa-minus-circle minus" onclick="minusAdult('<%=i%>', '<%=k%>')"></i>&nbsp;&nbsp;<i title="增加一个成人" class="fa fa-plus-circle plus" onclick="addAdult('<%=i%>', '<%=k%>')"></i></td>
+            <td><span id="k<%=category[k].posId%>">0</span>&nbsp;&nbsp;<i title="减一个儿童" class="fa fa-minus-circle minus" onclick="minusKids('<%=i%>', '<%=k%>')"></i>&nbsp;&nbsp;<i title="增加一个儿童" class="fa fa-plus-circle plus" onclick="addKids('<%=i%>', '<%=k%>')"></i></td><td><span id="total<%=category[k].posId%>"></span></td>
+        </tr>
+        <%}%>
+    </table>
+    <div style="width:100%;background-color:#FFFFFF;text-align:right;padding-top:10px;padding-right:20px">
+        <div onclick="click_scroll();" style="cursor:pointer"><img src="images/xiayibu.png" /></div>
+    </div>
+</div>
+<!-- end cabin price detail -->
+<div class="p_hr p_hr_8"></div>
+<%}%>
+<div class="p_hr p_hr_8"></div>
+<!-- End cabin info -->
+
+<%
+var feeIncl=product.fees&&product.fees.includedFees&&product.fees.includedFees.length>0?product.fees.includedFees:null;
+var feeExcl=product.fees&&product.fees.excludedFees&&product.fees.excludedFees.length>0?product.fees.excludedFees:null;
+if(feeIncl||feeExcl){%>
+<div style="background:#FFFFFF;margin-top:10px"><!--费用说明-->
+        <div style="padding:10px 10px 5px 20px;border-bottom:2px dotted #B3B3B3">
+            <img src="images/style/fare.png">&nbsp;<span style="font-weight:bold;vertical-align:top;font-size:15px">费用说明</span>
+        </div>
+        <div style="padding:10px 10px 15px 20px;margin-left:27px">
+        <%if(feeIncl){%>
+        <h3 style="padding-bottom:5px;font-size:14px;font-weight:bold">费用包含</h3>
+        
+            <%for(var i in feeIncl){%>
+            <p style="font-size:13px;color:#666666"><%=feeIncl[i].name + (feeIncl[i].fee||feeIncl[i].comment?'：':'') + (feeIncl[i].fee?feeIncl[i].fee:'') + feeIncl[i].comment%></p>
+            <%}%>
+        
+        <%}%>
+
+        <%if(feeExcl){%>
+        <h3 style="padding-bottom:5px;padding-top:10px;font-size:14px;font-weight:bold">费用不包含</h3>
+            <%for(var i in feeExcl){%>
+            <p style="font-size:13px;color:#666666"><%=feeExcl[i].name + (feeExcl[i].fee||feeExcl[i].comment?'：':'') + (feeExcl[i].fee?feeExcl[i].fee:'') + feeExcl[i].comment%></p>
+            <%}%>
+        <%}%>
+        </div>
+    </div><!--end费用说明-->
+<div class="p_hr p_hr_16"></div>
+<%}%>
+
+<%
+if(product.bookingNote){
+    product.bookingNote = product.bookingNote.replace(/\n/g,"<br/>");
+%>
+
+<div style="background:#FFFFFF;margin-top:10px"><!--预定须知-->
+        <div style="padding:10px 10px 5px 20px;border-bottom:2px dotted #B3B3B3">
+            <img src="images/style/info.png">&nbsp;<span style="font-weight:bold;vertical-align:top;font-size:15px">预定须知</span>
+        </div>
+        <div style="padding:10px 10px 15px 20px;margin-left:27px">
+           <%=product.bookingNote%>
+        </div>
+</div><!--end预定须知-->
+
+<div class="p_hr p_hr_16"></div>
+<%}%>
+
+<%
+if(product.visaComment){
+    product.visaComment = product.visaComment.replace(/\n/g,"<br/>");
+%>
+<div style="background:#FFFFFF;margin-top:10px;margin-bottom:20px"><!--签证说明-->
+        <div style="padding:10px 10px 5px 20px;border-bottom:2px dotted #B3B3B3">
+            <img src="images/style/passport.png" style="margin-left:1px">&nbsp;<span style="font-weight:bold;vertical-align:top;font-size:15px">签证说明</span>
+        </div>
+        <div style="padding:10px 10px 15px 20px;margin-left:27px">
+            <%=product.visaComment%>
+        </div>
+</div><!--end签证说明-->
+<!--<div class="p_hr p_hr_16"></div>-->
+<%}%>
+<div id="booking-summary" style="display:none">
+
+    <div class="block_head product_label" style='border-bottom:2px dotted #B3B3B3'>
+        &nbsp;&nbsp;&nbsp;<img src="images/style/booking1.png">&nbsp;<span style="font-weight:bold;vertical-align:top;font-size:15px">预订</span>
+    </div>
+    <form name="pbname1" id="myForm" method="post" action="pbdo" >
+    <div id="pos"></div>
+    <div style="padding:10px 10px 15px 20px;margin-left:27px">
+    <div style="line-height: 30px"><b>产品名称</b>&nbsp;<input type="text" name="input3" readonly style="margin-left:13px;width:300px;border:0px" value="<%=product.title%>"></div>
+        <div id="div5">
+
+            <b>订单总额：&nbsp;<span id="summary-price-total" style="color:#F4AC40"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>舱房：&nbsp;<span id="summary-total-cabins"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>成人：&nbsp;<span id="summary-total-adults"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <b>儿童：&nbsp;<span id="summary-total-kids"></span></b>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div style="display: table">
+            
+            <div style="line-height: 30px"><b>联系人姓名</b>&nbsp;<input type="text" name="input1"></div>
+            <div style="line-height: 30px"><b>联系人电话</b>&nbsp;<input type="text" name="input2"></div>
+            <div><b>预订备注</b><br/>
+             <textarea name="input4" style="height:80px;width:500px;margin-top:5px"></textarea>
+            </div>
+        </div>
+        <div style="width:500px;text-align:right">
+            <input type="button" class="pure-button" value="提交预订" onclick="submitYDC()" />
+        </div>
+
+    </div>
+    <input type="hidden" id="input5" name="input5">
+
+    </form>
+</div>
+
+<!--<div class="p_hr p_hr_16"></div>-->
+
+<script type="text/javascript">
+    $("#code").hide();
+    $(".wxdtb,#divWX").mouseenter(function(){     //微信图标
+        $(".wxxtb").show();
+    });
+    $(".wxdtb,#divWX").mouseleave(function(){
+        $(".wxxtb").hide();
+    });
+
+    $(".wxdtb1,.wxxtb01").mouseenter(function(){     //微信图标
+        $("#code").show();
+    });
+    $(".wxdtb1,.wxxtb01").mouseleave(function(){
+        $("#code").hide();
+    });
+    function click_scroll(){
+        var scroll_offset = $("#pos").offset();  //得到pos这个div层的offset，包含两个值，top和left
+        $("body,html").animate({
+            scrollTop:scroll_offset.top  //让body的scrollTop等于pos的top，就实现了滚动
+        },1000);
+    }
+    $("#code").qrcode("http://tcjr.holidaycloud.cn/detail/<%=product.id%>");
+</script>

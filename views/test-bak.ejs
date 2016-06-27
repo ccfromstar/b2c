@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="/javascripts/jquery-easyui_jb51/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/javascripts/b_main.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-easyui_jb51/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-easyui_jb51/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="/javascripts/jquery-easyui_jb51/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/javascripts/jquery-easyui_jb51/themes/icon.css">
+    <link href="/stylesheets/demo.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #layout td {
+            padding-left:20px;
+            color: #585276;
+            padding-top: 10px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body class="easyui-layout">
+<div data-options="region:'north',border:false"
+     style="height:60px;background:#1262B7;padding:20px;color: white;font-size: 14px;font-weight: bold">工作周报管理系统
+</div>
+<div data-options="region:'west',split:true,title:'菜单'" style="width:220px;padding:0px;">
+<table id="layout" border="0" style="width: 100%;">
+    <tr>
+        <td style="font-weight: bold">周工作汇报(自下而上)</td>
+    </tr>
+    <tr>
+        <td style="">1.按所属部门分类</td>
+    </tr>
+    <tr>
+        <td style="">2.按所属周次分类</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold">周工作汇报(自上而下)</td>
+    </tr>
+    <tr>
+        <td style="">1.按所属周次分类</td>
+    </tr>
+    <tr>
+        <td style="">2.按改善部门分类</td>
+    </tr>
+</table>
+</div>
+<div data-options="region:'east',split:true,collapsed:true,title:'辅助功能'" style="width:100px;padding:10px;"></div>
+<div data-options="region:'south',border:false"
+     style="text-align:right;height:50px;background:#FAFDFF;padding:15px;color: #000000;font-size: 12px;">
+
+</div>
+<div data-options="region:'center',title:'视图'" style="overflow: hidden">
+    <iframe id="centerid" src="b_home" style="width: 100%;border: 0px;height: 100%" />
+</div>
+</body>
+</html>

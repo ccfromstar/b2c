@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie9"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荟邮轮分销系统</title>
+    <meta name="description" content="荟邮轮邮轮旅游产品分销系统" />
+    <meta name="keywords" content="邮轮, 旅游, 邮轮分销" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons-min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dialogs.css">
+    <link rel="stylesheet" type="text/css" href="css/calendario/calendar.css" />
+    <link rel="stylesheet" type="text/css" href="css/calendario/calendar_twin.css" />
+    <link rel="stylesheet" type="text/css" href="css/product.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/youlunshidai.css" />-->
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/jquery-1.11.1.min.js"></script>
+    <script src="js/vendor/jquery.calendario.js"></script>
+    <script src="js/vendor/ejs_production.js"></script>
+    <script src="settings.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/service_api.js"></script>
+     <script type="text/javascript">
+        _checkIE();
+    </script>
+</head>
+<body>
+<div id="background">
+    <img id="bg-img" src="images/styles/bg_default.jpg" class="stretch" alt="" />
+    <img id="bg-img-caribbean" src="images/styles/CAB_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-mediterran" src="images/styles/MED_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-sa" src="images/styles/SA_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-jk" src="images/styles/JK_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-kr" src="images/styles/KR_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-auz" src="images/styles/AUZ_lg.jpg" class="stretch" style="display: none" alt="" />
+</div>
+<div class="container" onclick="hideDayTooltip();">
+    <div id="mask">
+        <div id="mask-content"></div>
+        <div id="processbar-content"><div id="processbar"></div></div>
+    </div>
+    <div class="container-top clearfix">
+        <div id="container-top-content" style="margin:0 auto;width:100%;text-align:center;">
+            <!--<div><i class="fa fa-home fa-fw"></i></div>-->
+            <div>邮轮度假信息系统 - 版权所有&copy;<span id="copyright-year"></span>上海荟邮网络科技有限公司<br/>
+            预订请打免费热线(中国)400-998-5121</div>
+        </div>
+    </div>
+    <div id="cds-toolbar"><div id="search-view"></div></div>
+    <div id="calendar-view"></div>
+    <div id="product-view" style="margin: 0 auto; width:100%"></div><br/><br/>
+</div><!-- /container -->
+<div style="display:none;position:absolute;" id="tooltip2">
+    <div style="background:url(images/styles/tab0101.png);height:20px"></div>
+    <div id="tooltip-body" style="background:url(images/styles/tab0102.png);width:350px;height:50px;margin-left:-1px">
+        <div  style="width:auto; margin:0 auto; padding-left:5px;font-size:12px; color:#CCCCCC;line-height:20px;">
+            <div id="tooltip" style="float:left;margin-top:-15px;margin-left:5px;margin-right:5px"></div>
+            <!-- 文本内容 -->
+            <div class="clear" style="width:auto; height:0px"></div><!--清除浮动-->
+        </div>
+    </div>
+    <div style="background:url(images/styles/tab0103.png);height:7px;"></div>
+</div>
+<script src="js/processbar.js"></script>
+<script src="js/boot.js"></script>
+<script src="views/product/product.js"></script>
+<script src="views/search/search.js"></script>
+<div id="cds-footer"></div>
+</body>
+</html>

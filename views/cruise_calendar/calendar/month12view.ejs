@@ -1,0 +1,22 @@
+<script>
+    function openCalendar(){
+        window.open('/cds-agent/index.html');
+        window.focus();
+    }
+</script>
+<% for( var i in months ) {%>
+<div class="month12-month" >
+    <div class="month-header"><span <%if(months[i].dataStore&&months[i].dataStore.length>0){%>title="查看<%=months[i].month%>月份所有航线" onclick="openCalendar();"<%}%>><%=months[i].year%>年<%=months[i].month%>月</span></div>
+    <div class="month-body">
+        <%for( var d in months[i].dataStore ){%>
+        <div><span <%if( d >= MONTH_MAX_ITEM ){%>class="month-item-hide"<%}%> onclick="openCalendar();">【<%=months[i].dataStore[d].cruiseArea%>航线】<%=months[i].dataStore[d].price%>￥起</span></div>
+        <%}%>
+        <%if( months[i].dataStore && months[i].dataStore.length > MONTH_MAX_ITEM ) {%>
+        <div><span class="month-more" onmouseover="showMonthTooltip(event, '<%=months[i].year%>', '<%=months[i].month%>', '<%=i%>')" onclick="openCalendar();">&nbsp;更多...</span></div>
+        <%}%>
+        <%if( months[i].dataStore && months[i].dataStore.length > 1 ){%>
+        <div><span onclick="openCalendar();">&nbsp;查看<%=months[i].month%>月份所有航线</span></div>
+        <%}%>
+    </div>
+</div>
+<% } %>

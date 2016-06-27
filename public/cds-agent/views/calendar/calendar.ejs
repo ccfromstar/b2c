@@ -1,0 +1,47 @@
+<div id="calendar-nav" style="display: none">
+    <div id="custom-prev" class="fa fa-chevron-circle-left fa-fw calendar-link"></div>
+    <div class="calendar-select">
+        <select id="selected-year" onchange="selectCalendar();">
+            <option value="<%=years[0]%>"><%=years[0]%></option>
+            <option value="<%=years[1]%>"><%=years[1]%></option>
+            <option value="<%=years[2]%>"><%=years[2]%></option>
+        </select>&nbsp;年
+        <select id="selected-month" onchange="selectCalendar();">
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>&nbsp;月
+    </div>
+    <div id="custom-next" class="fa fa-chevron-circle-right fa-fw calendar-link"></div>
+</div>
+<div id="month-twin-view">
+    <div class="custom-calendar-full">
+        <div class="custom-header clearfix">
+            <h3 id="month-year-1" class="custom-month-year">
+                <span id="custom-year" class="custom-year"></span>
+                <span id="custom-month" class="custom-month"></span>
+            </h3>
+        </div>
+        <div id="calendar" class="fc-calendar-container"></div>
+    </div>
+    <div class="custom-calendar-full2">
+        <div class="custom-header clearfix">
+            <h3 class="custom-month-year">
+                <span id="custom-year2" class="custom-year"></span>
+                <span id="custom-month2" class="custom-month"></span>
+            </h3>
+        </div>
+        <div id="calendar2" class="fc-calendar-container2"></div>
+    </div>
+</div>
+<div id="month-12-view"></div>
+<script src="views/calendar/calendar.js"></script>

@@ -1,0 +1,191 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<br/><br/><br/><br/><br/><br/><br/>
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+    <%
+    var name1 = "";var name2 = "";
+    var type1 = "";
+    var l1 ="";
+    for(var i in r1){
+    if(r1[i].id == menu_path){
+        name1=r1[i].txtTitle;
+        type1= r1[i].txtCategory1;
+        l1 = r1[i].txtCategory1;
+        if(r1[i].txtCategory1=="邮轮视频"){
+            name2 = "相关视频";
+        }else{
+            name2 = "相关文章";
+        }
+    }
+    }
+    %>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮生活分享&nbsp;&nbsp;/&nbsp;&nbsp;<%=name1%></span>
+</div>
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<table border="0">
+    <tr>
+        <td rowspan="2"  style="width:600px;background-color: #FFFFFF">
+            <%
+            for(var i in r1){
+            if(r1[i].id == menu_path){
+            %>
+            <%  if(r1[i].txtCategory1=="邮轮视频"){
+                %>
+
+            <embed style="margin-left: 60px;margin-top: -230px;" width="480" height="338" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="dock=true&plugins=drelated-1&drelated.dxmlpath=relatedclips.xml&drelated.dposition=center&drelated.dshow=complete&drelated.dskin=grayskin.swf&drelated.dtarget=_self&skin=chrome.zip&image=http://blog.fity.cn/images/video.jpg" salign="lt" wmode="opaque" allowscriptaccess="always" allowfullscreen="true" quality="high" bgcolor="#000000" name="ply" id="ply" src="http://blog.fity.cn/demo/mp4player/fity.cn_player.swf?file=http://www.youlunshidai.com/video/<%=r1[i].rtfImg%>.mp4" type="application/x-shockwave-flash">
+
+                <% }else{
+                %>
+            <img src="<%=r1[i].rtfImg%>" width="100%"/>
+                <% }
+                %>
+
+                <br/> <br/><br/>
+            <div style="text-align: center;width: 100%;font-weight: bold;font-size:18px;font-family:微软雅黑;"><%=r1[i].txtTitle%></div>
+            <div id="yjS00011" class="myp1" style="padding-left: 35px;padding-right: 35px;padding-bottom: 35px;padding-top: 15px;text-indent: 0em;text-align: justify;">
+                <br/>
+                <%=r1[i].txtText%>
+            </div>
+            <%
+            }
+            }
+            %>
+        </td>
+        <td style="width: 220px;vertical-align: top;padding-left: 20px;height: 400px;">
+            <div class="myt2"><%=name2%></div>
+
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+            var id3 = 0;
+            var id2 = Number(menu_path);
+            id2 = id2 -1;
+            if(id2<258){
+                id2 = id2 + 2;
+            }
+
+            if(l1=="邮轮入门"){
+                for(l=2;l<18;l++){
+                    if(l!=Number(menu_path)){
+                        id2 = l;
+                        id3 = l;
+                    }
+                }
+            }else if(l1=="邮轮资讯"){
+                for(l=101;l<126;l++){
+                    if(l!=Number(menu_path)){
+                        id2 = l;
+                        id3 = l;
+                    }
+                }
+            }else if(l1=="邮轮游记"){
+                for(l=1001;l<1025;l++){
+                    if(l!=Number(menu_path)){
+                        id2 = l;
+                        id3 = l;
+                    }
+                }
+            }
+
+            for (var w in r1) {
+            if(r1[w].txtCategory1 == type1){
+            if(r1[w].id==id2){
+            labc = 1;
+                if(r1[w].txtCategory1=="邮轮视频"){
+                    im2 = "/video/"+r1[w].rtfImg+".jpg";
+                    im1 = "/sharemid/"+r1[w].id;
+                }else{
+                    im2 = r1[w].rtfImg;
+                    im1 = "/sharemid/"+r1[w].id;
+                }
+            im3 = r1[w].txtTitle;
+            im4 = r1[w].txtAbbr;
+
+            }
+            x = x + 1;
+            }
+            }
+            if(labc == 1){
+            %>
+            <a href="loading?page=<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yjS00014" class="myp1sm"><%=im4%>...</div>
+            <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+            <%}%>
+            <br/><br/>
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+            var id2 = Number(menu_path);
+            id2 = id2 -2;
+            if(id2<258){
+                id2 = id2 + 4;
+            }
+
+            if(l1=="邮轮入门"){
+                for(l=2;l<18;l++){
+                    if(l!=Number(menu_path) && l!=id3){
+                        id2 = l;
+                    }
+                }
+            }else if(l1=="邮轮资讯"){
+                for(l=101;l<126;l++){
+                    if(l!=Number(menu_path) && l!=id3){
+                        id2 = l;
+                    }
+                }
+            }else if(l1=="邮轮游记"){
+                for(l=1001;l<1025;l++){
+                    if(l!=Number(menu_path) && l!=id3){
+                        id2 = l;
+                    }
+                }
+            }
+
+            for (var w in r1) {
+            if(r1[w].txtCategory1 == type1){
+            if(r1[w].id==id2){
+            labc = 1;
+                if(r1[w].txtCategory1=="邮轮视频"){
+                    im2 = "/video/"+r1[w].rtfImg+".jpg";
+                    im1 = "/sharemid/"+r1[w].id;
+                }else{
+                    im2 = r1[w].rtfImg;
+                    im1 = "/sharemid/"+r1[w].id;
+                }
+            im3 = r1[w].txtTitle;
+            im4 = r1[w].txtAbbr;
+            }
+            x = x + 1;
+            }
+            }
+            if(labc == 1){
+            %>
+            <a href="loading?page=<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yjS00015" class="myp1sm"><%=im4%>...</div>
+            <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+            <%}%>
+            <br/><br/>
+        </td>
+    </tr>
+    <tr>
+        <td  style="text-align:center;line-height:150%;vertical-align: top">
+            <span class="myh1">关注我们的微信公众号:</span><span class="myh1blue">邮轮时代</span><br/>
+            <img src="/images/qrcode_for_gh_d38dec1e7532_430.jpg" width="128px" height="128px" /><br/></td>
+    </tr>
+</table>
+    <br/>
+</div>
+</div>

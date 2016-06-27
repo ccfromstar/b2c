@@ -1,0 +1,74 @@
+<script>
+        $(function(){
+            $('#gg').datagrid({
+                title:'用户管理',
+                fit:true,
+                nowrap: false,
+                striped: true,
+                toolbar:"#toolbar",
+                url:'http://117.121.25.131:8080/cds-data-servlets/data_servlet?jsoncallback=?',
+                sortName: 'id',
+                sortOrder: 'desc',
+                idField:'id',
+                frozenColumns:[[
+                    {field:'ck',checkbox:true},
+                    {field:'id',title:'id',sortable:true},
+                    {field:'name',title:'姓名',sortable:true},
+                    {field:'login_name',title:'账户名',sortable:true},
+                    {field:'email',title:'邮箱',width:'200',sortable:true},
+                    {field:'certified',title:'验证',sortable:true},
+                    {field:'activated',title:'激活',sortable:true}
+                ]],
+                pagination:true,
+                rownumbers:true,
+                singleSelect:false,
+                pageList:[5,10,15,20,25,30,35,40,45,50],
+                onDblClickRow :function(rowIndex,rowData){
+                    //双击操作
+                }
+            });
+        });
+
+        function destroyReocrd(){
+            var ids = [];
+            var rows = $('#gg').datagrid('getSelections');
+            for(var i=0;i<rows.length;i++){
+                ids.push(rows[i].id);
+            }
+            var idstr = ids.join(';');
+            if (idstr == ""){
+                $.messager.alert('提示','请选择您要删除的记录!','warning');return false;
+            }
+            $.messager.confirm('提示', '是否确认删除?', function(r){
+                if (r){
+                    if(r==true){
+                        //$("#docid").val(idstr);
+                        // document.forms[0].submit();
+                        $.messager.alert('提示','此处写删除记录的代码!','info');return false;
+                    }
+                }
+            });
+        }
+
+        function searchReocrd(){
+                //var  txtSearch = $("#txtSearch").val();
+                //$('#gg').datagrid({'url':'getsearchdata?sid='+txtSearch});
+        }
+
+        function searchAllReocrd(){
+            //$('#gg').datagrid({'url':'getdata'});
+        }
+
+</script>
+
+<table id="gg"></table>
+<div id="toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true">新建</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyReocrd()">删除</a>
+    <input class="textbox" name="txtSearch" id="txtSearch" ></input>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="searchReocrd()">查询</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="searchAllReocrd()">查看全部</a>
+</div>
+<form method="post">
+    <input type="text" name="docid" id="docid" style="display: none" />
+</form>

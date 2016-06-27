@@ -1,0 +1,101 @@
+<!--舱房-->
+<%for (var i in cabins) {%>
+<!-- cabin general info -->
+<table style="background-color:#FFFFFF;margin-bottom: 0" width="100%" cellspacing='0' border="0">
+    <!--<tr style="text-align: center;color: #000000;font-weight: bold;background-image: url('images/styles/headgray.png')">
+        <td colspan="2"><%=cabins[i].cabinType%></td>
+    </tr>-->
+    <tr>
+        <td style="width:280px;vertical-align: top">
+            <img style="width: 270px;height: 150px;margin-top: 5px" src="<%=cabins[i].imageUrl%>" />
+            <!--<img style="width: 270px;height: 150px;margin-top: 5px" alt="舱房图片" />-->
+        </td>
+        <td style="vertical-align:top">
+            <table style="width:100%">
+                <tr style="line-height:45px">
+                    <td colspan="2"><span class="myh1" style="font-size: 14px"><%=cabins[i].cabinType%></span></td>
+                </tr>
+                <tr style="line-height:15px">
+                    <td  style="vertical-align:top;min-width:80px"><span class="myh1">面积</span></td>
+                    <td style="vertical-align:top"> <span  class="myh1x"><%=cabins[i].size%></span></td>
+                </tr>
+                <tr style="line-height:15px">
+                    <td style="vertical-align:top"><span class="myh1">甲板层</span></td>
+                    <td style="vertical-align:top"><span  class="myh1x"><%=cabins[i].decks%></span></td>
+                </tr>
+                <tr style="line-height:15px">
+                    <td style="vertical-align:top"><span class="myh1">舱房设施</span></td>
+                    <td style="vertical-align:top"><%=cabins[i].facility%></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- End general info -->
+<!-- prices -->
+<table id="cabin-prices" style="width: 100%;margin-top: 0px;border:0" cellspacing="0" cellpadding="0">
+    <tr style="text-align: center;color: #000000;font-weight: bold;background-image: url('images/styles/headgray.png')">
+        <td style="width: 160px;">舱房类型</td>
+        <td style="width: 105px;">最大入住人数</td>
+        <td style="width: 105px;" >第1/2人价</td>
+        <td style="width: 105px;" >第3/4人价</td>
+        <td style="width: 105px;">第3/4儿童价</td>
+    </tr>
+    <%
+    var category = cabins[i].categories;
+    for(k in category){
+    %>
+    <tr style="text-align: center">
+        <td><%=category[k].cabinName%></td>
+        <td><%=category[k].checkInMax%></td>
+        <td>￥<%=category[k].price%></td>
+        <td><%if(category[k].price2){%>￥<%=category[k].price2%><%}else{%>-<%}%></td>
+        <td><%if(category[k].priceChild){%>￥<%=category[k].priceChild%><%}else{%>-<%}%></td>
+    </tr>
+    <%}%>
+</table>
+<hr>
+<%}%>
+
+
+    <div style="background:#FFFFFF"><!--费用说明-->
+        <div style="padding:10px;border-bottom:dotted">
+            <img src="images/tp15.png">&nbsp;<span style="font-weight:bold;vertical-align:top">费用说明</span>
+        </div>
+        <div style="padding:10px">
+            <h3 style="padding-bottom:5px">费用包含</h3>
+
+            <h3 style="padding-bottom:5px">费用不包含</h3>
+            
+        </div>
+    </div><!--end费用说明-->
+
+    <div style="background:#FFFFFF;margin-top:10px"><!--预定须知-->
+        <div style="padding:10px;border-bottom:dotted">
+            <img src="images/tp16.png">&nbsp;<span style="font-weight:bold;vertical-align:top">预定须知</span>
+        </div>
+        <div style="padding:10px">
+            <%
+                var bookingNote = product.bookingNote;
+                if(bookingNote){
+                    bookingNote = bookingNote.replace(/\n/g,"<br/>");
+                }
+            %>
+            <%=bookingNote%>
+        </div>
+    </div><!--end预定须知-->
+
+    <div style="background:#FFFFFF;margin-top:10px"><!--签证说明-->
+        <div style="padding:10px;border-bottom:dotted">
+            <img src="images/tp17.png">&nbsp;<span style="font-weight:bold;vertical-align:top">签证说明</span>
+        </div>
+        <div style="padding:10px">
+            <%
+                var visaComment = product.visaComment;
+                if(visaComment){
+                    visaComment = visaComment.replace(/\n/g,"<br/>");
+                }
+            %>
+            <%=visaComment%>
+        </div>
+    </div><!--end预定须知-->

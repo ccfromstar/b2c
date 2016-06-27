@@ -1,0 +1,74 @@
+<script>
+        $(function(){
+            $('#gg').datagrid({
+                title:'邮轮设施视图',
+                fit:true,
+                nowrap: false,
+                striped: true,
+                toolbar:"#toolbar",
+                url:'getdata4',
+                sortName: 'code',
+                sortOrder: 'desc',
+                idField:'id',
+                frozenColumns:[[
+                    {field:'ck',checkbox:true},
+                    {field:'id',title:'数据库记录id'},
+                    {field:'txtShipNo',title:'邮轮船只编号'},
+                    {field:'txtPlaceType',title:'邮轮设施'},
+                    {field:'txtPlaceName',title:'设施名称'},
+                    {field:'txtPlaceRemark',title:'设施场所说明'},
+                    {field:'txtPlaceSite',title:'设施场所位置'},
+                    {field:'rtfPlaceImg',title:'设施场所图片'}
+                ]],
+                pagination:true,
+                rownumbers:true,
+                singleSelect:false,
+                pageList:[5,10,15,20,25,30,35,40,45,50],
+                onDblClickRow :function(rowIndex,rowData){
+                    window.location = "b_newyouji?id="+rowData['id'];
+                }
+            });
+        });
+
+        function destroyReocrd(){
+            var ids = [];
+            var rows = $('#gg').datagrid('getSelections');
+            for(var i=0;i<rows.length;i++){
+                ids.push(rows[i].id);
+            }
+            var idstr = ids.join(';');
+            if (idstr == ""){
+                $.messager.alert('提示','请选择您要删除的记录!','warning');return false;
+            }
+            $.messager.confirm('提示', '是否确认删除?', function(r){
+                if (r){
+                    if(r==true){
+                        $("#docid").val(idstr);
+                        document.forms[0].submit();
+                    }
+                }
+            });
+        }
+
+        function searchReocrd(){
+                var  txtSearch = $("#txtSearch").val();
+                $('#gg').datagrid({'url':'getsearchdata?sid='+txtSearch});
+        }
+
+        function searchAllReocrd(){
+            $('#gg').datagrid({'url':'getdata'});
+        }
+
+</script>
+
+<table id="gg"></table>
+<div id="toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="window.location='b_newyouji'">新建</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyReocrd()">删除</a>
+    <input class="textbox" name="txtSearch" id="txtSearch" ></input>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="searchReocrd()">查询</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-search" plain="true" onclick="searchAllReocrd()">查看全部</a>
+</div>
+<form method="post">
+    <input type="text" name="docid" id="docid" style="display: none" />
+</form>

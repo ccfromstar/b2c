@@ -1,0 +1,131 @@
+<%var ts = travelSchedule;
+  for(var i in ts){
+    var dt1 = ts[i].departureTime+"";
+    var dt2 = ts[i].arrivalTime+"";
+    dt1 = dt1.substring(0,5);
+    dt2 = dt2.substring(0,5);
+    if(dt1=="00:00"){dt1="-";}
+    if(dt2=="00:00"){dt2="-";}
+%>
+<!--<table style="max-width:850px;padding-top: 10px;border:none" cellspacing="0" cellpadding="0" border="0">
+    <tr style="line-height: 1px;height: 1px;">
+        <td></td>
+        <td style="width: 70px;"></td>
+        <td style="width: 50px;"></td>
+        <td colspan="5"></td>
+    </tr>
+
+    <tr style="line-height: 20px;">
+        <td rowspan="4" style="width: 100px;text-align: center;vertical-align: top">
+            <img style="padding-top: 10px;" src="images/styles/location.png" /><br/><span style="font-weight: bold;font-size: 14px;">第<%=ts[i].dayNumber%>天 </span>
+        </td>
+        <td colspan="8" style="padding-top: 10px;font-weight: bold;color:#1262B7;font-size: 14px;"><%=ts[i].location%></td>
+    </tr>
+
+    <tr style="line-height: 20px;">
+        <td colspan="4" style="width: 170px;padding-top: 10px;"><%=dt1%>到达</td>
+        <td style="width: 70px;padding-top: 10px;">&nbsp;</td>
+        <td style="width: 400px;padding-top: 10px;"><%=dt2%>出发</td>
+        <td style="width: 100px;">&nbsp;</td>
+        <td style="width: 50px;">&nbsp;</td>
+    </tr>
+
+    <tr style="line-height: 20px;">
+        <td colspan="8" style="padding-right: 10px;padding-bottom: 10px;vertical-align: top">
+            <%
+                var description = ts[i].description;
+                if(description){
+                    description = description.replace(/\n/g,"<br/>");
+                }
+            %>
+            <span id="xiaoD<%=i%>">&nbsp;<%=description%></span></td>
+    </tr>
+</table>
+<img src="images/styles/xu.png" style="width: 100%;" />
+-->
+ <div style="width:850px;background:#FFFFFF;">  <!--行程-->
+        <div style="width:794px;margin:0 auto;padding-top:30px;padding-bottom:30px">
+
+
+            <div style="width:794px;padding-left:3px">
+               <img class="hodometerImage" src="images/des_gray.png" style="vertical-align:middle;">&nbsp; &nbsp;<span style="font-weight:bold;vertical-align:middle;font-size:15px;">第<%=ts[i].dayNumber%>天 </span>&nbsp;<span style="font-weight:bold;vertical-align:middle;font-size:15px"><%=ts[i].location%></span>
+            </div>
+            <%var x = "border-left:2px solid #666666;";
+            var x1 = "border-bottom:2px dotted #B3B3B3";
+            if(i==(ts.length-1)){
+                x = "";
+                x1 = "";
+            }
+            %>
+            <div class="hodometer_button" id="hodometerBorderLeft1" style="width:777px;float:right;<%=x%>background:#FFFFFF;">
+                <div style="width:747px;margin:5px 10px 10px 30px;font-size:14px;<%=x1%>;padding-bottom:10px;cursor:pointer">
+
+                    <div style="">
+                        <div style="float:left;width:470px;padding-bottom:17px;font-weight:bold">
+                            <span><%=dt1%>到达</span>&nbsp; &nbsp;<span><%=dt2%>出发</span><!--left浮动-->
+                        </div>
+                        <div id="hb1" style="width:260px;float:right;margin-top:5px;cursor:pointer"><!--right浮动-->
+                           <img  class="hodometer_image" src="images/tp24.png" style="float:right;">
+                        </div>
+                    </div>
+                             <div style="clear:both;"></div>   <!--清除浮动用-->
+                    <div>
+                        <div class="hodometer_text" style="float:left;width:470px;display:none">         <!--left浮动-->
+                            <div style="padding-bottom:10px;color:#666666"><%
+                               var description = ts[i].description;
+                              if(description){
+                               description = description.replace(/\n/g,"<br/>");
+                                }%>
+                                <%=description%>
+                            </div>
+                            <div id="xiaoD<%=i%>" style="font-weight:bold;margin-top:10px;display:none">参考航班:&nbsp; &nbsp;<span style="color:#63B7D8;font-weight:bold"></span>
+                            </div>
+                        </div>
+                        <%var _x = ts[i].portImgs;
+                        var _ximg = "";
+                        if(_x){
+                            _ximg = _x[0];
+                        }
+                        %>
+                         <div class="img_hodometer_text" style="width:230px;float:right;display:none;margin-top:3px"><!--right浮动-->
+                              <img src="<%=_ximg%>" style="width:230px;height:120px">
+                         </div>
+                         <div style="clear:both;"></div>   <!--清除浮动用-->
+                    </div>
+                          
+                </div>
+            </div>
+
+        </div>
+
+  </div>
+<%}%>
+<div style="clear:both;"></div>   <!--清除浮动用-->
+
+<div style="background:#FFFFFF;margin-top:10px">
+        <div style="padding:10px 10px 5px 20px;border-bottom:2px dotted #B3B3B3">
+            <img src="images/style/icon30.png" style="height:20px">&nbsp;<span style="font-weight:bold;vertical-align:top;font-size:15px;">岸上游行程</span>
+        </div>
+        <div style="padding:10px 10px 15px 20px;margin-left:27px">
+           <%=product.excursion%>
+        </div>
+</div>
+
+<script type="text/javascript">
+    $(".hodometer_button").click(function(){                                       //行程表按钮触发 开始
+       if($(this).find(".hodometer_image").attr("src")=="images/tp25.png"){
+         $(this).find(".hodometer_image").attr("src","images/tp24.png");
+         $(this).prev().children(".hodometerImage").attr("src","images/des_gray.png");
+         $(this).css("borderLeftColor","#666666");
+         $(this).find(".hodometer_text").slideUp(400);
+         $(this).find(".img_hodometer_text").slideUp(400);
+       }else
+       {
+         $(this).find(".hodometer_image").attr("src","images/tp25.png");
+         $(this).prev().children(".hodometerImage").attr("src","images/des_orange.png");
+         $(this).css("borderLeftColor","#FF8900");
+         $(this).find(".hodometer_text").slideDown(400);
+         $(this).find(".img_hodometer_text").slideDown(400);
+       }
+    });                        
+</script>

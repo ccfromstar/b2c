@@ -1,0 +1,116 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div style="margin:0 auto;width:864px;">
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;帮助</span>
+</div>
+    <br/>
+    <div style="margin:0 auto;width:864px;">
+    <table width="300" cellspacing="0" border="0">
+        <tr>
+            <td><div class="tb1" id="tabl1" onclick="changetab('1')">关于我们</div></td>
+            <td><div class="tb2" id="tabl2" onclick="changetab('2')">如何预订</div></td>
+            <td><div class="tb2" id="tabl3" onclick="changetab('3')">常见问题</div></td>
+            <td><div class="tb2" id="tabl4" onclick="changetab('4')">联系我们</div></td>
+        </tr>
+    </table>
+        <div style="background-image:url(images/deepbule.png);height: 4px;"></div>
+        <div id="tab1">
+            <img src="images/aboutus.jpg" />
+        </div>
+        <div id="tab2" style="display: none;font-size: 12px;">
+            <div style="width:100%;background-color: #ffffff;height: 100%;">
+                <table border="0" style="width: 100%;height: 870px;">
+                    <tr>
+                        <td style="width: 55%;vertical-align: top;" colspan="2" rowspan="2">
+                                        <img style="margin-top: 20px;margin-left: 20px;width:432px; " src="/images/booking_1.jpg" />
+                                        <br/><br/><br/>
+                            <hr style="margin-top:15px;width: 430px;margin-left: 20px;BORDER-BOTTOM-STYLE: dotted; BORDER-LEFT-STYLE: dotted; BORDER-RIGHT-STYLE: dotted; BORDER-TOP-STYLE: dotted "/> <br/>
+                                        <div style="font-size: 16px;font-weight:bold;margin-left: 20px;font-family:微软雅黑;color: #002F67"> 请留下您的信息，让邮轮管家给您帮助。</div>
+
+                                        <form method="post" style="margin-top: 10px;margin-left: 20px">
+                                            <table style="width: 432px;height:360px;background-image: url('images/booking.png')" border="0">
+                                                <tr>
+                                                    <td style="vertical-align: top">
+                                                        <div style="font-family: 微软雅黑;color: white;font-weight: bold;margin-top: 12px;margin-left: 10px;">预定信息</div>
+                                                        <div style="font-family: 微软雅黑;margin-top: 22px;margin-left: 15px;">姓名：</div>
+                                                        <input name="input1" style="font-size:12px;font-family: 微软雅黑;margin-top:1px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" type="text" />
+                                                        <div style="font-family: 微软雅黑;margin-top: 12px;margin-left: 15px;">联系电话：</div>
+                                                        <input name="input2" style="font-size:12px;font-family: 微软雅黑;margin-top:3px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" type="text" />
+                                                        <div style="font-family: 微软雅黑;margin-top: 15px;margin-left: 15px;">E-Mail:</div>
+                                                        <input name="input3" style="font-size:12px;font-family: 微软雅黑;margin-top:1px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" type="text" />
+                                                        <div style="font-family: 微软雅黑;margin-top: 15px;margin-left: 15px;">内容：</div>
+                                                        <textarea name="input4" style="font-size:12px;font-family: 微软雅黑;margin-top:2px;height:80px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" ></textarea>
+                                                        <img style="margin-top: 20px;margin-left: 170px;width: 100px;cursor: pointer" onclick="submitYD();" src="images/submit.jpg"></img>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+
+                        </td>
+                        <td colspan="2"><img src="/images/booking_2.jpg" /></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 220px;background-image: url('/images/booking_3.jpg');cursor: pointer" onclick="window.open('files/pay2.pdf');">&nbsp;</td>
+                        <td style="height: 220px;background-image: url('/images/booking_4.jpg');cursor: pointer" onclick="window.open('files/pay1.pdf');">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="tab3" style="display: none;font-family:微软雅黑;line-height: 30px;">
+            <br/>
+             <%
+               for(var i in r){
+
+                %>
+                    <div style="color: #00B3E6;cursor: pointer;font-size: 16px;" onclick="jt('<%=i%>');"><img id="jt<%=i%>" src="/images/02.png" /> <%=r[i].txtQuestion%></div>
+                    <table id="jtb<%=i%>" >
+                        <tr>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><div  style="color: #7D7D7D;font-size: 14px;margin-top: 5px;margin-bottom: 5px;"><%=r[i].txtAnswer%></div></td>
+                        </tr>
+                    </table>
+
+                <%
+               }
+             %>
+            <br/>
+        </div>
+        <div id="tab4" style="display: none;font-size: 12px;">
+            <div style="width:100%;background-color: #ffffff;height: 100%;">
+                <br/>
+
+                    <table style="width: 100%;margin-left:20px;" border="0">
+                        <tr>
+                            <td style="vertical-align: top;width: 400px;">
+                                <img style="width: 400px;" src="images/map.jpg"></img>
+                            </td>
+                            <td style="vertical-align: top"><img style="width: 18px;margin-left: 8px;" src="images/mappoint.png"></img></td>
+                            <td style="vertical-align: top;font-family:微软雅黑;color: #666666;line-height: 20px;">
+                                <b style="font-size: 17px;">上海荟邮网络科技有限公司</b>
+
+                                <br/>
+                                <span style="font-size: 12px" > Shanghai Huiyou Infotech CO., Ltd</span>
+
+                                <br/><br/>
+                                <b>办公地址：</b>上海市杨浦区国定东路200号4号楼320室，200433
+
+                                <br/>
+                                <b>ADD: </b>Room320, 4th Building, No.200, East GuoDing Road, Shanghai
+
+                                <br/>
+                                    <b>联系电话 TEL: </b>+86 21 65112980
+
+                                <br/>
+                                        <b>传真FAX: </b>+86 21 65112980
+
+                                <br/>
+                                            <b>邮箱E-MAIL: </b>booking@youlunshidai.com
+                            </td>
+                        </tr>
+                    </table>
+                    <br/>
+            </div>
+        </div>
+        <div id="tab4" style="display: none"></div>
+    </div>
+</div>

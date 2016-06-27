@@ -1,0 +1,284 @@
+/* css for product detail and booking */
+#product-container {
+    margin:0 auto;padding:10px 20px 20px 20px;max-width:894px;width:100%;
+}
+#product-content {
+    margin:0 auto;max-width:864px;width:100%;
+}
+.product_block_item {
+    background-color: #ffffff;
+}
+.block_head {
+    padding:10px;border-bottom:dotted;
+}
+.block_body {
+    padding:10px 20px 10px 20px;
+}
+.cabin {
+    border-bottom: 1px solid #DDDDDD;
+}
+.product_label {
+    color:black;font-size:14px;font-weight:bold;
+}
+.p_hr {
+    height: 16px;width: 100%;background: #ffffff;
+}
+.p_hr_8 {
+    height: 8px;background: #ffffff;
+}
+.p_hr_16 {
+    height: 16px;background: #ffffff;
+}
+#travel-schedule-view table:nth-child(odd) { /*background-color:#F2F0F4;*/ }
+.cabin-prices tr { background-color: #ffffff}
+.cabin-prices tr:nth-child(odd) { background-color:#F2F0F4; }
+
+.slide-img{width:600px;height:300px;border:none;background-color:#000000}
+.wrapper{width:100%;margin:0 auto;padding-bottom:50px;background: #ffffff}
+.ship-img-mini {
+    height: 45px;
+    width: 90px;
+    cursor: pointer;
+    background: #ffffff;
+    opacity: 1;
+}
+.ship-mini-list {
+    z-index: 999;
+    position: relative;
+    top: 300px;
+    margin: 0 auto;
+    text-align: center;
+    background: #000000;
+    opacity: 0.9;
+}
+#booking-summary {
+    display: block;
+    background: #ffffff;
+}
+.banner { position:relative; overflow:hidden;height:350px;width:600px; }
+.banner ul{height:480px;position:absolute;}
+.banner li { list-style: none;}
+.banner ul li { float:left;height:300px;overflow:hidden;background:#000000}
+.banner ul li div{position:absolute;overflow:hidden;}
+.banner .dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+.banner .dots li {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    margin: 0 4px;
+
+    text-indent: -999em;
+    *text-indent: 0;
+
+    border: 2px solid #fff;
+    border-radius: 6px;
+
+    cursor: pointer;
+    opacity: .4;
+
+    -webkit-transition: background .5s, opacity .5s;
+    -moz-transition: background .5s, opacity .5s;
+    transition: background .5s, opacity .5s;
+}
+.banner .dots li.active {
+    background: #fff;
+    opacity: 1;
+}
+
+.plus, .minus{cursor:pointer}
+.myh1{
+    color:#1A1A1A;
+    font-size:13px;
+    font-family:微软雅黑;
+    font-weight:bold;
+}
+.myh1blue{
+    padding-top:10px;
+    color:#43B0D3;
+    font-size:12px;
+    font-family:微软雅黑;
+    font-weight:bold;
+    cursor:pointer;
+}
+.tb1{
+    color:#FFFFFF;
+    font-family:微软雅黑;
+    font-size:14px;
+    background-color:#003058;
+    text-align:center;
+    width:100px;
+    padding-left:4px;
+    padding-right: 4px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-right: 5px;
+    height: 24px;
+    padding-top: 8px;
+}
+.tb2{
+
+    color:#666666;
+    font-family:微软雅黑;
+    font-size:14px;
+    background-color:#B3B3B3;
+    text-align:center;
+    width:100px;
+    padding-left:4px;
+    padding-right: 4px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-right: 5px;
+    height: 24px;
+    padding-top: 8px;
+}
+
+h2 {
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+    margin-bottom:15px;
+}
+.demo-info{
+    padding:0 0 12px 0;
+}
+.demo-tip{
+    display:none;
+}
+.tableborder{border:0px; border-collapse:collapse;}
+.tableborder td{border-top:1px #666 solid;border-right:1px #666 solid;}
+.tableborder{border-bottom:1px #666 solid;border-left:1px #666 solid;}
+table tr{ height:25px;line-height:35px; }
+.pclass tr{ height:25px; line-height:30px; }
+.pclass td{ border:1px solid #ABBBBB; }
+.pclass th{ border:1px solid #ABBBBB; }
+.tdfooter {
+    font-size:14px;
+    color:#1A1A1A;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+    width: 100px;
+    text-align: center;
+}
+.tdfooter1 {
+    font-size:14px;
+    color:#1A1A1A;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+    width: 100px;
+    text-align: center;
+}
+.tdfooter0 {
+    font-size:14px;
+    color:#FFFFFF;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+    width: 100px;
+    text-align: center;
+    background-color: #F78D2B;
+}
+.tdfooter1-txt {
+    float: left;
+    width:82px;
+    text-align: right;
+    font-size:14px;
+    color:#1A1A1A;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+}
+.tdfooter0-txt {
+    float: left;
+    width:82px;
+    text-align: right;
+    font-size:14px;
+    color:#FFFFFF;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+    background-color: #F78D2B;
+}
+.class1 {
+    background-color: #B3B3B3;
+    color:#FFFFFF;
+    font-weight: bold;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab1{
+    background-color: #B3B3B3;
+    color:#FFFFFF ;
+    font-size:14px;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+    width: 100px;
+    text-align: center;
+}
+
+.tab2{
+    background-image: url('/images/huitou.png');
+    color:#000000 ;
+    font-size:14px;
+    color:#1A1A1A;
+    font-weight:bold;
+    font-family:微软雅黑;
+    vertical-align: bottom;
+    cursor:pointer;
+    width: 100px;
+    text-align: center;
+}
+
+img{border:0;}
+h1{height:50px;line-height:50px;font-size:22px;font-weight:normal;font-family:"Microsoft YaHei",SimHei;margin-bottom:20px;}
+
+.A1 {overflow:hidden;border:none;display:none;width:478px;height:182px;background-image: url('/images/tanchukuang1.png');z-index:9999;position:absolute;top:0px;left:250px;padding: 10px;}
+.A2 {overflow:hidden;border:none;width:478px;height:182px;background-image: url('/images/tanchukuang1.png');z-index:9999;position:absolute;top:0px;left:250px;padding: 10px;}
+
+.pclasscal tr{ height:25px; line-height:30px; }
+.pclasscal td{ border:1px solid #ABBBBB;text-align: center; width: 100px}
+.pclasscal th{ border:1px solid #ABBBBB; }
+
+
+.select{display:none;list-style:none;}
+#m7-txt:hover,#m8-txt:hover{color:#FFFFFF;background:#F78D2B; }
+#m7-txt:hover span,#m8-txt:hover span{color: #FFFFFF;}
+#m7-txt:hover .select,#m8-txt:hover .select{display: block;z-index: 10; position:absolute;
+    background: lightgray;text-align: left;line-height: 30px;font-family:微软雅黑;
+    border-top:6px solid #F78D2B;width:120px; }
+#m7-txt:hover .select li,#m8-txt:hover .select li{border-top: 2px solid #FFFFFF;text-align: center;}
+#m7-txt:hover .select li:hover,#m8-txt:hover .select li:hover{background: #F6CCAC }
+#m7-txt .select li a,#m8-txt .select li a{color: #797979}
+#m7-txt .select li span,#m8-txt .select li span{color:#0B68BB;}
+
+#list6,#list8{display: none;}
+
+
+/*pdf top开始*/
+.pdf-top{width: 525px;}
+.clear{clear: both;}
+.topLeft p,.topLeft p span{font-size: 15px}
+/*pf top 结束*/
+
+#pdf-table tr,#pdf-table td{text-align: center;}

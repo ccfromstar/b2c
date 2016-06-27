@@ -1,0 +1,11 @@
+<div id="popup-container">
+    <h2 id="popup-title"><%=title%></h2>
+    <div id="popup-content">
+        <div id="popup-msg"><%=msg%></div>
+    </div>
+    <div id="buttons" style="text-align: center; padding-bottom: 10px">
+        <%if(close){%>
+        <button class="pure-button" onclick="hideError()">关闭</button>
+        <%}%>
+    </div>
+</div>

@@ -1,0 +1,163 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <script type="text/javascript" src="/javascripts/jquery-easyui_jb51/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="/javascripts/b_main.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-easyui_jb51/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-easyui_jb51/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="/javascripts/jquery-easyui_jb51/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/javascripts/jquery-easyui_jb51/themes/icon.css">
+    <link href="/stylesheets/demo.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="easyui-layout">
+<div data-options="region:'north',border:false"
+     style="height:60px;background:#2b669a;padding:20px;color: white;font-size: 14px;font-weight: bold">B2C网站后台管理系统
+</div>
+<div data-options="region:'west',split:true,title:'目录'" style="width:220px;padding:0px;">
+    <div class="easyui-accordion" data-options="fit:true,border:false">
+        <div title="网站管理" data-options="selected:true" style="padding:10px;">
+            <ul class="easyui-tree" id="tt">
+                <li data-options="state:'closed'">
+                    <span>我的度假邮轮</span>
+                    <ul>
+                        <li>
+                            <span>发布（待审）产品</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>邮轮度假目的地</span>
+                    <ul>
+                        <li>
+                            <span>子目录</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>邮轮公司荟萃</span>
+                    <ul>
+                        <li>
+                            <span>子目录</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>邮轮度假主题</span>
+                    <ul>
+                        <li>
+                            <span>子目录</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>邮轮度假主题和生活分享</span>
+                    <ul>
+                        <li>
+                            <span>文章录入</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>邮轮促销信息</span>
+                    <ul>
+                        <li>
+                            <span>子目录</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>帮助</span>
+                    <ul>
+                        <li>
+                            <span>子目录</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div title="数据库管理"  style="padding:10px;">
+            <ul class="easyui-tree" id="tt1">
+                <li data-options="state:'closed'">
+                    <span>基础信息表</span>
+                    <ul>
+                        <li>
+                            <span>1邮轮公司信息表</span>
+                        </li>
+                        <li>
+                            <span>2邮轮船只信息表</span>
+                        </li>
+                        <li>
+                            <span>3船只甲板表</span>
+                        </li>
+                        <li>
+                            <span>4邮轮设施</span>
+                        </li>
+                        <li>
+                            <span>5船只餐饮设施表</span>
+                        </li>
+                        <li>
+                            <span>6船只舱位图(b2b)</span>
+                        </li>
+                        <li>
+                            <span>7舱房号清单列表</span>
+                        </li>
+                        <li>
+                            <span>8岸上游线路表</span>
+                        </li>
+                        <li>
+                            <span>9保险信息表</span>
+                        </li>
+                        <li>
+                            <span>10签证信息表</span>
+                        </li>
+                        <li>
+                            <span>11航线基本信息表</span>
+                        </li>
+                        <li>
+                            <span>12航线行程表</span>
+                        </li>
+                        <li>
+                            <span>16邮轮航区</span>
+                        </li>
+                        <li>
+                            <span>17港口表</span>
+                        </li>
+                        <li>
+                            <span>18.游记表</span>
+                        </li>
+                    </ul>
+                </li>
+                <li data-options="state:'closed'">
+                    <span>B2C数据表</span>
+                    <ul>
+                        <li>
+                            <span>6-1船只舱位图(b2c)</span>
+                        </li>
+                        <li>
+                            <span>13航次基本表（B2C）</span>
+                        </li>
+                        <li>
+                            <span>14单船票（B2C）</span>
+                        </li>
+                        <li>
+                            <span>15留言表（B2C）</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div title="系统设定" style="padding:10px">
+            content3
+        </div>
+    </div>
+</div>
+<div data-options="region:'east',split:true,collapsed:true,title:'辅助功能'" style="width:100px;padding:10px;"></div>
+<div data-options="region:'south',border:false"
+     style="text-align:right;height:50px;background:#2b669a;padding:15px;color: white;font-size: 12px;">
+    2014年上海荟邮网络科技有限公司版权所有。保留一切权利。
+</div>
+<div data-options="region:'center',title:'功能界面'" style="overflow: hidden">
+    <iframe id="centerid" src="b_home" style="width: 100%;border: 0px;height: 100%" />
+</div>
+</body>
+</html>

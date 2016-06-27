@@ -1,0 +1,59 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div id="menu_path" style="margin:0 auto;width:864px;">
+<br/><br/>
+<%
+    for(var i in share){
+        if(share[i].txtNo == menu_path){
+            var i1 = share[i].txtName;
+
+            var img1 = share[i].rtfImg;
+            var tmp = img1.split("@");
+
+            var str1 = share[i].txtRemark;
+        }
+    }
+%>
+<span class="zi_menu_t"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮度假主题&nbsp;&nbsp;/&nbsp;&nbsp;<%=i1%></span>
+</div>
+<img id="destion" src="/databaseimages/<%=tmp[2]%>.jpg" alt="" />
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+    <table width="100%" border="0">
+        <tr>
+            <td style="vertical-align:top;padding-left: 0px;line-height:150%">
+                <div class="myh1l"><%= i1 %></div>  <br/>
+                <div class="myp1" style="padding-left: 0px;text-indent: 2em;text-align: justify;"><%= str1 %></div><br/>
+            </td>
+            <td width="250px" style="text-align:center;line-height:150%;vertical-align: top">
+
+                <span class="myh1">关注我们的微信公众号:</span><span class="myh1blue">邮轮时代</span><br/>
+                <img src="/images/qrcode_for_gh_d38dec1e7532_430.jpg" width="128px" height="128px" /><br/>
+            </td>
+        </tr>
+    </table>
+    <br/><br/>
+    <div class="myh1" style="font-size: 14px;">相关内容</div>
+    <div>
+        <%
+        for (var j in r1) {
+        if(r1[j].txtCategory2 == i1){
+        var imgc = r1[j].rtfImg;
+        %>
+        <div style="float: left;width: 215px;height: 300px;">
+            <a href="loading?page=/sharemid1/<%=r1[j].id%>"><img  class="img_4" src="<%=imgc%>" width="200px" height="124"/></a><br/><br/>
+            <div style="overflow:hidden;height: 35px;width:200px" class="myh1"><%=r1[j].txtTitle%></div>
+            <div id="yj<%=menu_path%><%=j%>" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=r1[j].txtAbbr%></div>
+            <div class="myh1b" onclick="window.location='loading?page=/sharemid1/<%=r1[j].id%>';">查看详情 >>></div>
+            <br/><br/>
+        </div>
+        <%
+        }
+        }
+        %>
+        <div style="clear:both;"></div>
+    </div>
+    <br/><br/>
+    <img src="/images/advertisement_1.png" width="864px" />
+    <br/><br/>
+</div>
+</div>

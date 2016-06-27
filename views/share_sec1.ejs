@@ -1,0 +1,107 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+    <%
+    var name1 = "";
+    var type1 = "";
+    for(var i in r1){
+    if(r1[i].id == menu_path){
+        name1=r1[i].txtTitle;
+        type1= r1[i].txtCategory2;
+    }
+    }
+    %>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮度假主题&nbsp;&nbsp;/&nbsp;&nbsp;<%=name1%></span>
+</div>
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<table border="0">
+    <tr>
+        <td rowspan="2" style="background-color: #FFFFFF">
+            <%
+            for(var i in r1){
+            if(r1[i].id == menu_path){
+            %>
+            <img src="<%=r1[i].rtfImg%>" width="100%"/>
+            <br/> <br/><br/>
+            <div style="text-align: center;width: 100%;font-weight: bold;font-size:18px;font-family:微软雅黑;"><%=r1[i].txtTitle%></div>
+            <div id="yjS00011" class="myp1" style="padding-left: 35px;padding-right: 35px;padding-bottom: 35px;padding-top: 15px;text-indent: 0em;text-align: justify;">
+                <br/>
+                <%=r1[i].txtText%>
+            </div>
+            <%
+            }
+            }
+            %>
+        </td>
+        <td style="width: 220px;vertical-align: top;padding-left: 20px;height: 400px;">
+            <div class="myt2">相关文章</div>
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+
+            for (var w in r1) {
+            if(r1[w].txtCategory2 == type1){
+            if(x==0){
+            labc = 1;
+            im1 = r1[w].id;
+            im2 = r1[w].rtfImg;
+            im3 = r1[w].txtTitle;
+            im4 = r1[w].txtAbbr;
+
+            }
+            x = x + 1;
+            }
+            }
+            if(labc == 1){
+            %>
+            <a href="/sharemid1/<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yjS00014" class="myp1sm"><%=im4%>...</div>
+            <div class="myh1b" onclick="window.location='/sharemid1/<%=im1%>';">查看详情 >>></div>
+            <%}%>
+            <br/><br/>
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+            for (var w in r1) {
+            if(r1[w].txtCategory2 == type1){
+            if(x==1){
+            labc = 1;
+            im1 = r1[w].id;
+            im2 = r1[w].rtfImg;
+            im3 = r1[w].txtTitle;
+            im4 = r1[w].txtAbbr;
+            }
+            x = x + 1;
+            }
+            }
+            if(labc == 1){
+            %>
+            <a href="/sharemid1/<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yjS00015" class="myp1sm"><%=im4%>...</div>
+            <div class="myh1b" onclick="window.location='/sharemid1/<%=im1%>';">查看详情 >>></div>
+            <%}%>
+            <br/><br/>
+        </td>
+    </tr>
+    <tr>
+        <td  style="text-align:center;line-height:150%;vertical-align: top"><span class="myh2">分享你的邮轮故事</span><br/>
+            <img src="/images/fx.jpg"/><br/>
+            <span class="myh1">关注我们的微信公众号:</span><span class="myh1blue">邮轮时代</span><br/>
+            <img src="/images/qrcode_for_gh_d38dec1e7532_430.jpg" width="128px" height="128px" /><br/></td>
+    </tr>
+</table>
+</div>
+</div>

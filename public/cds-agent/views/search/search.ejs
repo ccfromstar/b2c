@@ -1,0 +1,62 @@
+<div id="search-result">
+    <div>
+        共<span id="product-total" class="calendar-link" onclick="showMonth12()"><%= total %></span>个产品&nbsp;&nbsp;
+        <span id="month-12-view-link" class="fa fa-th fa-fw calendar-link" onclick="showMonth12();">&nbsp;返回全年日历</span>
+        <span id="search-hint">请在日历中点击查看产品详情</span>
+        <span id="calendar-link" class="calendar-link" onclick="showCalendar()"><i class="fa fa-calendar fa-fw calendar-link"></i>&nbsp;返回日历</span>
+        <span id="calendar-ship-link" class="calendar-link" onclick="hideCalendar()"><i
+                    class="fa fa-ship fa-fw calendar-link"></i>&nbsp;返回最后看过的邮轮</span>
+    </div>
+    <br/>
+    <div id="search-filter" style="width:100%;margin:0 auto;">
+        <select id="select-product-type" onchange="onChangeType();">
+            <option value="*">产品类型不限</option>
+            <option value="1">单船票</option>
+            <option value="2">团队游(一价全包)</option>
+        </select>
+
+        <select id="select-cruise-area" onchange="onChangeArea();">
+            <option value="*">所有航线</option>
+            <% for (var i in cruiseAreas) { %>
+            <option value="<%= cruiseAreas[i].id %>"><%= cruiseAreas[i].name %>航线</option>
+            <% } %>
+        </select>
+
+        <select id="select-departure">
+            <option value="*">所有出发城市</option>
+            <% for ( var i in cities ) { %>
+            <option value="<%= cities[i].name %>"><%= cities[i].name %>出发</option>
+            <% } %>
+        </select>
+
+        <select id="min-duration-days" onchange="validateDay();">
+            <option value="*">行程最少天数不限</option>
+            <% for(var i = 2;i < 15;i++){ %>
+            <option value="<%= i %>"><%= i+"天"+(i - 1)+"晚" %>以上</option>
+            <% } %>
+        </select>
+
+        <select id="max-duration-days" onchange="validateDay();">
+            <option selected value="*">行程最多天数不限</option>
+            <% for(var i = 3;i < 15;i++){ %>
+            <option value="<%= i %>"><%= i+"天"+(i - 1)+"晚" %>以内</option>
+            <% } %>
+        </select>
+
+        <select id="select-cruise-company" onchange="onChangeCompany();">
+            <option value="*">所有邮轮公司</option>
+            <% for (var i in cruiseCompanies) { %>
+            <option value="<%= cruiseCompanies[i].company.id %>"><%= cruiseCompanies[i].company.name %></option>
+            <% } %>
+        </select>
+
+        <select id="select-ship">
+            <option value="*">所有邮轮</option>
+            <% for( var i in ships) { %>
+            <option value="<%= ships[i].id %>"><%= ships[i].name %></option>
+            <% } %>
+        </select>
+        <span onclick="search();showCalendar();" class="calendar-link" style="white-space:nowrap"><i class="fa fa-search fa-fw calendar-link"></i>搜索</span>
+
+    </div>
+</div>

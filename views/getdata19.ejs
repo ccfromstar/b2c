@@ -1,0 +1,30 @@
+{"total":<%=datasource.length%>,"rows":[
+<%
+//初始记录数=(页号-1)*每页记录大小+1
+var initCount = (page-1)*rows+1;
+//结束记录数
+//1.初始记录数+(每页记录大小-1)>总记录数 --------- 总记录数
+//2.初始记录数+(每页记录大小-1)<总记录数 --------- 初始记录数+(每页记录大小-1)
+var endCount = 0;
+if (initCount + (rows - 1) > datasource.length) {
+endCount = datasource.length;
+} else {
+endCount = initCount + (rows - 1);
+}
+
+for(var i in datasource){
+if(i<endCount && i>initCount-2){
+if(i!=endCount-1){
+%>
+{"id":"<%=datasource[i].id%>","txtCruiselineNo":"<%=datasource[i].txtCruiselineNo%>", "txtSailingDate":"<%=datasource[i].txtSailingDate%>", "currencyNo":"<%=datasource[i].currencyNo%>", "numPrice2":"<%=datasource[i].numPrice2%>", "numPrice3":"<%=datasource[i].numPrice3%>", "numPrice4":"<%=datasource[i].numPrice4%>", "rtfCruiselineJourneyImg":"<%=datasource[i].rtfCruiselineJourneyImg%>"},
+<%
+}
+else{
+%>
+{"id":"<%=datasource[i].id%>","txtCruiselineNo":"<%=datasource[i].txtCruiselineNo%>", "txtSailingDate":"<%=datasource[i].txtSailingDate%>", "currencyNo":"<%=datasource[i].currencyNo%>", "numPrice2":"<%=datasource[i].numPrice2%>", "numPrice3":"<%=datasource[i].numPrice3%>", "numPrice4":"<%=datasource[i].numPrice4%>", "rtfCruiselineJourneyImg":"<%=datasource[i].rtfCruiselineJourneyImg%>"}
+<%
+}
+}
+}
+%>
+]}

@@ -1,0 +1,382 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮促销信息</span>
+<br/><br/>
+<%
+var k = 0;
+var b = 0;
+
+    for(var i in theme){
+    k = k + 1;
+%>
+    <div style="font-family: 微软雅黑;font-size:20px;font-weight: bold;color:<%=theme[i].txtColor%>;margin-top: 0px;margin-bottom: 0px;margin-left: 0px;"><%=theme[i].txtThemeName%></div>
+    <br/>
+    <%
+        var myDate = new Date();
+        var m = myDate.getMonth()+1;
+        m = m +"";
+        if(m.length==1){
+            m = "0" + m;
+        }
+        var d = myDate.getDate();
+        d= d +"";
+        if(d.length==1){
+            d = "0" + d;
+        }
+    var d2 = myDate.getFullYear()+"-"+m+"-"+d;
+    for(var j in produce){
+        if(produce[j].txtThemeNo == theme[i].txtThemeNo && produce[j].txtLastDay >= d2){
+        b = b + 1;
+    %>
+<div style="cursor: pointer" onclick="window.open('loading?page=curiseship?p=<%=produce[j].txtCruiselineNo%>&r=cx&q=<%=produce[j].txtDay%>');">
+    <table  id="cxtableid<%=b%>" style="background-color:#FFFFFF;border: solid thin #DFDFDF" cellspacing='0' width="100%">
+        <tr>
+            <td colspan="2" rowspan="7" style="vertical-align: top;">
+                <span style="font-size:12px;font-family:微软雅黑;margin-left: 50px;">产品编号:<%=produce[j].txtCruiselineNo%></span>
+                <img src="/databaseimages/<%=theme[i].rtfImg%>.jpg" style="width: 220px;margin-top: 5px;" /></td>
+            <td><div class="myh1l" id="yjS0001<%=j%>" style="text-align: justify;margin-top: 20px;color:#303938"><%=produce[j].txtProduceName%></div></td>
+            <td style="background-color:#DFDFDF;background-image:url(/images/pricebg.png);width:120px;text-align:center;vertical-align: top;padding-top:15px;" rowspan="8">
+                <br/>
+
+                <span style="font-size:14px;font-family:georgia;color: #FFFFFF;font-weight: bold">RMB</span>
+                <span style="font-size:20px;font-family:georgia;color: #FFFFFF;font-weight: bold"><%=produce[j].numPriceLast%></span><br/>
+                <span style="font-size:11px;font-family:微软雅黑;color: #FFFFFF;font-weight: bold">/人起</span>
+            </td>
+        </tr>
+        <tr>
+
+
+            <td><span class="myh1" style="font-size: 15px"></span></td>
+        </tr>
+
+
+        <tr>
+            <td><div class="myh1" id="cx<%=b%>" style="text-align: justify;margin: 0px;color:#43C1E3"><%=produce[j].txtRemark%></div></td>
+        </tr>
+        <tr>
+            <td><span class="myh1" style="margin: 0px;color:#808080">
+
+                    <span id="cxa<%=b%>" style="font-weight: bold;color: #F15A24;font-size: 14px;"><%=produce[j].txtPrice%></span>
+
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="myh1n"><b>停靠港口：</b><%=produce[j].txtCruiselineALLPort%></span></td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top"><span class="myh1n">
+                    <table style="border: 0px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="padding-top: 0px;"><b>邮船公司：</b><%=produce[j].txtCompanyName%></span></td>
+                            <td style="padding-top: 0px;"><span class="myh1n" style="padding-left: 30px;"><b>邮船名称：</b><%=produce[j].txtShipName%></span></td>
+                            <td style="padding-top: 0px;"><span class="myh1n" style="padding-left: 30px;display: inline-block;"><b>邮船星级：</b></span></td>
+                            <td>
+                               <span class="myh1n" style="padding-left: 0px;display: inline-block;padding-top: 0px;">
+                                   <%
+                                   for(var k in ship){
+                                           if(ship[k].txtShipName == produce[j].txtShipName){
+                                           if(ship[k].txtShipLevel=="四星"){
+                                   %>
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+                                   <%
+                                            }else if(ship[k].txtShipLevel=="五星"){
+                                   %>
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                   <%
+                                            } else if(ship[k].txtShipLevel=="四星半"){
+                                   %>
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_2.png" style="width: 15px;">
+                                   <%
+                                            } else if(ship[k].txtShipLevel=="三星半"){
+                                   %>
+                                   <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_2.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+                                   <%
+                                   }
+                                   }
+                                   }
+                                   %>
+                               </span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <span class="myh1n" style="padding-left: 0px;"><b>出发日期：</b></span><span class="myh1b"><%=produce[j].txtDay%></span>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top">
+
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 120px;"></td>
+            <td style="width: 120px;"></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <br/>
+</div>
+    <%
+        }
+    }
+    for(var j in produce){
+                if(produce[j].txtThemeNo == theme[i].txtThemeNo && produce[j].txtLastDay < d2 && produce[j].txtDay > d2){
+            b = b + 1;
+    %>
+<div style="cursor: pointer" onclick="alert('亲,您来晚啦~,促销已过期');">
+    <table  id="cxtableid<%=b%>" style="background-color:#FFFFFF;border: solid thin #DFDFDF" cellspacing='0' width="100%">
+        <tr>
+            <td colspan="2" rowspan="7" style="vertical-align: top;">
+                <span style="font-size:12px;font-family:微软雅黑;margin-left: 50px;">产品编号:<%=produce[j].txtCruiselineNo%></span>
+                <img src="/databaseimages/<%=theme[i].rtfImg%>.jpg" style="width: 220px;margin-top: 5px;" /></td>
+            <td><div class="myh1l" id="yjS0001<%=j%>" style="text-align: justify;margin-top: 20px;color:#303938"><%=produce[j].txtProduceName%></div></td>
+            <td style="background-color:#DFDFDF;background-image:url(/images/pricebg2.png);width:120px;text-align:center;vertical-align: top;padding-top:15px;" rowspan="8">
+                <br/>
+
+                <span style="font-size:14px;font-family:georgia;color: #FFFFFF;font-weight: bold">RMB</span>
+                <span style="font-size:20px;font-family:georgia;color: #FFFFFF;font-weight: bold"><%=produce[j].numPriceLast%></span><br/>
+                <span style="font-size:11px;font-family:微软雅黑;color: #FFFFFF;font-weight: bold">/人起</span>
+                <br/><br/><br/>亲,您来晚啦~<br/>促销已过期
+
+            </td>
+        </tr>
+        <tr>
+
+
+            <td><span class="myh1" style="font-size: 15px"></span></td>
+        </tr>
+
+
+        <tr>
+            <td><div class="myh1" id="cx<%=b%>" style="text-align: justify;margin: 0px;color:#43C1E3"><%=produce[j].txtRemark%></div></td>
+        </tr>
+        <tr>
+            <td><span class="myh1" style="margin: 0px;color:#808080">
+
+                    <span id="cxa<%=b%>" style="font-weight: bold;color: #F15A24;font-size: 14px;"><%=produce[j].txtPrice%></span>
+
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><span class="myh1n"><b>停靠港口：</b><%=produce[j].txtCruiselineALLPort%></span></td>
+        </tr>
+        <tr>
+            <td>
+                <table style="border: 0px;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="padding-top: 0px;"><span style="font-size: 12px;"><b>邮船公司：</b><%=produce[j].txtCompanyName%></span></td>
+                        <td style="padding-top: 0px;"><span class="myh1n" style="padding-left: 30px;"><b>邮船名称：</b><%=produce[j].txtShipName%></span></td>
+                        <td style="padding-top: 0px;"><span class="myh1n" style="padding-left: 30px;display: inline-block;"><b>邮船星级：</b></span></td>
+                        <td>
+                               <span class="myh1n" style="padding-left: 0px;display: inline-block;padding-top: 0px;">
+                                   <%
+                                   for(var k in ship){
+                                           if(ship[k].txtShipName == produce[j].txtShipName){
+                                           if(ship[k].txtShipLevel=="四星"){
+                                   %>
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+                                   <%
+                                   }else if(ship[k].txtShipLevel=="五星"){
+                                   %>
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                   <%
+                                   } else if(ship[k].txtShipLevel=="四星半"){
+                                   %>
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_2.png" style="width: 15px;">
+                                   <%
+                                   }
+                                   }
+                                   }
+                                   %>
+                               </span>
+                        </td>
+                    </tr>
+                </table>
+
+                <span class="myh1n" style="padding-left: 0px;"><b>出发日期：</b></span><span class="myh1b"><%=produce[j].txtDay%></span>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top">
+
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 120px;"></td>
+            <td style="width: 120px;"></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <br/>
+</div>
+<%
+}
+}
+    %>
+    <br/>
+<%
+if(k<5){
+%>
+<table style="margin-left: -40px;" width="100%" border="0">
+    <tr><td style="text-align:center" ><img id="myfoot_1" src="images/footer_2.png" width="940"/></td></tr>
+</table>
+<br/>
+<%
+}
+}
+%>
+<br/>
+<div style="display: none">
+<%
+var k = 0;
+for(var i in theme){
+    k = k + 1;
+%>
+    <style>
+        .<%=theme[i].txtThemeNo%>
+        {
+            border: 9px solid <%=theme[i].txtColor%>;
+        }
+        .<%=theme[i].txtThemeNo%> th,.<%=theme[i].txtThemeNo%> td
+        {
+            border: 9px solid <%=theme[i].txtColor%>;
+        }
+    </style>
+    <table  cellspacing="0" cellpadding="0" class="<%=theme[i].txtThemeNo%>" width="100%" border="1" style="border-color:<%=theme[i].txtColor%> ">
+        <tr>
+            <td colspan="2" style="background-color: <%=theme[i].txtColor%>"><div style="font-family: 微软雅黑;font-weight: bold;color:white;margin-top: 0px;margin-bottom: 0px;margin-left: 20px;"><%=theme[i].txtThemeName%></div></td>
+        </tr>
+        <tr>
+            <td rowspan="2" style="width: 589px;vertical-align: top;background-color: <%=theme[i].txtColor1%>;border-bottom: 0px;">
+                <img src="/databaseimages/<%=theme[i].rtfImg%>.jpg" style="width: 589px;height: 380px;" />
+                <%
+                var m = 0;
+                var id1 = "";
+                for(var j in produce){
+                if(produce[j].txtThemeNo == theme[i].txtThemeNo){
+                    m = m + 1;
+                    if(m==1){
+                    id1 = produce[j].id;
+                %>
+                <br/>
+                <div class="myh1l" style="text-align: justify;margin: 15px;color:#303938"><%=produce[j].txtProduceName%></div>
+                <div class="myh1" id="yjS000<%=j%>" style="text-align: justify;margin: 15px;color:#808080"><%=produce[j].txtRemark%></div>
+                <br/>
+                <div class="myh1" style="margin: 15px;color:#808080">出游时间：<span style="font-weight: normal"><%=produce[j].txtTime%></span></div>
+                <div class="myh1" style="margin: 15px;color:#808080">价格：
+                    <%if(j==0){%>
+                    <span style="font-weight: bold;color: orange;font-size: 14px;"><%=produce[j].txtPrice%></span>
+                    <%}else{%>
+                    <span style="font-weight: normal;"><%=produce[j].txtPrice%></span>
+                    <%}%>
+                </div>
+                <div class="myh1" style="margin: 15px;color:#808080">热线：<span style="font-weight: normal"><%=produce[j].txtTel%></span></div>
+
+                <%
+                }
+                }
+                }
+                %>
+            </td>
+            <td style="vertical-align: top;background-color: <%=theme[i].txtColor1%>">
+                <%
+                    var m = 0;
+                    var id2 = "";
+                        for(var j in produce){
+                        if(produce[j].txtThemeNo == theme[i].txtThemeNo){
+                    m = m + 1;
+                        if(m==2){
+                    id2 = produce[j].id;
+                %>
+
+                <div class="myh1l" style="text-align: justify;margin: 15px;color:#303938"><%=produce[j].txtProduceName%></div>
+                <div class="myh1" id="yjS000<%=j%>" style="text-align: justify;margin: 15px;color:#808080"><%=produce[j].txtRemark%></div>
+                <div class="myh1" style="margin: 15px;color:#808080">出游时间：<br/><span style="font-weight: normal"><%=produce[j].txtTime%></span></div>
+                <div class="myh1" style="margin: 15px;color:#808080">价格：<span style="font-weight: normal"><%=produce[j].txtPrice%></span></div>
+                <div class="myh1" style="margin: 15px;color:#808080">热线：<span style="font-weight: normal"><%=produce[j].txtTel%></span></div>
+
+                <div style="margin: 10px;width: 100;text-align: right"><a href="sales_sec?p=<%=id2%>"><img src="images/detail.jpg" /></a></div>
+
+                <%
+                }
+                }
+                }
+                %>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;background-color: <%=theme[i].txtColor1%>;border-bottom: 0px;">
+                <%
+                    var m = 0;
+                    var id3 = "";
+                        for(var j in produce){
+                        if(produce[j].txtThemeNo == theme[i].txtThemeNo){
+                    m = m + 1;
+                        if(m==3){
+                    id3 = produce[j].id;
+                %>
+
+                <div class="myh1l" id="yjS0001<%=j%>" style="text-align: justify;margin: 15px;color:#303938"><%=produce[j].txtProduceName%></div>
+                <div class="myh1" id="yjS000<%=j%>" style="text-align: justify;margin: 15px;color:#808080"><%=produce[j].txtRemark%></div>
+                <div class="myh1" style="margin: 15px;color:#808080">出游时间：<br/><span style="font-weight: normal"><%=produce[j].txtTime%></span></div>
+                <div class="myh1" style="margin: 15px;color:#808080">价格：<span style="font-weight: normal"><%=produce[j].txtPrice%></span></div>
+                <div class="myh1" style="margin: 15px;color:#808080">热线：<span style="font-weight: normal"><%=produce[j].txtTel%></span></div>
+
+                <%
+                }
+                }
+                }
+                %>
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: <%=theme[i].txtColor1%>;border-top: 0px;"><div style="margin: 10px;width: 100;text-align: right"><a href="sales_sec?p=<%=id1%>"><img src="images/detail.jpg" /></a></div></td>
+            <td style="background-color: <%=theme[i].txtColor1%>;border-top: 0px;"><div style="margin: 10px;width: 100;text-align: right"><a  href="sales_sec?p=<%=id3%>"><img src="images/detail.jpg" /></a></div></td>
+        </tr>
+    </table>
+    <br/>
+    <%
+    if(k<5){
+    %>
+    <table style="margin-left: -40px;" width="100%" border="0">
+        <tr><td style="text-align:center" ><img id="myfoot_1" src="images/footer_2.png" width="940"/></td></tr>
+    </table>
+    <br/>
+<%
+    }
+}
+%>
+    </div>
+</div>
+</div>

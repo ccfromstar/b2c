@@ -1,0 +1,274 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<br/><br/><br/><br/><br/><br/>
+<div id="menu_path" style="margin:0 auto;width:864px;">
+<br/><br/>
+<span class="zi_menu_t"><span id="tohome" style="cursor:pointer;">首页&nbsp;&nbsp;</span>/&nbsp;&nbsp;邮轮度假主题</span>
+</div>
+<div id="myCarousel" class="carousel slide">
+   <!-- 轮播（Carousel）指标 -->
+   <ol class="carousel-indicators">
+      <%var _cla;
+        for(var i=0;i<6;i++){
+             _cla = i==0?"active":"";
+      %>
+        <li data-target="#myCarousel" data-slide-to="<%=i%>" class="<%=_cla%>"></li>
+      <%}%>
+   </ol>   
+   <!-- 轮播（Carousel）项目 -->
+   <div class="carousel-inner">
+        <%
+            var _cla = "item";
+            for (var i in theme) {
+            if(i<9){
+                var img1 = theme[i].rtfImg;
+                var tmp = img1.split("@");
+                if(i==0){
+                    _cla = "item active";
+                }else{
+                    _cla = "item";
+                }
+
+        %>  
+            <div class="<%=_cla%>">
+                <img src="/databaseimages/<%=tmp[2]%>.jpg" style="width:100%" alt="" />
+                <div class="carousel-caption">
+                    <%=theme[i].txtName%>
+                </div>
+            </div>
+        <%
+            }
+        }%>
+   </div>
+   <!-- 轮播（Carousel）导航 -->
+   <a class="carousel-control left" href="#myCarousel" 
+      data-slide="prev"></a>
+   <a class="carousel-control right" href="#myCarousel" 
+      data-slide="next"></a>
+</div>
+<div style="margin:0 auto;width:864px;">
+<br/>
+<img src="/images/advertisement_1.png" width="864px" />
+<br/><br/>
+<span class="myh1">所有邮轮度假主题</span>
+<br/><br/>
+    <%
+    for (var i in theme) {
+
+    var img1 = theme[i].rtfImg;
+    var tmp = img1.split("@");
+    %>
+    <table width="100%" border="0">
+        <tr>
+            <td colspan="3" height="410px" style="vertical-align:top;background-repeat: no-repeat;background-image: url('/databaseimages/<%=tmp[1]%>.jpg')">
+                <br/>
+                <div class="myt1w">&nbsp;</div>
+                <div class="myt2w">&nbsp;</div>
+                <div style="width: 100%;margin-top:245px;height: 80px;background-image:url(/images/black.png);">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td style="vertical-align: top;"><div class="myt3w" style="width:80px;font-size: 18px;"><%=theme[i].txtName%></div></td>
+                            <td><div class="myt3w"><%=theme[i].txtRemark.substring(0,50)%>...</div></td>
+                            <td style="width:120px"><div class="myh1bh" onclick="window.location='loading?page=/theme_sec?id=<%=theme[i].txtNo%>';">开始度假 >>></div></div></td>
+        </tr>
+    </table>
+</div>
+    </td>
+    <td rowspan="2" style="padding-left:15px;vertical-align: top;">
+        <div class="myt2">相关内容</div>
+        <%
+        var x = 0;
+        var im1 = "";
+        var im2 = "";
+        var im3 = "";
+        var im4 = "";
+        var no1 = "";
+        var labc = 0;
+        for (var w in r1) {
+        if(r1[w].txtCategory2 == theme[i].txtName){
+        if(x==0){
+        labc = 1;
+        im1 = r1[w].id;
+        im2 = r1[w].rtfImg;
+        im3 = r1[w].txtTitle;
+        im4 = r1[w].txtAbbr;
+        no1 = theme[i].txtNo;
+        }
+        x = x + 1;
+        }
+        }
+        if(labc == 1){
+        %>
+        <a href="loading?page=/sharemid1/<%=im1%>">
+            <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+        <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+        <div id="yj<%=no1%>4" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%>...</div>
+        <div class="myh1b" onclick="window.location='loading?page=/sharemid1/<%=im1%>';">查看详情 >>></div>
+        <%}%>
+        <br/><br/>
+        <%
+        var x = 0;
+        var im1 = "";
+        var im2 = "";
+        var im3 = "";
+        var im4 = "";
+        var no1 = "";
+        var labc = 0;
+        for (var w in r1) {
+        if(r1[w].txtCategory2 == theme[i].txtName){
+        if(x==1){
+        labc = 1;
+        im1 = r1[w].id;
+        im2 = r1[w].rtfImg;
+        im3 = r1[w].txtTitle;
+        im4 = r1[w].txtAbbr;
+        no1 = theme[i].txtNo;
+        }
+        x = x + 1;
+        }
+        }
+        if(labc == 1){
+        %>
+        <a href="loading?page=/sharemid1/<%=im1%>">
+            <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+        <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+        <div id="yj<%=no1%>4" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%>...</div>
+        <div class="myh1b" onclick="window.location='loading?page=/sharemid1/<%=im1%>';">查看详情 >>></div>
+        <%}%>
+        <br/>
+        <div class="myh1b" onclick="window.location='loading?page=/theme_sec?id=<%=theme[i].txtNo%>';"><img src="images/more.jpg" /></div>
+    </td>
+    </tr>
+    <tr>
+        <td width="220px">
+            <%
+                var k = 0;
+                var name1 = "";
+                var no1 = "";
+                var img2 = "";
+                for (var c in r2) {
+                    if(r2[c].txtCVruiselineProperty) {
+                        if ((r2[c].txtCVruiselineProperty).indexOf(theme[i].txtName) != -1) {
+                            k = k + 1;
+                            if (k == 1) {
+                                name1 = r2[c].txtCruiselineName;
+                                no1 = r2[c].txtCruiselineNo;
+
+                                for (var b in med) {
+                                    if (med[b].txtCruiseArea == r2[c].txtRoutingArea.replace(/\s+/g, "")) {
+                                        var img1 = med[b].rtfImg;
+                                        var tmp = img1.split("@");
+                                        img2 = tmp[2];
+
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            %>
+            <%if(img2!=""){%>
+            <a href='loading?page=/curiseship?p=<%=no1%>'>
+                <img class="img_4" src="/databaseimages/<%=img2%>.jpg" width="200px" height="124" /></a> <br/>
+            <div class="myh1sm">主题推荐产品</div>
+            <div class="myp1sm"><%=name1%></div>
+            <div class="myh1b" onclick="window.location='loading?page=/curiseship?p=<%=no1%>';">了解详情 >>></div>
+            <%}%>
+        </td>
+        <td width="220px">
+            <%
+                var k = 0;
+                var name1 = "";
+                var no1 = "";
+                var img2 = "";
+                for (var c in r2) {
+                    if(r2[c].txtCVruiselineProperty) {
+                        if ((r2[c].txtCVruiselineProperty).indexOf(theme[i].txtName) != -1) {
+                            k = k + 1;
+                            if (k == 2) {
+                                name1 = r2[c].txtCruiselineName;
+                                no1 = r2[c].txtCruiselineNo;
+
+                                for (var b in med) {
+                                    if (med[b].txtCruiseArea == r2[c].txtRoutingArea.replace(/\s+/g, "")) {
+                                        var img1 = med[b].rtfImg;
+                                        var tmp = img1.split("@");
+                                        img2 = tmp[2];
+
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            %>
+            <%if(img2!=""){%>
+            <a href='loading?page=/curiseship?p=<%=no1%>'>
+                <img class="img_4" src="/databaseimages/<%=img2%>.jpg" width="200px" height="124" /></a> <br/>
+            <div class="myh1sm">主题推荐产品</div>
+            <div class="myp1sm"><%=name1%></div>
+            <div class="myh1b" onclick="window.location='loading?page=/curiseship?p=<%=no1%>';">了解详情 >>></div>
+            <%}%>
+        </td>
+        <td width="220px">
+            <%
+                var k = 0;
+                var name1 = "";
+                var no1 = "";
+                var img2 = "";
+                for (var c in r2) {
+                    if(r2[c].txtCVruiselineProperty) {
+                        if ((r2[c].txtCVruiselineProperty).indexOf(theme[i].txtName) != -1) {
+                            k = k + 1;
+                            if (k == 3) {
+                                name1 = r2[c].txtCruiselineName;
+                                no1 = r2[c].txtCruiselineNo;
+
+                                for (var b in med) {
+                                    if (med[b].txtCruiseArea == r2[c].txtRoutingArea.replace(/\s+/g, "")) {
+                                        var img1 = med[b].rtfImg;
+                                        var tmp = img1.split("@");
+                                        img2 = tmp[2];
+
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            %>
+            <%if(img2!=""){%>
+            <a href='loading?page=/curiseship?p=<%=no1%>'>
+                <img class="img_4" src="/databaseimages/<%=img2%>.jpg" width="200px" height="124" /></a> <br/>
+            <div class="myh1sm">主题推荐产品</div>
+            <div class="myp1sm"><%=name1%></div>
+            <div class="myh1b" onclick="window.location='loading?page=/curiseship?p=<%=no1%>';">了解详情 >>></div>
+            <%}%>
+        </td>
+    </tr>
+    </table>
+    <br/><br/>
+    <%
+    }
+    %>
+<br/><br/>
+</div>
+<div id="form_2" >
+<div id="pname"></div>
+</div>
+</div>
+<%
+var nl = "";var nle = "";
+for (var i in theme) {
+if(nl==""){nl=theme[i].txtName;nle=theme[i].txtEnName;}
+else{nl = nl+";"+theme[i].txtName;nle = nle+";"+theme[i].txtEnName;}
+}
+%>
+<div id="namelist" style="display:none"><%=nl%></div>
+<div id="ennamelist" style="display:none"><%=nle%></div>
+<form style="display: none" method="post">
+    <input type="text" id="mdd" name = "mdd" />
+</form>
+<div id="mddpic" style="display:none"></div>

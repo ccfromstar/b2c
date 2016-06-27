@@ -1,0 +1,58 @@
+<%for (var i in cabins) {%>
+<!-- cabin general info -->
+<table style="background-color:#FFFFFF;margin-bottom: 0" width="100%" cellspacing='0' border="0">
+    <tr style="text-align: center;color: #000000;font-weight: bold;background-image: url('images/styles/headgray.png')">
+        <td colspan="2"><%=cabins[i].cabinType%></td>
+    </tr>
+    <tr>
+        <td style="width:280px;vertical-align: top"><img style="width: 270px;height: 150px;margin-top: 5px" src="<%=cabins[i].imageUrl%>" /></td>
+        <td>
+            <table>
+                <tr>
+                    <td style="padding-top: 0px;"><span class="myh1" style="font-size: 14px"><%=cabins[i].cabinType%></span></td>
+                </tr>
+                <tr>
+                    <td><span class="myh1">面积</span><span style="padding-left:41px;" class="myh1x"><%=cabins[i].size%></span></td>
+                </tr>
+                <tr>
+                    <td><span class="myh1">甲板层</span><span style="padding-left:30px;" class="myh1x"><%=cabins[i].decks%></span></td>
+                </tr>
+                <tr>
+                    <td><span style="font-size:11px;display: inline-block;width: 430px;"  class="myh1x"><span class="myh1">舱房设施</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=cabins[i].facility%></span></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- End general info -->
+<!-- prices -->
+<table class="cabin-prices" style="width: 100%;margin-top: 0px;border:0" cellspacing="0" cellpadding="0">
+    <tr style="text-align: center;color: #000000;font-weight: bold;">
+        <td style="width: 160px;">舱房类型</td>
+        <td style="width: 105px;">最大入住人数</td>
+        <td style="width: 105px;" >第1/2人价</td>
+        <td style="width: 105px;" >第3/4人价</td>
+        <td style="width: 105px;">第3/4儿童价</td>
+        <td style="width:45px;">成人</td>
+        <td style="width:45px;">儿童</td>
+        <td style="width:125px;">合计</td>
+    </tr>
+    <%
+        var category = cabins[i].categories;
+            for(k in category){
+    %>
+    <tr style="text-align: center">
+        <td><%=category[k].cabinName%></td>
+        <td><%=category[k].checkInMax%></td>
+        <td>￥<%=category[k].price%></td>
+        <td><%if(category[k].price2){%>￥<%=category[k].price2%><%}else{%>-<%}%></td>
+        <td><%if(category[k].priceChild){%>￥<%=category[k].priceChild%><%}else{%>-<%}%></td>
+        <td><i title="增加一个成人" class="fa fa-plus-circle plus"></i>&nbsp;&nbsp;<span id="c<%=category[k].posId%>">0</span>&nbsp;&nbsp;<i title="减一个" class="fa fa-minus-circle minus"></i></td>
+        <td><i title="增加一个儿童" class="fa fa-plus-circle plus"></i>&nbsp;&nbsp;<span id="c<%=category[k].posId%>">0</span>&nbsp;&nbsp;<i title="减一个" class="fa fa-minus-circle minus"></i></td>
+        <td><span id="total"></span></td>
+    </tr>
+    <%}%>
+</table>
+<hr>
+<%}%>
+<div style="width:100%;height:35px;background-color:#ffffff">合计：</div>

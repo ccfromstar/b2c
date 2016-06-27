@@ -1,0 +1,139 @@
+<%
+var docid = "";
+var txtCruiselineNo = "";
+var txtSailingDate = "";
+var currencyNo = "";
+
+var numPrice1 = "";
+var numPrice2 = "";
+var numPrice3 = "";
+var numPrice4 = "";
+
+var numTax1 = "";
+var numTax2 = "";
+var numTax3 = "";
+var numTax4 = "";
+
+var numTip1 = "";
+var numTip2 = "";
+var numTip3 = "";
+var numTip4 = "";
+
+var rtfCruiselineJourneyImg = "";
+if(id){
+for (var k in re3) {
+if(re3[k].id==id){
+txtCruiselineNo = re3[k].txtCruiselineNo;
+txtSailingDate = re3[k].txtSailingDate;
+numPrice1 = re3[k].numPrice1;
+numPrice2 = re3[k].numPrice2;
+numPrice3 = re3[k].numPrice3;
+numPrice4 = re3[k].numPrice4;
+
+numTax1 = re3[k].numTax1;
+numTax2 = re3[k].numTax2;
+numTax3 = re3[k].numTax3;
+numTax4 = re3[k].numTax4;
+
+numTip1 = re3[k].numTip1;
+numTip2 = re3[k].numTip2;
+numTip3 = re3[k].numTip3;
+numTip4 = re3[k].numTip4;
+rtfCruiselineJourneyImg = re3[k].rtfCruiselineJourneyImg;
+currencyNo = re3[k].currencyNo;
+docid = re3[k].id;
+}
+}
+}
+%>
+<div class="easyui-panel" title="产品发布" style="width:1000px">
+    <div style="padding:10px 60px 20px 60px">
+        <form id="ff" method="post">
+            <table class="tableborder" cellpadding="5" style="width: 600px;" border="1">
+                <tr>
+                    <td style="width: 100px;">航线代码</td>
+                    <td>
+                        <input class="textbox" name="txtCruiselineNo" style="width: 100px" value="<%=txtCruiselineNo%>" ></input>
+                        <a href="javascript:void(0)" class="easyui-linkbutton"  onclick="window.open('mycurise');">打开航线搜索</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>出航日期</td>
+                    <td>
+                        <input class="textbox" name="txtSailingDate" style="width: 100px" value="<%=txtSailingDate%>" ></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>货币单位</td>
+                    <td>
+                        <select  name="currencyNo">
+                            <option value="*">全部</option>
+                            <%
+                            for(var j in hb){
+                            if(hb[j].code == currencyNo){
+                            %>
+                            <option selected value="<%=hb[j].code%>"><%=hb[j].name%></option>
+                            <%
+                            }else{
+                            %>
+                            <option value="<%=hb[j].code%>"><%=hb[j].name%></option>
+                            <%
+                            }
+                            }
+                            %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>内舱房</td>
+                    <td>
+                        船费<input class="textbox" name="numPrice1" style="width: 100px" value="<%=numPrice1%>" ></input>
+                        税费<input class="textbox" name="numTax1" style="width: 100px" value="<%=numTax1%>" ></input>
+                        小费<input class="textbox" name="numTip1" style="width: 100px" value="<%=numTip1%>" ></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>海景房</td>
+                    <td>
+                        船费<input class="textbox" name="numPrice2" style="width: 100px" value="<%=numPrice2%>" ></input>
+                        税费<input class="textbox" name="numTax2" style="width: 100px" value="<%=numTax2%>" ></input>
+                        小费<input class="textbox" name="numTip2" style="width: 100px" value="<%=numTip2%>" ></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>阳台房</td>
+                    <td>
+                        船费<input class="textbox" name="numPrice3" style="width: 100px" value="<%=numPrice3%>" ></input>
+                        税费<input class="textbox" name="numTax3" style="width: 100px" value="<%=numTax3%>" ></input>
+                        小费<input class="textbox" name="numTip3" style="width: 100px" value="<%=numTip3%>" ></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>套房</td>
+                    <td>
+                        船费<input class="textbox" name="numPrice4" style="width: 100px" value="<%=numPrice4%>" ></input>
+                        税费<input class="textbox" name="numTax4" style="width: 100px" value="<%=numTax4%>" ></input>
+                        小费<input class="textbox" name="numTip4" style="width: 100px" value="<%=numTip4%>" ></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>航线图</td>
+                    <td>
+                        <input class="textbox" name="rtfCruiselineJourneyImg" style="width: 100px" value="<%=rtfCruiselineJourneyImg%>" ></input>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <div id="toolbar">
+                <%if(id){%>
+                <a href="javascript:void(0)" class="easyui-linkbutton"  onclick="$('#stype').val('2');document.forms[0].submit();">更新</a>
+                <%}else{%>
+                <a href="javascript:void(0)" class="easyui-linkbutton"  onclick="$('#stype').val('1');document.forms[0].submit();">新建</a>
+                <%}%>
+
+            </div>
+            <input type="text" name="stype" id="stype" style="display: none" />
+            <input type="text" name="docid" id="docid" style="display: none" value="<%=docid%>" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,238 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<br/><br/><br/><br/><br/><br/><br/>
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮生活分享</span>
+</div>
+<div style="margin:0 auto;width:864px;">
+<br/>
+    <%
+    for (var i in theme) {
+
+    var img1 = theme[i].rtfImg;
+    var tmp = img1.split("@");
+        var name1 = "";
+        var name2 = "";
+        if(theme[i].txtName=="邮轮视频"){
+            name1 = "相关视频";
+            name2 = "morevideos";
+        }else{
+            name1 = "相关文章";
+            name2 = "more";
+        }
+
+    %>
+    <table width="100%" border="0">
+        <tr>
+            <td colspan="3" height="410px" style="vertical-align:top;background-repeat: no-repeat;background-image: url('/databaseimages/<%=tmp[1]%>.jpg')">
+                <br/>
+                <div class="myt1w">&nbsp;</div>
+                <div class="myt2w">&nbsp;</div>
+                <div style="width: 100%;margin-top:245px;height: 80px;background-image:url(/images/black.png);">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td style="vertical-align: top;"><div class="myt3w" style="width:80px;font-size: 18px;"><%=theme[i].txtName%></div></td>
+                            <td><div class="myt3w"><%=theme[i].txtRemark.substring(0,60)%>...</div></td>
+                            <td style="width:120px"><div class="myh1bh" onclick="window.location='loading?page=sharetheme_sec?id=<%=theme[i].txtNo%>';">了解详情 >>></div></div></td>
+        </tr>
+    </table>
+</div>
+    </td>
+
+    <td rowspan="2" style="padding-left:15px;vertical-align: top;width:205px">
+        <div class="myt2"><%=name1%></div>
+        <%
+        var x = 0;
+        var im1 = "";
+        var im2 = "";
+        var im3 = "";
+        var im4 = "";
+        var no1 = "";
+        var labc = 0;
+        for (var w in r1) {
+        if(r1[w].txtCategory1 == theme[i].txtName){
+        if(x==3){
+        labc = 1;
+            if(r1[w].txtCategory1=="邮轮视频"){
+                im2 = "/video/"+r1[w].rtfImg+".jpg";
+                im1 = "/sharemid/"+r1[w].id;
+            }else{
+                im2 = r1[w].rtfImg;
+                im1 = "/sharemid/"+r1[w].id;
+            }
+        im3 = r1[w].txtTitle;
+        im4 = r1[w].txtAbbr;
+        no1 = theme[i].txtNo;
+        }
+        x = x + 1;
+        }
+        }
+        if(labc == 1){
+        %>
+        <a href="loading?page=<%=im1%>">
+            <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+        <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+        <div id="yj<%=no1%>4" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%>...</div>
+        <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+        <%}%>
+        <br/><br/>
+        <%
+        var x = 0;
+        var im1 = "";
+        var im2 = "";
+        var im3 = "";
+        var im4 = "";
+        var no1 = "";
+        var labc = 0;
+        for (var w in r1) {
+        if(r1[w].txtCategory1 == theme[i].txtName){
+        if(x==4){
+        labc = 1;
+            if(r1[w].txtCategory1=="邮轮视频"){
+                im2 = "/video/"+r1[w].rtfImg+".jpg";
+                im1 = "/sharemid/"+r1[w].id;
+            }else{
+                im2 = r1[w].rtfImg;
+                im1 = "/sharemid/"+r1[w].id;
+            }
+        im3 = r1[w].txtTitle;
+        im4 = r1[w].txtAbbr;
+        no1 = theme[i].txtNo;
+        }
+        x = x + 1;
+        }
+        }
+        if(labc == 1){
+        %>
+        <a href="loading?page=<%=im1%>">
+            <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+        <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+        <div id="yj<%=no1%>5" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%></div>
+        <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+        <%}%>
+		<br/>
+		<div class="myh1b" onclick="window.location='loading?page=/sharetheme_sec?id=<%=theme[i].txtNo%>';"><img src="images/<%=name2%>.jpg" /></div>
+    </td>
+    </tr>
+    <tr>
+        <td width="220px">
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+            var no1 = "";
+            for (var w in r1) {
+            if(r1[w].txtCategory1 == theme[i].txtName){
+            if(x==0){
+            labc = 1;
+
+            if(r1[w].txtCategory1=="邮轮视频"){
+                im2 = "/video/"+r1[w].rtfImg+".jpg";
+                im1 = "/sharemid/"+r1[w].id;
+            }else{
+                im2 = r1[w].rtfImg;
+                im1 = "/sharemid/"+r1[w].id;
+            }
+            im3 = r1[w].txtTitle;
+            im4 = r1[w].txtAbbr;
+            no1 = theme[i].txtNo;
+            }
+            x = x + 1;
+            }
+            }
+            if(labc == 1){
+            %>
+            <a href="loading?page=<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yj<%=no1%>1" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%></div>
+            <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+            <%}%>
+        </td>
+        <td width="220px">
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+            var no1 = "";
+            for (var w in r1) {
+                if(r1[w].txtCategory1 == theme[i].txtName){
+                    if(x==1){
+                        labc = 1;
+                        if(r1[w].txtCategory1=="邮轮视频"){
+                            im2 = "/video/"+r1[w].rtfImg+".jpg";
+                            im1 = "/sharemid/"+r1[w].id;
+                        }else{
+                            im2 = r1[w].rtfImg;
+                            im1 = "/sharemid/"+r1[w].id;
+                        }
+                        im3 = r1[w].txtTitle;
+                        im4 = r1[w].txtAbbr;
+                        no1 = theme[i].txtNo;
+                    }
+                    x = x + 1;
+                }
+            }
+            if(labc == 1){
+            %>
+            <a href="loading?page=<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="200px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yj<%=no1%>2" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%></div>
+            <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+            <%}%>
+        </td>
+        <td width="220px">
+            <%
+            var x = 0;
+            var im1 = "";
+            var im2 = "";
+            var im3 = "";
+            var im4 = "";
+            var labc = 0;
+            var no1 = "";
+            for (var w in r1) {
+            if(r1[w].txtCategory1 == theme[i].txtName){
+            if(x==2){
+            labc = 1;
+                if(r1[w].txtCategory1=="邮轮视频"){
+                    im2 = "/video/"+r1[w].rtfImg+".jpg";
+                    im1 = "/sharemid/"+r1[w].id;
+                }else{
+                    im2 = r1[w].rtfImg;
+                    im1 = "/sharemid/"+r1[w].id;
+                }
+            im3 = r1[w].txtTitle;
+            im4 = r1[w].txtAbbr;
+            no1 = theme[i].txtNo;
+            }
+            x = x + 1;
+            }
+            }
+            if(labc == 1){
+            %>
+            <a href="loading?page=<%=im1%>">
+                <img class="img_4" src="<%=im2%>" width="220px" height="124" /></a>
+            <br/><div class="myh1sm" style="height: 40px;"><%=im3%></div>
+            <div id="yj<%=no1%>3" class="myp1sm" style="overflow:hidden;height: 50px;;width:200px"><%=im4%></div>
+            <div class="myh1b" onclick="window.location='loading?page=<%=im1%>';">查看详情 >>></div>
+            <%}%>
+        </td>
+
+    </tr>
+    </table>
+    <br/><br/>
+    <%
+    }
+    %>
+    <br/><br/>
+</div>
+<br/><br/>
+</div>
+</div>

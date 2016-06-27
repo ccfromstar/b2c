@@ -1,0 +1,28 @@
+<style>
+*{
+  font-size: 12px;
+
+}
+</style>
+<div style="margin:0 auto;width:864px;margin-top:200px">
+<form action="https://netpay.cmbchina.com/netpayment/BaseHttp.dll?PrePayC" 
+METHOD=POST>
+  <table style="margin:0 auto;">
+  <input type=hidden name="BranchID" value="0021"><br/>
+  <input type=hidden name="CoNo" value="005208"><br/>
+  <input type=hidden name="BillNo" value="<%=r[0].BillNo%>"><br/>
+  <input type=hidden name="Amount" value="<%=r[0].Amount%>"><br/>
+  <input type=hidden name="Date" value="<%=r[0].DatePay%>"><br/>
+  <tr>
+  <td>定单号<td><%=r[0].BillNo%>
+  <tr>
+  <td>金  额<td><%=r[0].Amount%>
+  <tr>
+  <td>日  期<td><%=r[0].DatePay%>
+  <tr>
+  <td>备  注<td><%=r[0].remark%>
+  <tr>
+  <td><input type=submit value="去付款">
+  </table>
+  </form>
+</div>

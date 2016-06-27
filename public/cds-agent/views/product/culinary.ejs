@@ -1,0 +1,55 @@
+<!-- Begin 餐饮 -->
+<br/>
+<% for(var i in culinary){ %>
+<div style="width:49%;display:inline-block;">
+    <table width="100%" border="0">
+        <tr>
+            <td rowspan="3" style="width:230px;vertical-align:top ">
+                <img src="<%= culinary[i].imgUrl %>" width="220px" height="124px"/>
+            </td>
+            <td>
+                <table>
+                    <tr style="line-height:15px">
+                        <td style="height:20px;"><span class="myh1blue"><%= culinary[i].name %></span></td>
+                    </tr>
+                    <tr style="line-height:15px">
+                        <td style="height:20px;">
+                            <% if(culinary[i].type){ %>
+                            <span class="myh1x">餐厅风格:<%= culinary[i].type %></span></td>
+                            <% }%>
+                    </tr>
+                    <tr style="line-height:15px">
+                        <td style="height:20px;">
+                            <%
+                                var d = culinary[i].openTime;
+                                if (d) {
+                                    if (d.length > 20) {
+                                        d = d.substring(0, 20) + "...";
+                                    }
+                            %>
+                            <span class="myh1x" style="cursor:pointer"
+                                  title="<%= culinary[i].openTime %>">开放时间:<%= d %></span>
+                            <%  } %>
+                        </td>
+                    </tr>
+                    <tr style="line-height:15px">
+                        <td style="height:20px;">
+                            <%
+                                var s = culinary[i].fees;
+                                if (s) {
+                                    if (s.length > 20) {
+                                        s = s.substring(0, 20) + "...";
+                                    }
+                            %>
+                            <span style="cursor:pointer" title="<%=culinary[i].fees%>" class="myh1x">费用说明:<%= s %></span>
+                            <%  } %>
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<% } %>
+<!-- End 餐饮 -->

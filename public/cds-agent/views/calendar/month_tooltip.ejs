@@ -1,0 +1,4 @@
+<%for(var i in dataStore) {%>
+<%if(i>0){%><br><%}%>
+<a href='#' class="day-tooltip" onclick="changeArea('<%=dataStore[i].cruiseArea%>');showMonthTwin('<%=year%>','<%=month%>');">【<%=dataStore[i].cruiseArea%>航线】&nbsp;&nbsp;&nbsp;<span style='font-size:14px;'><%=dataStore[i].price%>￥起</span></a>
+<%}%>

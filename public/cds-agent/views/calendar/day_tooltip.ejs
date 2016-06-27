@@ -1,0 +1,4 @@
+<%for(var i in products) {%>
+<%if(i>0){%><br><%}%>
+<a href='#' class="day-tooltip" onclick='window.open("/cds-agent/index.html?p=<%=products[i].id%>");'>【<%=products[i].cruiseArea%>航线】<%=products[i].title%><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=products[i].startLocation%>出发&nbsp;<span style='font-size:14px;color:#FF0000'><%=products[i].price%>￥起</span>&nbsp;<span style="color:#0000ff;text-decoration:underline">点击查看</span></a>
+<%}%>

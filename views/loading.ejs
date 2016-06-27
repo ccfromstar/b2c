@@ -1,0 +1,13 @@
+<div style="width: 100%;margin-top:300px">
+    <p style="text-align:center;color:gray;font-weight: bold;font-size: 12px;">页面加载中...</p>
+</div>
+<script>
+	setTimeout(function () {
+		var url = window.location.href;
+		var tmp = url.split("?page=");
+		if(tmp.length!=1){
+			window.location=tmp[1] ;
+		}
+	}, 1000);
+</script>
+

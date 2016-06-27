@@ -1,0 +1,22 @@
+<div style="width:100%;text-align: center">
+    <form method="post">
+    <table width="300px" style="margin:auto;margin-top: 60px;" border="0">
+        <tr>
+            <td>用户名</td>
+            <td><input class="easyui-validatebox" type="text" id="name" name="username"/></td>
+        </tr>
+        <tr>
+            <td>密码</td>
+            <td><input class="easyui-validatebox" type="password" id="pwd" name="password"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="javascript:void(0)" class="easyui-linkbutton"  onclick="login()">登录</a>
+            </td>
+        </tr>
+    </table>
+    <hr style="width: 300px;">
+
+        <input id="info" style="display: none" value="<%=error%>" />
+    </form>
+</div>

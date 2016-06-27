@@ -1,0 +1,217 @@
+<%
+var  txtTitle = "";
+var  rtfImg = "";
+var  txtText = "";
+var  txtCategory1 = "";
+var  list1 = "邮轮入门;邮轮资讯;邮轮游记;主题;邮轮视频";
+var tnp1 = list1.split(";");
+var  txtCategory2 = "";
+var  list2 = "";
+for (var k in theme) {
+      if(list2==""){
+list2 = theme[k].txtName;
+        }else{
+list2 = list2+";"+theme[k].txtName;
+        }
+}
+var tnp2 = list2.split(";");
+var  txtCategory3 = "";
+var docid = "";
+var txtAbbr = "";
+if(id){
+for (var k in re3) {
+if(re3[k].id==id){
+txtTitle = re3[k].txtTitle;
+rtfImg = re3[k].rtfImg;
+txtText = re3[k].txtText;
+txtCategory1 = re3[k].txtCategory1;
+txtCategory2 = re3[k].txtCategory2;
+txtCategory3 = re3[k].txtCategory3;
+docid = re3[k].id;
+txtAbbr = re3[k].txtAbbr;
+}
+}
+}
+var tnp3 =  txtCategory3.split(",");
+%>
+<script type="text/javascript">
+        window.onload = function()
+        {
+            CKEDITOR.replace( 'editor01' );
+        };
+</script>
+<div class="easyui-panel" title="新建文章" style="width:1000px">
+    <div style="padding:10px 60px 20px 60px">
+        <form id="ff" method="post">
+            <table class="tableborder" cellpadding="5" style="width: 850px;" border="1">
+                <tr>
+                    <td style="width: 100px;">文章一级分类</td>
+                    <td>
+                        <select  name="txtCategory1">
+                            <option value="*">全部</option>
+                            <%
+                            for(var i=0;i<tnp1.length;i++){
+                            if(tnp1[i]== txtCategory1){
+                            %>
+                            <option selected value="<%=tnp1[i]%>"><%=tnp1[i]%></option>
+                            <%
+                            }else{
+                            %>
+                            <option value="<%=tnp1[i]%>"><%=tnp1[i]%></option>
+                            <%
+                            }
+                            }
+                            %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>主题分类</td>
+                    <td>
+                        <select id="txtCategory2" name="txtCategory2">
+                            <option value="*">全部</option>
+                            <%
+                            for(var i=0;i<tnp2.length;i++){
+                            if(tnp2[i]== txtCategory2){
+                            %>
+                            <option selected value="<%=tnp2[i]%>"><%=tnp2[i]%></option>
+                            <%
+                            }else{
+                            %>
+                            <option value="<%=tnp2[i]%>"><%=tnp2[i]%></option>
+                            <%
+                            }
+                            }
+                            %>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>二级分类明细</td>
+                    <td>
+                        <span style="color: #0000ff">目的地：</span><br/>
+                        <span id="sec1" style="display: inline">
+                                 <%
+                                 var checkstr = "";
+                                 var tra = "";
+                                 var it = "0";
+                                 for (var i in med) {
+                                    it = "0";
+                                    for(var j=0;j<tnp3.length;j++){
+                                    if(med[i].txtCruiseArea == tnp3[j]){
+                                          it = "1";
+                                    }
+                                    }
+                                    if(it == "1"){
+                                 %>
+
+                                     <input type="checkbox" checked="checked" style="vertical-align: middle" name="txtCategory3" value ="<%=med[i].txtCruiseArea%>" ><%=med[i].txtCruiseArea%>
+                                 <%
+                                    }else{
+
+                                 %>
+
+                                     <input type="checkbox" style="vertical-align: middle" name="txtCategory3" value ="<%=med[i].txtCruiseArea%>" ><%=med[i].txtCruiseArea%>
+                                 <%
+                                        }
+                                 }
+                                 %>
+
+                        </span>
+                        <br/><span style="color: #0000ff">船:</span><br/>
+                        <span id="sec2" style="display: inline">
+
+                                 <%
+                                 var checkstr = "";
+                                 var tra = "";
+                                 var it = "0";
+                                 for (var i in cruiseship) {
+                                    it = "0";
+                                    for(var j=0;j<tnp3.length;j++){
+                                    if(cruiseship[i].txtShipName == tnp3[j]){
+                                          it = "1";
+                                    }
+                                    }
+                                    if(it == "1"){
+                                 %>
+
+                                     <input type="checkbox" checked="checked" style="vertical-align: middle" name="txtCategory3" value ="<%=cruiseship[i].txtShipName%>" ><%=cruiseship[i].txtShipName%>
+                                 <%
+                                    }else{
+
+                                 %>
+
+                                     <input type="checkbox" style="vertical-align: middle" name="txtCategory3" value ="<%=cruiseship[i].txtShipName%>" ><%=cruiseship[i].txtShipName%>
+                                 <%
+                                        }
+                                 }
+                                 %>
+                        </span>
+                        <br/><span style="color: #0000ff">公司：</span><br/>
+                        <span id="sec3" style="display: inline">
+                                 <%
+                                 var checkstr = "";
+                                 var tra = "";
+                                 var it = "0";
+                                 for (var i in cruisecompany) {
+                                    it = "0";
+                                    for(var j=0;j<tnp3.length;j++){
+                                    if(cruisecompany[i].txtCompanyName == tnp3[j]){
+                                          it = "1";
+                                    }
+                                    }
+                                    if(it == "1"){
+                                 %>
+
+                                     <input type="checkbox" checked="checked" style="vertical-align: middle" name="txtCategory3" value ="<%=cruisecompany[i].txtCompanyName%>" ><%=cruisecompany[i].txtCompanyName%>
+                                 <%
+                                    }else{
+
+                                 %>
+
+                                     <input type="checkbox" style="vertical-align: middle" name="txtCategory3" value ="<%=cruisecompany[i].txtCompanyName%>" ><%=cruisecompany[i].txtCompanyName%>
+                                 <%
+                                        }
+                                 }
+                                 %>
+
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>主题名称</td>
+                    <td><input class="textbox" name="txtTitle" style="width: 100%" value="<%=txtTitle%>"></input></td>
+                </tr>
+                <tr>
+                    <td>主题图片</td>
+                    <td>
+                        <input class="textbox" name="rtfImg" style="width: 100%" value="<%=rtfImg%>"></input></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>主题缩略介绍</td>
+                    <td>
+                        <input class="textbox" name="txtAbbr" style="width: 100%" value="<%=txtAbbr%>"></input></td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>内容</td>
+                    <td>
+                        <textarea rows="30" cols="50" name="editor01"><%=txtText%></textarea>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <div id="toolbar">
+                <%if(id){%>
+                <a href="javascript:void(0)" class="easyui-linkbutton"  onclick="$('#stype').val('2');document.forms[0].submit();">更新</a>
+                <%}else{%>
+                <a href="javascript:void(0)" class="easyui-linkbutton"  onclick="$('#stype').val('1');document.forms[0].submit();">新建</a>
+                <%}%>
+
+            </div>
+            <input type="text" name="stype" id="stype" style="display: none" />
+            <input type="text" name="docid" id="docid" style="display: none" value="<%=docid%>" />
+        </form>
+    </div>
+</div>

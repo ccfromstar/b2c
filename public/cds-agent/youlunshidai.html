@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]><html class="no-js ie9"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荟邮轮分销系统</title>
+    <meta name="description" content="荟邮轮邮轮旅游产品分销系统" />
+    <meta name="keywords" content="邮轮, 旅游, 邮轮分销" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons-min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dialogs.css">
+    <link rel="stylesheet" type="text/css" href="css/calendario/calendar.css" />
+    <link rel="stylesheet" type="text/css" href="css/calendario/calendar_twin.css" />
+    <link rel="stylesheet" type="text/css" href="css/product.css" />
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="js/vendor/jquery-1.11.1.min.js"></script>
+    <script src="js/vendor/jquery.calendario.js"></script>
+    <script src="js/vendor/ejs_production.js"></script>
+    <script src="settings.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/service_api.js"></script>
+    <!-- youlunshidai customized part -->
+    <link rel="stylesheet" type="text/css" href="css/youlunshidai.css" />
+    <link href="/stylesheets/layout.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/javascripts/nav_menu.js"></script>
+    <style type="text/css" media="screen">
+        body {-moz-user-select: none;-webkit-user-select: none;}
+    </style>
+    <!-- End youlunshidai customized part -->
+    <script type="text/javascript">
+        _checkIE();
+    </script>
+</head>
+<body>
+<!-- youlunshidai header -->
+<a name="top" id="top"></a>
+<div style="width:100%;position:fixed;z-index:999999;">
+    <div style="height:107px;width:864px;background:#FFFFFF;z-index:99999;margin:0 auto;border-bottom:3px solid #63B7D2">
+
+        <div style="height:42px;width:864px;background:#F3F3F3">
+            <div style="float:left;padding-top:10px">
+                &nbsp; &nbsp;<img style="width:20px;height:20px;vertical-align:text-bottom;color:#AAAAAA;border-left:1px solid #AAAAAA;padding-left:10px" src="/images/style/phone.png">
+                <span style="font-weight:bold;color:#AAAAAA;font-family:微软雅黑;font-size:13px;padding-right:8px">欢迎致电咨询</span>
+                <span style="font-weight: bold;color:#68284E;font-family:微软雅黑;font-size:13px;border-left:1px solid #AAAAAA;padding:2px 3px 2px 8px">&nbsp;仲盛国旅</span> <span style="font-weight: bold;color:#63B7D2;font-family:微软雅黑;font-size:13px;">&nbsp;陈三国&nbsp;123456789</span>
+                &nbsp;<img id="wxx" class="wxdtb" style="vertical-align:text-bottom;cursor:pointer" src="/images/style/img-top5.png">
+                <!---->
+            </div>
+
+            <div style="float:right;padding-top:10px">
+                <div style="background:#F3F3F3;padding-left:10px;padding-right:10px">
+                    <a  href="" style="font-weight: bold;font-family:微软雅黑;font-size:14px;">注册</a>&nbsp;&nbsp;<span style="font-weight: bold;font-family:微软雅黑;font-size:12px;color:#AAAAAA;">或</span>&nbsp;&nbsp;<a href="" style="font-weight: bold;font-family:微软雅黑;font-size:14px;border-right:1px solid #AAAAAA;padding-right:13px">登录</a>
+                    &nbsp;&nbsp;<img style="vertical-align:text-bottom;" src="/images/top4.png">&nbsp;&nbsp;<img style="width:10px; height:6px " src="/images/img-top3.png">
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+        <table style="margin:0 auto;position:fixed " width="864" height="65" border="0">
+
+            <tr>
+                <td style="text-align:center;vertical-align: bottom;"><a href="/loading?page=/"><img style="border:0;height: 40px;" src="/images/logo.png"  /></a></td>
+                <td class="tdfooter"><span class="tdfooter_1" id="m1">我的度假邮轮</span></td>
+                <td class="tdfooter"><span class="tdfooter_1" id="m2">邮轮度假目的地</span></td>
+                <td class="tdfooter"><span class="tdfooter_1" id="m3">邮轮公司荟萃</span></td>
+                <td class="tdfooter"><span class="tdfooter_1" id="m4">邮轮度假主题</span></td>
+                <td class="tdfooter"><span class="tdfooter_1" id="m5">邮轮生活分享</span></td>
+                <td class="tdfooter"><span class="tdfooter_1" id="m6">邮轮促销信息</span></td>
+
+            </tr>
+        </table>
+
+        <div id="divWX" style="position:fixed;vertical-align:text-bottom;left:595px;top:5px;padding-left:10px;cursor:pointer"><!---->
+            <img  id="wx" class="wxxtb" src="/images/style/wx.png" style="display:none">
+        </div>
+
+    </div>
+</div>
+<!-- End youlunshidai header -->
+<!-- cds-agent -->
+<div id="background">
+    <img id="bg-img" src="images/styles/bg_default.jpg" class="stretch" alt="" />
+    <img id="bg-img-caribbean" src="images/styles/CAB_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-mediterran" src="images/styles/MED_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-sa" src="images/styles/SA_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-jk" src="images/styles/JK_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-kr" src="images/styles/KR_lg.jpg" class="stretch" style="display: none" alt="" />
+    <img id="bg-img-auz" src="images/styles/AUZ_lg.jpg" class="stretch" style="display: none" alt="" />
+    <div id="mask">
+        <div id="mask-content"></div>
+        <div id="processbar-content"><div id="processbar"></div></div>
+    </div>
+    <!-- youlunshidai footer -->
+    <div id="cds-footer">版权所有&copy;<span id="copyright-year"></span>上海荟邮网络科技有限公司</div>
+    <!-- End youlunshidai footer -->
+</div>
+<div class="container" onclick="hideDayTooltip();">
+    <div class="container-top clearfix">
+        <div id="container-top-content" style="margin:0 auto;width:100%;text-align:center;color:#ffffff;">邮轮度假信息及预订系统</div>
+    </div>
+    <div id="search-view"></div>
+    <div id="calendar-view"></div>
+    <div id="product-view" style="margin: 0 auto; width:100%;"></div><br/><br/>
+</div><!-- /container -->
+<div style="display:none;position:absolute;" id="tooltip2">
+    <div style="background:url(images/styles/tab0101.png);height:20px"></div>
+    <div id="tooltip-body" style="background:url(images/styles/tab0102.png);width:350px;height:50px;margin-left:-1px">
+        <div  style="width:auto; margin:0 auto; padding-left:5px;font-size:12px; color:#CCCCCC;line-height:20px;">
+            <div id="tooltip" style="float:left;margin-top:-15px;margin-left:5px;margin-right:5px"></div>
+            <!--  -->
+            <div class="clear" style="width:auto; height:0px"></div><!---->
+        </div>
+    </div>
+    <div style="background:url(images/styles/tab0103.png);height:7px;"></div>
+</div>
+<script src="js/processbar.js"></script>
+<script src="js/boot.js"></script>
+<script src="views/product/product.js"></script>
+<script src="views/search/search.js"></script>
+<!-- end cds-agent -->
+
+</body>
+</html>

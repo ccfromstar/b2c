@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
+<style type="text/css">  
+/*模块拖拽*/  
+<%for(var i=1;i<6;i++){%>
+#drag<%=i%>{position:absolute;width:100px;height:80px;border:1px solid #ddd;background:#FBF2BD;text-align:center;padding:5px;top:20px;left:<%=20+i*130%>px;cursor:move;}  
+<%}%>
+</style>
+<script type="text/javascript">  
+// 模块拖拽  
+$(function(){  
+<%for(var i=1;i<6;i++){%>
+var _move=false;//移动标记  
+var _x,_y;//鼠标离控件左上角的相对位置  
+    $("#drag<%=i%>").click(function(){  
+        //alert("click");//点击（松开后触发）  
+        }).mousedown(function(e){  
+        _move=true;  
+        _x=e.pageX-parseInt($("#drag<%=i%>").css("left"));  
+        _y=e.pageY-parseInt($("#drag<%=i%>").css("top"));  
+        $("#drag<%=i%>").fadeTo(20, 0.5);//点击后开始拖动并透明显示  
+    }).mousemove(function(e){  
+        if(_move){  
+            var x=e.pageX-_x;//移动时根据鼠标位置计算控件左上角的绝对位置  
+            var y=e.pageY-_y;  
+            $("#drag<%=i%>").css({top:y,left:x});//控件新位置  
+        }  
+    }).mouseup(function(){  
+    _move=false;  
+    $("#drag<%=i%>").fadeTo("fast", 1);//松开鼠标后停止移动并恢复成不透明  
+    $("#totalnum").html(Number($("#totalnum").html())+<%=i*10%>);
+  });
+<%}%>  
+});  
+</script>
+</head>
+<body>
+<!--模块拖拽--> <div id="drag1"><img src="/images/cai/1610140397.jpg" style="width:100px;height:70px" />10元</div> 
+<!--模块拖拽--> <div id="drag2"><img src="/images/cai/1610143830.jpg" style="width:100px" />20元</div>
+<!--模块拖拽--> <div id="drag3"><img src="/images/cai/123.jpg" style="width:100px" />30元</div>
+<!--模块拖拽--> <div id="drag4"><img src="/images/cai/3135030_132238077_2.jpg" style="width:100px;height:70px" />40元</div>
+<!--模块拖拽--> <div id="drag5"><img src="/images/cai/rice.jpg" style="width:100px;height:70px" />50元</div>
+<div style="margin-top:160px;margin-left:200px">
+	<img src="/images/cai/box.jpg" />
+	饭盒总价:<span id="totalnum">0</span>元
+</div>
+<script type="text/javascript">
+    var arr = [3,2,5,1,7,9]
+    var max = arr.sort(function(a,b){return a-b});
+    console.log(max);
+</script>
+</body>
+</html>

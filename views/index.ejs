@@ -1,0 +1,23 @@
+<% if (success) { %>
+<div class="alert alert-success">
+<%= success %>
+</div>
+<% } %>
+<div class="hero-unit">
+<h1>欢迎来到 Cruiseblog</h1>
+<p>Cruiseblog 是一个基于 Node.js 的邮轮微博系统。</p>
+<p>
+<% if (!user) { %>
+<a class="btn btn-primary btn-large" href="/login">登入</a>
+<a class="btn btn-large" href="/reg">立即注册</a>
+<% } else { %>
+<%=user%>,欢迎你  <a class="btn btn-primary btn-large" href="/logout">登出</a>
+<a class="btn btn-large" href="/post">立即发言</a>
+<% } %>
+</p>
+</div>
+<%for (var i in posts) {%>
+<h2><%=posts[i].username%></h2>
+<p><small><%=posts[i].time%></small></p>
+<p><%=posts[i].post%></p>
+<%}%>

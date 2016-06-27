@@ -1,0 +1,102 @@
+
+<div id="zibody" style="background-color:#DFDFDF;">
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <div style="margin:0 auto;width:864px;">
+  	  <span class="zi_menu_t" style="color:black"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;邮轮度假主题&nbsp;&nbsp;/&nbsp;&nbsp;招行特惠</span>
+  	  <p>&nbsp;</p>
+  </div>
+
+  <div style="margin:0 auto;width:864px;">
+       <img src="images/522adv.jpg" style="width:864px"></img>
+       <br/><br/>
+       <div class="myh1" style="font-size: 14px;padding-left:10px">招行特惠产品</div> 
+       <%for(var i in p4){%>
+       <div style="float: left;width: 215px;">
+            <a target="_blank" href="/cds-agent/index.html?p=<%=p4[i].id%>" style="padding-left:10px"><img class="img_4" src="http://117.121.26.83:1339/images/data/ship/<%=p4[i].rtfShipImg%>_md.jpg" width="200px" height="124"></a><br><br>
+            <div style="width:200px;text-align:left;padding-left:10px" class="myh1">【<%=p4[i].cfcity%>出发】</div>
+            <div id="yjT00015" class="myp1sm1" style="width:200px;padding:0px 10px 10px 10px">
+                      <div style="font-weight:bold;height:20px;"><%=p4[i].title%></div><br/>
+                                      <%
+                                      var hx = "";
+                                      for(j in ts){
+                                        if(ts[j].product_id ==p4[i].id){
+                                          if(ts[j].location!="航海日"){
+                                            if(hx==""){
+                                              hx = ts[j].location;
+                                            }else{
+                                              hx = hx + "-" + ts[j].location;
+                                            }
+                                          }
+                                        }
+                                      }%>
+                      <div style="height:100px;"><%=hx%></div>
+                      <span style="font-size:12px;color:red;">
+                                     <%
+                                     var minp = "999999";
+                                     for(var k in pj){
+                                         if(pj[k].product_id==p4[i].id && pj[k].price<minp){
+                                            minp = pj[k].price;
+                                         }
+                                     }
+                                     %>
+                      ￥<%=minp%>起
+                      </span>
+            </div>
+            <div class="myh1b" style="text-align:left;padding:10px 10px 10px 10px" onclick="window.open('/cds-agent/index.html?p=<%=p4[i].id%>');">查看详情 &gt;&gt;&gt;</div>
+            <br><br>
+        </div>   
+        <%}%>
+        <div style="clear:both;"></div>
+        <div style="padding-left:10px">
+          <table>
+            <tr>
+              <td class="tz1">活动名称：</td>
+              <td class="tz2">招行航海季专享优惠第一期</td>
+            </tr>
+            <tr>
+              <td class="tz1">活动时间：</td>
+              <td class="tz2">即日起至2015年12月31日</td>
+            </tr>
+            <tr>
+              <td class="tz1">活动条件：</td>
+              <td class="tz2">仅限招商银行持卡人支付成功独享。</td>
+            </tr>
+            <tr>
+              <td class="tz1" style="vertical-align:top">活动细则：</td>
+              <td class="tz2">
+1、国内母港出发日韩航线邮轮产品，立减300元/舱<br/>
+
+2、  国内出发海外航线及海外河轮航线产品，立减1200元/舱<br/>
+
+3、  活动产品价格以双方最终确认价格为准。<br/>
+
+4、  每条线路均须旅行社再次确认后付款。<br/>
+
+5、  订单经旅行社确认后请在规定付款时限内付款，超过付款时限，订单将不做保留，尽请谅解！<br/>
+
+6、  本活动为促销产品，支付成功后不得更改、取消，否则按全损处理。
+
+              </td>
+            </tr>
+          </table>
+          <br><br>
+          <hr style="color:black" /><br>
+          <div class="myh1b">资询热线：400-998-5121</div>
+          <div class="myh1b">时间：工作日9：30-18：00</div>
+
+        </div>
+
+  </div>
+
+
+  <br/><br/>
+</div>
+<style>
+  .tz1{
+    font-weight: bold;
+  }
+  .tz2{
+    font-weight: bold;
+    color: #F47240;
+  }
+</style>

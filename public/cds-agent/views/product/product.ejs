@@ -1,0 +1,250 @@
+<div id="product-container">
+    <div id="product-content">
+        <br/><br/><br/>
+        <table class="product_block_item" cellspacing='0' width="100%" border="0">
+            <tr>
+                <td style="vertical-align:top;max-width:610px" rowspan="8">
+                    <div class="wrapper">
+                        <div class="banner">
+                            <ul>
+                                <!-- show max two images for each type (ship, entertainment, culinary, cabins)-->
+                                <% var k = 0; %>
+                                <% for(var i in imgShip ) { if(i>1)break;%>
+                                <li><img id="ship-img<%=k++%>" class="slide-img" src="<%=imgShip[i]%>" alt="" /></li>
+                                <% } %>
+
+                                <% for(var i in imgEntertain){ if(i>1)break;%>
+                                <li><img id="ship-img<%=k++%>" class="slide-img" src="<%=imgEntertain[i]%>" alt="" /></li>
+                                <% } %>
+
+                                <% for(var i in imgCulinary){ if(i>1)break;%>
+                                <li><img id="ship-img<%=k++%>" class="slide-img" src="<%=imgCulinary[i]%>" alt="" /></li>
+                                <% } %>
+
+                                <% for(var i in imgCabin){ if(i>1)break;%>
+                                <li><img id="ship-img<%=k++%>" class="slide-img" src="<%=imgCabin[i]%>" alt="" /></li>
+                                <%} %>
+                                <!-- //TODO travel location images -->
+                            </ul>
+                            <div class="ship-mini-list">
+                                <% k = 0; %>
+                                <% for(var i in imgShip ) { if(i>1)break;%>
+                                <img class="ship-img-mini" src="<%=imgShip[i]%>" onclick="showShipImg(<%=k++%>)" />
+                                <% } %>
+
+                                <% for(var i in imgEntertain){ if(i>1)break;%>
+                                <img class="ship-img-mini" src="<%=imgEntertain[i]%>" onclick="showShipImg(<%=k++%>)" />
+                                <% } %>
+
+                                <% for(var i in imgCulinary){ if(i>1)break;%>
+                                <img class="ship-img-mini" src="<%=imgCulinary[i]%>" onclick="showShipImg(<%=k++%>)" />
+                                <% } %>
+
+                                <% for(var i in imgCabin){ if(i>1)break;%>
+                                <img class="ship-img-mini" src="<%=imgCabin[i]%>" onclick="showShipImg(<%=k++%>)" />
+                                <%} %>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+                <td style="min-width:220px"><span class="myh1" style="font-weight: normal">产品编号：<%=product.productNumber%></span></td>
+                <td rowspan="8" style="width:1px;text-align:center;vertical-align: bottom;"></td>
+            </tr>
+            <tr>
+                <td><span class="myh1" style="font-size: 12px"><%=product.title%></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="<%=product.shipCompanyLogo%>" width="150px" />
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 25px;"><span class="myh1" style="font-weight: normal">邮轮公司：</span><span class="myh1blue"><%=product.shipCompany%></span></td>
+            </tr>
+            <tr>
+                <td style="height: 25px;"><span class="myh1" style="font-weight: normal">邮轮名称：</span><span class="myh1blue"><%=product.shipName%></span>
+                    <br/><span class="myh1" style="margin-left: 0px;font-weight: normal">邮轮星级：</span><span id="ship-rating-view"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                 
+                  <div class="bdsharebuttonbox">
+                    <a href="#" class="bds_sqq" data-cmd="sqq"></a>
+                    <a href="#" class="bds_qzone" data-cmd="qzone"></a>
+                    <a href="#" class="bds_tsina" data-cmd="tsina"></a>
+                    <a href="#" class="bds_tqq" data-cmd="tqq"></a>
+                    <a href="#" class="bds_renren" data-cmd="renren"></a>
+                  </div>
+                  <script>
+                  window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren"]}};
+                  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                  </script>
+                </td>
+            </tr>
+        </table>
+        <!--<div id="share1" class="product_block_item" style="text-align:right;margin-top:-10px;padding:0px 5px 10px 0px">-->
+        <!--<img id="share11" src="images/tp5.png" style="vertical-align:sub;cursor:pointer" onmouseover="showshare()" onmouseout="hideshare()">-->
+        <!--<span id="share22" style="font-size:16px;font-weight:bold;color:#53B1D0;cursor:pointer" onmouseover="showshare()"  onmouseout="hideshare()">分享到</span>-->
+        <!--</div>-->
+        <!--<div id="share2" class="product_block_item" style="float:right;margin-top:-10px;display:none">-->
+        <!--<img src="images/tp6.png">-->
+        <!--<div style="position:absolute;margin-top:-45px">  -->
+        <!--<a href=""><img src="images/tp7.png" style="margin-left:20px;width:26px;height:26px"></a>-->
+        <!--<a href=""><img src="images/tp8.png" style="margin-left:20px;width:26px;height:26px"></a> -->
+        <!--<a href=""><img src="images/tp9.png" style="margin-left:10px;width:30px;height:30px"></a>-->
+        <!--<a href=""><img src="images/tp10.png" style="margin-left:10px;width:30px;height:30px"></a>-->
+        <!--<a href=""><img src="images/top4.png" style="margin-left:10px;width:23px;height:20px"></a>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="product_block_item" style="width:100%;height:40px"></div>-->
+
+        <div class="product_block_item">
+            <table width="300" border="0"  cellspacing="0">
+                <tr>
+                    <!--<td style="line-height:7px"><div class="tb1" id="tabl1" onclick="changeTab('1')">产品介绍</div></td>-->
+                    <td style="line-height:7px"><div class="tb1" id="tabl2" onclick="changeTab('2')">产品介绍</div></td>
+                    <td style="line-height:7px"><div class="tb2" id="tabl3" onclick="changeTab('3')">行程介绍</div></td>
+                     <td style="line-height:7px"><div class="tb2" id="tabl6" onclick="changeTab('6')">邮轮介绍</div></td>
+                    <td style="line-height:7px"><div class="tb2" id="tabl5" onclick="changeTab('5')">娱乐设施</div></td>
+                    <td style="line-height:7px"><div class="tb2" id="tabl4" onclick="changeTab('4')">餐厅</div></td>
+                    
+                   
+                </tr>
+            </table>
+        </div>
+        <div style="background-image:url(images/styles/deepbule.png);height: 4px;margin-top:-1px"></div>
+        <div id="tab1">
+            <div id="general-info-view"></div>
+        </div>
+        <div id="tab3" style="display:none">
+            <div id="travel-schedule-view" class="myh1 product_block_item"></div>
+        </div>
+        <div id="tab4" style="display:none">
+            <div id="culinary-view" class="product_block_item"></div>
+        </div>
+        <div id="tab5" style="display:none">
+            <div id="entertainment-view" class="product_block_item"></div>
+        </div>
+        <div id="tab6" style="display:none">
+            <div id="ship-view" class="product_block_item"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="wxxftb" style="position:fixed; bottom:50px; left:1px;z-index:3;width:140px;height:180px;background:black;opacity:0.5"></div>
+
+      <img id="wx_code" src="images/wx2.png" style="position:fixed;bottom:97px; left:10px;z-index:4;width:120px;height:120px;">
+    <div style="color:#FFFFFF;font-size:13px;position:fixed;bottom:57px; left:11px;z-index:5;font-weight:bold">
+    <span style="color:white">欢迎关注</span><br/>
+    <span style="color:white">邮轮时代微信号！</span>
+</div>
+
+<div class="totop" style="position:fixed; bottom:50px; right:100px;z-index:3;"><a  href="#top" target="_self"><img class="totop1" src="images/to top_1.png" /></a></div>
+
+<div id="wxtp1" style="position:fixed; bottom:90px; right:53px;z-index:3;"><img id="wxtp1" style="cursor:pointer" src="images/style/ask.png" /><span style="font-size:12px">我要咨询</span></div>
+
+<div id="struts" style="width:100%;position:fixed;top:140px;z-index:88888888;display:none">       <!--我要咨询 弹出框-->
+    <div style="width:500px;margin:0 auto; border:1px solid #CCCCCC;background:#FFFFFF"> 
+
+       <div style="width:500px;height:40px;background:#F0F0F0;border-bottom:1px solid #CCCCCC"></div>
+
+       <div style="width:500px;padding:20px">
+          <form name="myFormcw" method="post" action="setEmail1">
+             <div style="font-size:14px;font-weight:bold;color:#666666;margin-bottom:10px">
+                <span>姓&nbsp;名&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><input name="input11" style="border:1px solid #CCCCCC;width:390px;border-radius:5px;height:20px" type="text" value="" />
+             </div>
+
+             <div style="font-size:14px;font-weight:bold;color:#666666;margin-bottom:10px">
+                <span>联系电话&nbsp; &nbsp;</span><input name="input22" style="border:1px solid #CCCCCC;width:390px;border-radius:5px;height:20px" type="text" value="" />
+             </div>
+
+             <div style="font-size:14px;font-weight:bold;color:#666666;margin-bottom:10px">
+               <span>电子邮箱&nbsp; &nbsp;</span><input name="input33" style="border:1px solid #CCCCCC;width:390px;border-radius:5px;height:20px" type="text" value="" />
+             </div>
+
+             <div style="font-size:14px;font-weight:bold;color:#666666;margin-bottom:10px;width:500px">
+               <span style="float:left">咨询内容&nbsp; &nbsp;</span><textarea name="input44" style="border:1px solid #CCCCCC;width:390px;border-radius:5px;height:200px;overflow:scroll;resize:none" type="text"></textarea>
+             </div>
+          </form>
+       </div>
+
+       <div style="width:500px;height:40px;background:#F0F0F0;border-top:1px solid #CCCCCC;">
+            <div style="text-align:right;padding:5px 20px 5px 5px">
+                <button onclick="submitYD()" style="padding-left:15px;padding-right:15px;padding-top:5px;padding-bottom:5px">提交</button> <button id="strut_button2" style="padding-left:15px;padding-right:15px;padding-top:5px;padding-bottom:5px">关闭</button>
+            </div>
+       </div>
+    </div>
+</div>     <!--我要咨询 弹出框  结束-->
+
+
+
+<script src="js/vendor/unslider.min.js"></script>
+
+<script type="text/javascript">
+
+   function submitYD(){
+    if($("input[name='input11']").val()==""){
+        alert('姓名不能为空！');return false;
+    }
+    if($("input[name='input22']").val()==""){
+        alert('联系电话不能为空！');return false;
+    }
+    if($("input[name='input33']").val()==""){
+        alert('E-Mail不能为空！');return false;
+    }
+    if($("textarea[name='input44']").val()==""){
+        alert('内容不能为空！');return false;
+    }
+    alert('信息递交成功，我们会尽快与您联系！');
+    struts.style.display='none';
+       black.style.display='none';
+    //document.all.myFormcw.submit();
+}
+   
+
+    $(".totop").hover(function(){                      //移到最顶端按钮  开始
+          $(".totop1").attr("src","images/to top_2.png");
+    },function(){
+          $(".totop1").attr("src","images/to top_1.png");
+    });
+
+                                                //我要咨询 按钮 开始
+    var wxtp1=document.getElementById("wxtp1"); 
+    var strut_button1=document.getElementById("strut_button1");
+    var strut_button2=document.getElementById("strut_button2");
+    var myForm=document.getElementById("myForm");
+
+    addEvent(wxtp1,'click',function(evt){
+       var struts=document.getElementById("struts");
+       var black=document.getElementById("black");
+       struts.style.display='block';
+       black.style.display='block';
+    });                                       
+    
+      
+     addEvent(strut_button2,'click',function(evt){  //关闭
+       struts.style.display='none';
+       black.style.display='none';
+    });     
+                                                 //我要咨询 按钮 
+    function addEvent(obj,type,fn){             
+  if(typeof obj.addEventListener!='undefined'){
+     obj.addEventListener(type,fn,false);
+  }else{
+     if(!obj.events)obj.events={};
+     if(!obj.events[type])obj.events[type]=[];
+   obj.events[type][addEvent.ID++]=fn;
+   obj['on'+type]=function(){
+      for(var i in obj.events[type]){
+           obj.events[type][i]();
+    }
+   };
+  }
+}
+addEvent.ID=0;
+</script>
+

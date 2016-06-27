@@ -1,0 +1,763 @@
+<div id="zibody" style="background-color:#DFDFDF;">
+<div style="margin:0 auto;width:864px;">
+<br/><br/>
+<span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;我的度假邮轮&nbsp;&nbsp;/&nbsp;&nbsp;搜索结果&nbsp;&nbsp;/&nbsp;&nbsp;产品列表&nbsp;&nbsp;/&nbsp;&nbsp;<%=csk[0].txtCruiselineName%></span>
+</div>
+<%
+var logoimg = cuc[0].rtfCompanyLogo;
+var linea = "";
+%>
+<div style="margin:0 auto;width:864px;">
+<br/>
+<table style="background-color:#FFFFFF" cellspacing='0' width="100%" border="0">
+  <tr>
+    <td width="660px"  rowspan="8">
+        <div class="wrapper">
+            <div id="focus">
+                <ul>
+                    <%
+                    for(var j=0;j<50;j++){
+                    %>
+                    <%
+                    for (var k in ship) {
+                    if(ship[k].txtShipNo == csk[0].txtShipNo){
+                    var imgc = ship[k].rtfShipImg+"_md.jpg";
+                    %>
+                    <li><img src="/dataimages/<%=imgc%>" alt="" /></li>
+                    <%
+                    if(ship[k].rtfOtherImg){
+                        var tmp1 = ship[k].rtfOtherImg.split("@");
+                    %>
+                    <li><img src="/dataimages/<%=tmp1[0]%>_md.jpg" alt="" /></li>
+                    <%
+                    }
+                    }
+                    }
+                    %>
+                    <%
+                    var l = 0;
+                    for (var k in cent) {
+                    if(cent[k].txtShipNo == csk[0].txtShipNo && (cent[k].txtLabel == "M"|cent[k].txtLabel == "L")){
+                    if(l<2){
+                    var imgc = cent[k].rtfPlaceImg+"_md.jpg";
+                    %>
+                    <li><img src="/dataimages/<%=imgc%>" alt="" /></li>
+                    <%
+                    l = l + 1;
+                    }
+                    }
+                    }
+                    %>
+
+                    <%
+                    var l = 0;
+                    for (var k in sd) {
+                    if(sd[k].txtShipNo == csk[0].txtShipNo  && (sd[k].txtLabel == "M"|sd[k].txtLabel == "L")){
+                    if(l<2){
+                    var imgc = sd[k].rtfRestaurantImg+"_md.jpg";
+                    %>
+                    <li><img src="/dataimages/<%=imgc%>" alt="" /></li>
+                    <%
+                    l = l + 1;
+                    }
+                    }
+                    }
+                    %>
+
+                    <%
+                    var l = 0;
+                    for (var k in croom) {
+                    if(croom[k].txtShipNo == csk[0].txtShipNo){
+                    if(l<1){
+                    var imgc = croom[k].rtfCabinImg+"_md.jpg";
+                    %>
+                    <li><img src="/dataimages/<%=imgc%>" alt="" /></li>
+                    <%
+                    l = l + 1;
+                    }
+                    }
+                    }
+                    %>
+
+
+
+                    <%
+                    var l = 0;
+                    var iport = csk[0].txtCruiselineALLPort;
+                    iport = iport.replace(/\s+/g,"");
+                    var ptmp = iport.split("-");
+                    var checkstr = "";
+                    for(var t=0;t<ptmp.length;t++){
+                    for(var p in port){
+                    if(ptmp[t]==port[p].txtPortCityName){
+                    if(port[p].rtfPortImg){
+                    if(l<1){
+                    var imgc = port[p].rtfPortImg;
+                    var tmpa =  imgc.split("@");
+                    %>
+                    <li><img src="/databaseimages/<%=tmpa[2]%>.jpg" alt="" /></li>
+                    <%
+                    l = l + 1;
+                    }
+                    }
+                    }
+                    }
+                    }
+                    %>
+
+                    <%}%>
+
+
+                </ul>
+            </div>
+            <!--focus end-->
+
+        </div>
+    </td>
+    <td><span class="myh1" style="font-weight: normal">产品编号：<%=csk[0].txtCruiselineNo%></span></td>
+    <td rowspan="8" style="width:1px;text-align:center;vertical-align: bottom;"></td>
+  </tr>
+  <tr>
+    <td><span class="myh1" style="font-size: 16px"><%=csk[0].txtCruiselineName%></span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><img src="/dataimages/<%=logoimg%>" width="150px" /></td>
+  </tr>
+  <tr>
+    <td style="height: 25px;"><span class="myh1" style="font-weight: normal">邮船公司：</span><span onclick="window.location='/curisecompany/<%=csk[0].txtCompanyNo%>';" class="myh1blue"><%=csk[0].txtCompanyName%></span></td>
+  </tr>
+  <tr>
+    <td style="height: 25px;"><span class="myh1" style="font-weight: normal">邮船名称：</span><span onclick="window.location='/curisecompanyship/<%=csk[0].txtCompanyNo%>@<%=csk[0].txtShipNo%>';"   class="myh1blue"><%=csk[0].txtShipName%></span>
+        <br/><span class="myh1" style="margin-left: 0px;font-weight: normal">邮船星级：</span>
+        <span>
+            <%
+            for(var k in ship){
+                    if(ship[k].txtShipNo == csk[0].txtShipNo){
+                    if(ship[k].txtShipLevel=="四星"){
+            %>
+            <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+            <%
+            }else if(ship[k].txtShipLevel=="五星"){
+            %>
+            <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+            <%
+            } else if(ship[k].txtShipLevel=="四星半"){
+            %>
+            <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_2.png" style="width: 15px;">
+            <%
+            }  else if(ship[k].txtShipLevel=="三星"){
+            %>
+            <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+            <%
+            } else if(ship[k].txtShipLevel=="三星半"){
+            %>
+            <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_1.png" style="width: 15px;">
+                                    <img src="/images/star_2.png" style="width: 15px;">
+                                    <img src="/images/star_3.png" style="width: 15px;">
+            <%
+            }
+            }
+            }
+            %>
+        </span>
+    </td>
+  </tr>
+  <%
+    var cap = csk[0].txtCruiselineALLPort;
+    linea = csk[0].txtRoutingArea;
+    if(cap.length>80){
+        cap = "详情请参考行程安排表";
+    }
+  %>
+  <tr>
+    <td style="height: 25px;"><span class="myh1" style="font-weight: normal">停靠港口：<%=cap%></span></td>
+  </tr>
+  <tr>
+    <td>
+	</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br/>
+<span class="myh1">出发日期:<input type="text" style="display: none" id="nowpage" value="0" /></span>  <br/>   <br/>
+
+<table border="0" style="width: 100%">
+<tr>
+    <td style="vertical-align: top;width: 20px;"><img id="jianpl" style="padding-top:32px;cursor: pointer" onclick="pageUp();" src="images/left_1.png" /></td>
+    <td>
+<%
+    var dlist = csk[0].txtSailingDate;
+    var tmpd = dlist.split("；");
+        var divlen = 0;
+    if(tmpd.length == 1){
+        divlen = 1;
+%>
+    <div id="ppp0" style="background-image:url('images/datebg_1.png');height:81px;margin-bottom:8px;display:inline-block;text-align:center;border:1px; width:156px;word-break:break-all;border: 1px"class="myh1blue"><span id="dat<%=0%>"><%=tmpd[0]%></span><br/>
+
+<%
+var lab2 = 99999;
+for(var c in product){
+if(product[c].txtCruiselineNo==csk[0].txtCruiselineNo && csk[0].txtSailingDate.indexOf(product[c].txtSailingDate1)>0){
+if(Number(product[c].numPrice1) < lab2 ){
+lab2 = Number(product[c].numPrice1);
+}}}
+%>
+<%
+var qj = "";
+var lab = 0;
+var lab1 = "";
+    var lab2 = 0;
+    var lab3 = 0;
+    var lab4 = 0;
+    var Labz = 0;
+for(var bb in product){
+var pdc = product[bb].txtSailingDate1;
+
+if(product[bb].txtCruiselineNo==csk[0].txtCruiselineNo && pdc==tmpd[0]){
+qj = product[bb].currencyNo;
+
+lab = (product[bb].numPrice1);
+if(Number(product[bb].numPrice1)==-1){lab = product[bb].numPrice2};
+lab1 = product[bb].currencyNo;
+    lab2 = (product[bb].numPrice2);
+    lab3 = (product[bb].numPrice3);
+    lab4 = (product[bb].numPrice4);
+    Labz = (product[bb].numPrice1);
+}
+}
+if(qj){
+%>
+<span onclick="changeprice('<%=Labz%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=0%>','<%=lab1%>');" style="font-size:14px;font-weight:normal;font-family:georgia;color: #F15A24;"><%=lab1%>&nbsp;</span>
+<span onclick="changeprice('<%=Labz%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=0%>','<%=lab1%>');" style="font-size:20px;font-weight:bold;font-family:georgia;color: #F15A24"><%=lab%></span>
+<div onclick="changeprice('<%=Labz%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=0%>','<%=lab1%>');" style="font-size:11px;font-family:微软雅黑;color: #F15A24;padding-left: 60px;padding-top: 5px;">/人起 </div>
+<%
+}else{
+%>
+<span onclick="changeprice('<%=Labz%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=0%>','<%=lab1%>');" style="font-size:14px;font-weight:normal;font-family:georgia;color: #F15A24">&nbsp;</span>
+        <span onclick="changeprice('<%=Labz%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=0%>','<%=lab1%>');" style="font-size:20px;font-weight:bold;font-family:georgia;color: #F15A24">电询</span>
+<div style="font-size:11px;font-family:微软雅黑;color: #F15A24;padding-left: 60px;padding-top: 5px;">&nbsp; </div>
+<%
+}
+%>
+        <span style="display: none" id="aca0"><%=Labz%></span>
+        <span style="display: none" id="acb0"><%=lab2%></span>
+        <span style="display: none" id="acc0"><%=lab3%></span>
+        <span style="display: none" id="acd0"><%=lab4%></span>
+        <span style="display: none" id="ace0"><%=lab1%></span>
+    </div>
+<%
+    }else{
+    var dd= -1;
+    for(var d=0;d<tmpd.length-1;d++){
+        divlen = divlen + 1;
+        if(tmpd[d] > "2014-07-01"){
+        dd = dd + 1;
+%>
+    <div id="ppp<%=dd%>" style="height:81px;margin-bottom:8px;display:inline-block;text-align:center;border:1px;background-image:url('images/datebg_1.png');width:156px;word-break:break-all;border: 1px"class="myh1blue"><span id="dat<%=dd%>"><%=tmpd[d]%></span><br/>
+
+        <%
+        var lab2 = 99999;
+        for(var c in product){
+        if(product[c].txtCruiselineNo==csk[0].txtCruiselineNo && csk[0].txtSailingDate.indexOf(product[c].txtSailingDate1)>0){
+        if(Number(product[c].numPrice1) < lab2 ){
+        lab2 = Number(product[c].numPrice1);
+        }}}
+        %>
+
+    <%
+        var qj = "";
+        var lab = 0;
+        var lab1 = "";
+        var lab2 = 0;
+        var lab3 = 0;
+        var lab4 = 0;
+        var lab5 = 0;
+        for(var bb in product){
+        var pdc = product[bb].txtSailingDate1;
+
+
+            if(product[bb].txtCruiselineNo==csk[0].txtCruiselineNo && pdc==tmpd[d]){
+                qj = product[bb].currencyNo;
+                lab = (product[bb].numPrice1);
+        if(Number(product[bb].numPrice1)==-1){lab = product[bb].numPrice2};
+        if(Number(product[bb].numPrice1)==-1 && Number(product[bb].numPrice2)==-1){lab = product[bb].numPrice3};
+                lab1 = product[bb].currencyNo;
+                lab2 = (product[bb].numPrice2);
+                lab3 = (product[bb].numPrice3);
+                lab4 = (product[bb].numPrice4);
+                lab5 = (product[bb].numPrice1);
+            }
+
+        }
+        if(qj){
+    %>
+        <span onclick="changeprice('<%=lab5%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=d%>','<%=lab1%>');" style="font-size:14px;font-weight:normal;font-family:georgia;color: #F15A24;"><%=lab1%>&nbsp;</span>
+        <span onclick="changeprice('<%=lab5%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=d%>','<%=lab1%>');" style="font-size:20px;font-weight:bold;font-family:georgia;color: #F15A24"><%=lab%></span>
+        <div onclick="changeprice('<%=lab5%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=d%>','<%=lab1%>');" style="font-size:11px;font-family:微软雅黑;color: #F15A24;padding-left: 60px;padding-top: 5px;">/人起 </div>
+    <%
+        }else{
+    %>
+        <span onclick="changeprice('<%=lab5%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=d%>','<%=lab1%>');" style="font-size:14px;font-weight:normal;font-family:georgia;color: #F15A24">&nbsp;</span><span onclick="changeprice('<%=lab5%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=d%>','<%=lab1%>');" style="font-size:20px;font-weight:bold;font-family:georgia;color: #F15A24">电询</span>
+        <div onclick="changeprice('<%=lab5%>','<%=lab2%>','<%=lab3%>','<%=lab4%>','<%=d%>','<%=lab1%>');" style="font-size:11px;font-family:微软雅黑;color: #F15A24;padding-left: 60px;padding-top: 5px;">&nbsp; </div>
+    <%
+        }
+    %>
+        <span style="display: none" id="aca<%=dd%>"><%=lab5%></span>
+        <span style="display: none" id="acb<%=dd%>"><%=lab2%></span>
+        <span style="display: none" id="acc<%=dd%>"><%=lab3%></span>
+        <span style="display: none" id="acd<%=dd%>"><%=lab4%></span>
+        <span style="display: none" id="ace<%=dd%>"><%=lab1%></span>
+    </div>
+<%
+}
+    }
+    }
+%>
+    </td>
+    <td style="width: 20px;vertical-align: top"><img id="jianpd" src="images/right_2.png" style="padding-top:32px;cursor: pointer" onclick="pageDown();" /></td>
+</tr>
+</table>
+<br/>
+<br/>
+<table width="300" border="0"  cellspacing="0">
+  <tr>
+    <td><div class="tb1" id="tabl1" onclick="changetab('1')">行程</div></td>
+    <td><div class="tb2" id="tabl2" onclick="changetab('2')">舱房类型</div></td>
+    <td><div class="tb2" id="tabl3" onclick="changetab('3')">娱乐设施</div></td>
+    <td><div class="tb2" id="tabl4" onclick="changetab('4')">餐饮设施</div></td>
+    <td><div class="tb2" id="tabl5" onclick="changetab('5')">如何预订</div></td>
+    <td><div class="tb2" id="tabl6" onclick="changetab('6')">促销信息</div></td>
+  </tr>
+</table>
+<div style="background-image:url(images/deepbule.png);height: 4px;"></div>
+<div id="tab1">
+<table style="background-color:#FFFFFF" width="100%" border="0">
+  <tr>
+    <td style="padding-left:15px;width:75%;vertical-align: top">
+	<br/>
+	<div class="myh1">航线图:</div>
+    <img style="padding-top: 10px;padding-bottom: 10px;" src="/dataimages/<%=csk[0].rtfCruiselineJourneyImg%>"  />
+	<div style="width: 97%" class="myh1">停靠港口:</div>
+        <div style="width: 97%;font-weight: normal" class="myh1"><%=csk[0].txtCruiselineALLPort%></div>
+	<br/>
+	<div class="myh1">行程安排参考:</div>
+	<table width="97%" border="0">
+	<tr class="stb">
+    <td>日期</td>
+    <td style="width:200px;">停靠港口</td>
+    <td>抵达</td>
+	<td>起航</td>
+    </tr>
+	<%
+	for (var n in crs) {
+	%>
+	<tr class="stb1">
+	<td>第<%=crs[n].txtCruiselineDayNumber%>天</td>
+	<td><%=crs[n].txtCruiselinePort%></td>
+	<td><%=crs[n].txtArrival%></td>
+	<td><%=crs[n].txtSailing%></td>
+	</tr>
+	<%
+	}
+	%>
+	</table>
+        <br/>
+	</td>
+    <td style="vertical-align: top;padding-right: 15px;">
+	<br/>
+	<div class="myh1">特色景点:</div>
+        <%
+        var iport = csk[0].txtCruiselineALLPort;
+        iport = iport.replace(/\s+/g,"");
+        if(iport.indexOf("-")>0){
+            var ptmp = iport.split("-");
+        }else{
+            var ptmp = iport.split("－");
+        }
+        var checkstr = "";
+        for(var t=0;t<ptmp.length;t++){
+        for(var p in port){
+        if(ptmp[t]==port[p].txtPortCityName){
+        if(checkstr.indexOf(ptmp[t])==-1){
+        var imgs = "";
+        if(port[p].rtfPortImg){
+        var img1z = port[p].rtfPortImg;
+        var tmpz = img1z.split("@");
+        imgs = tmpz[0];
+        }
+        var cityinfo = "";
+        if(port[p].txtPortCityInfo){
+        cityinfo =  port[p].txtPortCityInfo.substring(0,60);
+        }
+
+        %>
+        <a href="/destinationport/<%=port[p].txtCruiseAreaNo%>@<%=port[p].id%>">
+            <img style="padding-top: 10px;padding-bottom: 10px;" src="/databaseimages/<%=imgs%>.jpg" />
+        </a>
+        <div class="myh1"><%=port[p].txtPortCityName%></div>
+        <p class="myp1add" style="padding-left: 0px;text-indent: 2em;text-align: justify"><%=cityinfo%>...</p>
+        <br/>
+        <%
+        checkstr = checkstr + ptmp[t];
+        }
+        }
+        }
+        }
+        %>
+	</td>
+  </tr>
+</table>
+</div>
+<div id="tab2" style="display:none">
+<%
+var bbc = -1;
+for (var i in croom) {
+
+	if(croom[i].txtShipNo==csk[0].txtShipNo){
+    bbc = bbc + 1;
+%>
+<br/>
+<table style="background-color:#FFFFFF" width="100%" cellspacing='0' border="0">
+  <tr>
+    <td rowspan="7" style="width:280px;vertical-align: top"><img style="width: 270px;" src="/dataimages/<%=croom[i].rtfCabinImg%>_sm.jpg" /></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td style="padding-top: 15px;"><span class="myh1" style="font-size: 14px"><%=croom[i].txtCabinType%></span></td>
+    <td style="width:120px;text-align:center;vertical-align: top;padding-top:36px;background-image:url(/images/pricebg.png);" rowspan="6">
+        <%
+        var qj = "";
+        var lab = new Array();
+        lab[0] = 99999;
+        var lab1 = "";
+        for(var c in product){
+        if(product[c].txtCruiselineNo==csk[0].txtCruiselineNo && csk[0].txtSailingDate.indexOf(product[c].txtSailingDate1)>-1){
+        if(Number(product[c].numPrice1) < lab[0] ){
+        qj = product[c].currencyNo;
+        lab[0] = Number(product[c].numPrice1);
+        lab[1] = (product[c].numPrice2);
+        lab[2] = (product[c].numPrice3);
+        lab1 = product[c].currencyNo;
+        if(product[c].numPrice1=="-1"){lab[0] = "售罄";}
+        if(product[c].numPrice2=="-1"){lab[1] = "售罄";}
+        if(product[c].numPrice3=="-1"){lab[2] = "售罄";}
+        if(product[c].numPrice4!="-1"){
+        lab[3] = (product[c].numPrice4);
+        }else{
+        lab[3] = "售罄";
+        }
+        }}}
+        if(qj){
+        if(lab[bbc]=="售罄"){
+        %>
+        <span id="un<%=bbc%>" style="font-size:14px;font-weight:normal;font-family:georgia;color: #FFFFFF"></span>
+        <span id="jg<%=bbc%>" style="font-size:20px;font-weight:bold;font-family:georgia;color: #FFFFFF">售罄</span>
+        <div id="unt<%=bbc%>" style="font-size:11px;font-family:微软雅黑;color: #FFFFFF;padding-left: 60px;padding-top: 5px;"></div>
+        <%
+        }else{
+        %>
+        <span id="un<%=bbc%>" style="font-size:14px;font-weight:normal;font-family:georgia;color: #FFFFFF"><%=lab1%>&nbsp;</span>
+        <span id="jg<%=bbc%>" style="font-size:20px;font-weight:bold;font-family:georgia;color: #FFFFFF"><%=lab[bbc]%></span>
+        <div id="unt<%=bbc%>" style="font-size:11px;font-family:微软雅黑;color: #FFFFFF;padding-left: 60px;padding-top: 5px;">/人起 </div>
+        <%
+        }
+        }else{
+        %>
+        <span id="un<%=bbc%>" style="font-size:14px;font-weight:normal;font-family:georgia;color: #FFFFFF"></span>
+        <span id="jg<%=bbc%>" style="font-size:20px;font-weight:bold;font-family:georgia;color: #FFFFFF">电询</span>
+        <div id="unt<%=bbc%>" style="font-size:11px;font-family:微软雅黑;color: #FFFFFF;padding-left: 60px;padding-top: 5px;"></div>
+        <br/>
+        <%}%>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="myh1">面积</span><span style="padding-left:41px;" class="myh1x"><%=croom[i].txtCabinArea%></span></td>
+  </tr>
+  <tr>
+    <td><span class="myh1">可入住人数</span><span style="padding-left:5px;" class="myh1x"><%=croom[i].numCanCheckIn%></span></td>
+  </tr>
+  <tr>
+    <td><span class="myh1">甲板层</span><span style="padding-left:30px;" class="myh1x"><%=croom[i].txtDeckLevel%></span></td>
+  </tr>
+  <tr>
+    <td><span style="font-size:11px;display: inline-block;width: 430px;"  class="myh1x"><span class="myh1">舱房设施</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=croom[i].txtCabinFacility%></span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<%
+	}
+}
+%>
+</div>
+<div id="tab3" style="display:none">
+    <br/>
+<%
+for (var i in cent) {
+	if(cent[i].txtShipNo==csk[0].txtShipNo){
+    var txtPlaceRemark = cent[i].txtPlaceRemark;
+    if(txtPlaceRemark){
+        txtPlaceRemark = cent[i].txtPlaceRemark.substring(0,50)+"...";
+    }else{
+        txtPlaceRemark = "&nbsp;";
+    }
+    var txtPlaceName = cent[i].txtPlaceName;
+    if(txtPlaceName){
+    if(txtPlaceName.length >20){
+        txtPlaceName = cent[i].txtPlaceName.substring(0,20)+"...";
+    }
+    }
+    var txtPlaceSite1 = "";
+    if(cent[i].txtPlaceSite){
+        txtPlaceSite1 = cent[i].txtPlaceSite;
+    }else{
+        txtPlaceSite1 = "&nbsp;";
+    }
+    if(txtPlaceSite1=="NULL"){txtPlaceSite1="";}
+    if(txtPlaceRemark=="NULL"){txtPlaceRemark="";}
+%>
+<div style="width:49%;display:inline-block;">
+<table width="100%" border="0">
+  <tr>
+    <td rowspan="3" style="width:230px;vertical-align:top " ><img src="/dataimages/<%=cent[i].rtfPlaceImg%>_sm.jpg" width="220px" height="124px"/></td>
+    <td style="height:20px;"><span class="myh1blue"><%=txtPlaceName%></span></td>
+  </tr>
+  <tr>
+    <td style="height:20px;"><span class="myh1">所在楼层:<%=txtPlaceSite1%></span></td>
+  </tr>
+  <tr>
+    <td style="vertical-align: top;" ><span class="myh1x"><%=txtPlaceRemark%></span></td>
+  </tr>
+</table>
+</div>
+<%
+	}
+}
+%>
+</div>
+<div id="tab4" style="display:none">
+    <br/>
+    <%
+    for (var i in sd) {
+    if(sd[i].txtShipNo==csk[0].txtShipNo){
+    var txtPlaceRemark = sd[i].txtRoomAvailability;
+    if(txtPlaceRemark){
+    txtPlaceRemark = sd[i].txtRoomAvailability.substring(0,50);
+    }else{
+    txtPlaceRemark = "&nbsp;";
+    }
+    var txtPlaceName = sd[i].txtRestaurantName;
+    if(txtPlaceName){
+    if(txtPlaceName.length >20){
+    txtPlaceName = sd[i].txtRestaurantName.substring(0,20);
+    }
+    }
+    var txtPlaceSite1 = "";
+    if(sd[i].txtDeckLevel){
+    txtPlaceSite1 = sd[i].txtDeckLevel;
+    }else{
+    txtPlaceSite1 = "&nbsp;";
+    }
+        if(txtPlaceSite1=="NULL"){txtPlaceSite1="";}
+        if(txtPlaceRemark=="NULL"){txtPlaceRemark="";}
+    %>
+    <div style="width:49%;display:inline-block;">
+        <table width="100%" border="0">
+            <tr>
+                <td rowspan="3" style="width:230px;vertical-align:top " ><img src="/dataimages/<%=sd[i].rtfRestaurantImg%>_sm.jpg" width="220px" height="124px"/></td>
+                <td style="height:20px;"><span class="myh1blue"><%=txtPlaceName%></span></td>
+            </tr>
+            <tr>
+                <td style="height:20px;"><span class="myh1">所在楼层:<%=txtPlaceSite1%></span></td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;" ><span class="myh1x"><%=txtPlaceRemark%></span></td>
+            </tr>
+        </table>
+    </div>
+    <%
+    }
+    }
+    %>
+</div>
+<div id="tab5" style="display:none;font-size: 12px;">
+    <div style="width:100%;background-color: #ffffff;height: 100%;">
+        <table border="0" style="width: 100%;height: 870px;">
+            <tr>
+                <td style="width: 55%;vertical-align: top;" colspan="2" rowspan="2">
+                    <img style="margin-top: 20px;margin-left: 20px;width:432px; " src="/images/booking_1.jpg" />
+                    <br/><br/><br/>
+                    <hr style="margin-top:15px;width: 430px;margin-left: 20px;BORDER-BOTTOM-STYLE: dotted; BORDER-LEFT-STYLE: dotted; BORDER-RIGHT-STYLE: dotted; BORDER-TOP-STYLE: dotted "/> <br/>
+                    <div style="font-size: 16px;font-weight:bold;margin-left: 20px;font-family:微软雅黑;color: #002F67"> 请留下您的信息，让邮轮管家给您帮助。</div>
+
+                    <form name="form2" method="post" style="margin-top: 10px;margin-left: 20px">
+                        <table style="width: 432px;height:360px;background-image: url('images/booking.png')" border="0">
+                            <tr>
+                                <td style="vertical-align: top">
+                                    <div style="font-family: 微软雅黑;color: white;font-weight: bold;margin-top: 12px;margin-left: 10px;">预定信息</div>
+                                    <div style="font-family: 微软雅黑;margin-top: 22px;margin-left: 15px;">姓名：</div>
+                                    <input name="input1" style="font-size:12px;font-family: 微软雅黑;margin-top:1px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" type="text" />
+                                    <div style="font-family: 微软雅黑;margin-top: 12px;margin-left: 15px;">联系电话：</div>
+                                    <input name="input2" style="font-size:12px;font-family: 微软雅黑;margin-top:3px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" type="text" />
+                                    <div style="font-family: 微软雅黑;margin-top: 15px;margin-left: 15px;">E-Mail:</div>
+                                    <input name="input3" style="font-size:12px;font-family: 微软雅黑;margin-top:1px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" type="text" />
+                                    <div style="font-family: 微软雅黑;margin-top: 15px;margin-left: 15px;">内容：</div>
+                                    <textarea name="input4" style="font-size:12px;font-family: 微软雅黑;margin-top:2px;height:80px;margin-left: 16px;width: 394px;border: none;background-color: #ffffff" ></textarea>
+                                    <img style="margin-top: 20px;margin-left: 170px;width: 100px;cursor: pointer" onclick="submitYD();" src="images/submit.jpg"></img>
+                                </td>
+                            </tr>
+                        </table>
+                        <input name="input5" type="text" value="curiseship?p=<%=csk[0].txtCruiselineNo%>" style="display: none" />
+                    </form>
+
+                </td>
+                <td colspan="2"><img src="/images/booking_2.jpg" /></td>
+            </tr>
+            <tr>
+                <td style="height: 220px;background-image: url('/images/booking_3.jpg');cursor: pointer" onclick="window.open('files/pay2.pdf');">&nbsp;</td>
+                <td style="height: 220px;background-image: url('/images/booking_4.jpg');cursor: pointer" onclick="window.open('files/pay1.pdf');">&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="tab6" style="display:none;font-size: 12px;font-family:微软雅黑; ">
+<%if(cx[0]){%>
+<br/>
+<style>
+     #cx23 td{
+         padding: 2px;
+     }
+
+</style>
+<table id="cx23" border="1" style="BORDER-COLLAPSE: collapse;width: 100%;line-height: 25px;border-color: #000000" cellspacing='0' cellpadding="0">
+    <tr>
+        <td style="width:100px;text-align: center;font-weight: bold">产品名称</td>
+        <td><%=cx[0].txtProduceName%></td>
+    </tr>
+    <tr  style="background-color: #FFFFFF">
+        <td style="width:100px;text-align: center;font-weight: bold">促销内容</td>
+        <td><%=cx[0].txtRemark%></td>
+    </tr>
+    <tr>
+        <td style="width:100px;text-align: center;font-weight: bold">价格</td>
+        <td><%=cx[0].txtPrice%></td>
+    </tr>
+    <tr  style="background-color: #FFFFFF">
+        <td style="width:100px;text-align: center;font-weight: bold">停靠港口</td>
+        <td><%=cx[0].txtCruiselineALLPort%></td>
+    </tr>
+    <tr>
+        <td style="width:100px;text-align: center;font-weight: bold">邮轮公司</td>
+        <td><%=cx[0].txtCompanyName%></td>
+    </tr>
+    <tr  style="background-color: #FFFFFF">
+        <td style="width:100px;text-align: center;font-weight: bold">邮轮名称</td>
+        <td><%=cx[0].txtShipName%></td>
+    </tr>
+    <tr>
+        <td style="width:100px;text-align: center;font-weight: bold">出发日期</td>
+        <td><%=cx[0].txtDay%></td>
+    </tr>
+    <tr  style="background-color: #FFFFFF">
+        <td style="width:100px;text-align: center;font-weight: bold">费用包含</td>
+        <td><%=cx[0].txtInclude%></td>
+    </tr>
+    <tr>
+        <td style="width:100px;text-align: center;font-weight: bold">费用不包含</td>
+        <td><%=cx[0].txtNotInclude%></td>
+    </tr>
+    <tr  style="background-color: #FFFFFF">
+        <td style="width:100px;text-align: center;font-weight: bold">退改规定</td>
+        <td><%=cx[0].txtRules%></td>
+    </tr>
+    <tr>
+        <td style="width:100px;text-align: center;font-weight: bold">重要提示</td>
+        <td><%=cx[0].txtImportant%></td>
+    </tr>
+    <tr  style="background-color: #FFFFFF">
+        <td style="width:100px;text-align: center;font-weight: bold">签证信息</td>
+        <td><%=cx[0].txtVisa%></td>
+    </tr>
+</table>
+<%}%>
+</div>
+<br><br>
+<table width="100%"  style="font-size:12px;font-family:微软雅黑;background-repeat: no-repeat;background-image: url('/images/point.png')" border="0">
+    <tr><td colspan="4">&nbsp;</td></tr>
+    <%
+    var k = 0;
+            for(var j in lines1){
+            if(lines1[j].txtRoutingArea == linea){
+            if(k<5){
+            if(lines1[j].txtCruiselineNo != csk[0].txtCruiselineNo){
+    %>
+    <tr style="cursor: pointer" onclick="window.location = '/curiseshipmid/<%=lines1[j].txtCruiselineNo%>';">
+        <td style="font-weight: bold;padding-left: 15px;"><%=lines1[j].txtSailingDate1%></td>
+        <td><%=lines1[j].txtCruiselineName%></td>
+        <td style="width:350px"><%=lines1[j].txtCruiselineALLPort.substring(0,28)%>...</td>
+        <td style="text-align: center;width: 150px">
+            <%
+            if(lines1[j].currencyNo){
+            %>
+            <span style="color: #F15A24;font-weight: bold"><%="RMB "+lines1[j].numPriceLast%>/人起</span>
+            <%
+            }else{
+            %>
+            <span style="color: #F15A24;font-weight: bold">电询</span>
+            <%
+            }
+            %>
+        </td>
+    </tr>
+    <% if(k<4){ %>
+    <tr><td colspan="4"><hr style="width: 95%;margin-left: 15px;"></td></tr>
+    <%    }  %>
+    <%
+        k = k + 1;
+    }
+    }
+    }
+    }
+    %>
+    <tr><td colspan="4">&nbsp;</td></tr>
+    <tr><td colspan="4" style="text-align: right;padding-top: 5px;"><div class="tohq" style="cursor: pointer" onclick="$('#mdd').val('<%=linea%>');document.form1.submit();">查看更多产品&nbsp;</div></td></tr>
+</table>
+<br/><br/>
+</div>
+</div>
+<form name="form1" style="display: none" method="post">
+    <input type="text" id="mdd" name = "mdd" />
+</form>
+<input type="text" id="divlen" value="<%=divlen%>" style="display: none" />

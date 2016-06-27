@@ -1,0 +1,635 @@
+<% include header %>
+<div id="zibody" style="background-color:#DFDFDF;">
+      <div style="width:100%;height:110px"></div>
+      <div style="margin:0 auto;width:864px;">
+        <br/><br/>
+        <span class="zi_menu"><span id="tohome" style="cursor:pointer;">首页</span>&nbsp;&nbsp;/&nbsp;&nbsp;我的度假邮轮</span>
+
+      </div>
+
+      <div style="margin:0 auto;width:884px">
+            <iframe id="cds-agent" src = "/cds-agent/" style="width:100%;height:850px;margin-top:10px;margin-bottom:20px" scrolling="no" frameborder="0" /></iframe>
+      </div>
+
+    <div style="margin:0 auto;width:864px">
+        
+
+        <form method="post" style="display:none">
+            <table width="864px" border="0" style="background-image:url(images/searchbg.jpg)">
+                <tr>
+                    <td colspan="7"><br/></td>
+                </tr>
+                <tr>
+                    <td><span class="mysew1">出发日期</span></td>
+                    <td>
+                        <select name="datStart" style="width:145px">
+                            <option value="*">全部</option>
+						<option value="2014-12">2014年12月</option>
+						<option value="2015-01">2015年01月</option>
+						<option value="2015-02">2015年02月</option>
+						<option value="2015-03">2015年03月</option>
+						<option value="2015-04">2015年04月</option>
+						<option value="2015-05">2015年05月</option>
+						<option value="2015-06">2015年06月</option>
+						<option value="2015-07">2015年07月</option>
+						<option value="2015-08">2015年08月</option>
+						<option value="2015-09">2015年09月</option>
+						<option value="2015-10">2015年10月</option>
+						<option value="2015-11">2015年11月</option>
+						<option value="2015-12">2015年12月</option>
+                        </select>
+                    </td>
+                    <td><span class="mysew1">航行天数</span></td>
+                    <td><select name="txtCruiseDay" style="width:145px">
+                        <option value="*">全部</option>
+                        <%
+                        for(var i=1;i<9;i++){
+                        %>
+                        <option value="<%=(i+1)+"天"+i+"晚"%>"><%=(i+1)+"天"+i+"晚"%></option>
+                        <%
+                        }
+                        %>
+                        <option value="10天以上">10天以上</option>
+                    </select>
+                    </td>
+                    <td><span class="mysew1">目的地</span></td>
+                    <td><select style="width:145px">
+                        <option value="*">全部</option>
+                       
+                    </select></td>
+                    <td rowspan="2" style="width:120px;text-align:center"><span onclick="document.forms[0].submit();"
+                                                                                class="myh1y">开始搜索 >>></span></td>
+                </tr>
+                <tr>
+                    <td style="padding-top:10px;"><span class="mysew1" >邮轮公司</span></td>
+                    <td style="padding-top:10px;"><select style="width:145px" id="txtCuriseCompany" name="txtCuriseCompany">
+                        <option value="*">全部</option>
+                        
+                    </select></td>
+                    <td style="padding-top:10px;"><span class="mysew1">邮轮名称</span></td>
+                    <td style="padding-top:10px;"><select style="width:145px" id="txtCurise" name="txtCurise">
+                        <option value="*">全部</option>
+                       
+                    </select></td>
+                    <td style="padding-top:10px;"><span class="mysew1">出发港口</span></td>
+                    <td style="padding-top:10px;"><select style="width:145px" id="txtPort" name="txtPort">
+                        <option value="*">全部</option>
+                        
+                    </select></td>
+                </tr>
+                <tr>
+                    <td colspan="7"><br/></td>
+                </tr>
+            </table>
+        </form>
+
+         <div style="width:100%;display:none">
+             <div style="margin:0 auto;width:864px;">
+                <div style="width:600px;margin:0 auto">
+                   共<span style="color:#3EAED2">64</span>条产品
+                </div>
+                <div style="text-align:right;">
+                  <select style="width:150px">
+                       <option>选择排序</option>
+                  </select>
+                </div>
+            </div>
+         </div>
+
+        <img src="/images/advertisement_1.png" width="864px" style="display:none" />
+
+        <div style="display:none"><!--start产品-->
+            <ul style="list-style: none">
+                <li>
+                    <div id="product-list1" style="background:#FFFFFF;font-size:14px;margin-bottom:10px">
+                        <div style="float:left;width:255px;"><!--left-->
+                            <p style="text-align:center;padding:10px"><span class="fontSize16 fontWeight">5天4晚</span>&nbsp;<span>|</span>&nbsp;<span class="fontSize16 fontWeight" style="color:#3FAED9">日韩</span>
+                            </p>
+                            <img src="images/theme_4.jpg" style="width:255px;height:150px">
+                            <div style="width:255px;height:30px">
+                               <p style="float:left;padding:8px"><img src="images/share_1.png"></p>
+                               <p style="float:right;padding:5px"><img src="images/dislike.png">&nbsp;<span style="font-weight:100">0</span></p>
+                            </div>
+                        </div>
+                        <div style="float:right;width:589px"><!--right-->
+                            <div style="float:left;width:444px;"><!--right中的left-->
+                                <div style="margin-top:5px">
+                                    <img src="images/style/tp01.png" style="">
+                                    <img src="images/style/tp02.png" style="">
+                                    <img src="images/style/tp03.png" style="">
+                                </div>
+                                <div>
+                                    <img src="images/style/group.png" style="vertical-align:middle">
+                                    <span class="fontSize16 fontWeight" style="vertical-align:middle;">皇家加勒比邮轮【海洋绿洲号】11晚12天澳洲新西兰游</span>
+                                </div>
+                                <p style="color:#F37041">【上海出发】出发日期:<span>2015-12-19</span></p>
+                                <p id="product_title01">奥斯卡的-涉及到-看大神-飞扑哥佛牌-死哦多久啊-的阿萨斯-盛大快乐静安寺-啊数据库的哈萨克</p>
+                                <p style="font-weight:bold;color:#666666">推荐理由</p>
+                                <p style="color:#666666">1.加快上课时间</p>
+                                <p style="color:#666666">2.啊尽快哈hi哦</p>
+                                <p style="color:#666666">3.加快递费是多少对方</p>
+                            </div>
+                            <div style="float:right;width:130px"><!--right中的right-->
+                                <img src="images/tp4.png" style="margin-top:40px;box-shadow:3px 3px 10px #8D8D8D;-webkit-box-shadow:3px 3px 10px #8D8D8D;-moz-box-shadow:3px 3px 10px #8D8D8D">
+                                <p style="padding-top:30px;text-align:left"><a class="fontWeight" href="" style="color:#F37041;font-size:14px;">了解详情>>></a></p>
+                            </div>
+                        </div>
+                           <div style="clear:both"></div>
+                    </div>
+                </li>
+
+                <li>
+                   <div id="product-list2" style="background:#FFFFFF;font-size:14px;margin-bottom:10px">
+                        <div style="float:left;width:255px;"><!--left-->
+                            <p style="text-align:center;padding:10px"><span class="fontSize16 fontWeight">5天4晚</span>&nbsp;<span>|</span>&nbsp;<span class="fontSize16 fontWeight" style="color:#3FAED9">日韩</span>
+                            </p>
+                            <img src="images/theme_4.jpg" style="width:255px;height:150px">
+                            <div style="width:255px;height:30px">
+                               <p style="float:left;padding:8px"><img src="images/share_1.png"></p>
+                               <p style="float:right;padding:5px"><img src="images/dislike.png">&nbsp;<span style="font-weight:100">0</span></p>
+                            </div>
+                        </div>
+                        <div style="float:right;width:589px"><!--right-->
+                            <div style="float:left;width:444px"><!--right中的left-->
+                                <div style="margin-top:5px">
+                                   <img src="images/style/tp01.png" style="">
+                                    <img src="images/style/tp02.png" style="">
+                                    <img src="images/style/tp03.png" style="">
+                                </div>
+                                <div>
+                                    <img src="images/style/group.png" style="vertical-align:middle">
+                                    <span class="fontSize16 fontWeight" style="vertical-align:middle;">皇家加勒比邮轮【海洋绿洲号】11晚12天澳洲新西兰游</span>
+                                </div>
+                                <p style="color:#F37041">【上海出发】出发日期:<span>2015-12-19</span></p>
+                                <p>奥斯卡的-涉及到-看大神-飞扑哥佛牌-死哦多久啊-的阿萨斯-盛大快乐静安寺-啊数据库的哈萨克</p>
+                                <p style="font-weight:bold;color:#666666">推荐理由</p>
+                                <p style="color:#666666">1.加快上课时间</p>
+                                <p style="color:#666666">2.啊尽快哈hi哦</p>
+                                <p style="color:#666666">3.加快递费是多少对方</p>
+                            </div>
+                            <div style="float:right;width:130px"><!--right中的right-->
+                                <img src="images/tp4.png" style="margin-top:40px;box-shadow:3px 3px 10px #8D8D8D;-webkit-box-shadow:3px 3px 10px #8D8D8D;-moz-box-shadow:3px 3px 10px #8D8D8D">
+                                <p style="padding-top:30px;text-align:left"><a class="fontWeight" href="" style="color:#F37041;font-size:14px;">了解详情>>></a></p>
+                            </div>
+                        </div>
+                           <div style="clear:both"></div>
+                    </div>
+                </li>
+
+
+                <li>
+                    <div id="product-list3" style="background:#FFFFFF;font-size:14px;">
+                        <div style="float:left;width:255px;"><!--left-->
+                            <p style="text-align:center;padding:10px"><span class="fontSize16 fontWeight">5天4晚</span>&nbsp;<span>|</span>&nbsp;<span class="fontSize16 fontWeight" style="color:#3FAED9">日韩</span>
+                            </p>
+                            <img src="images/theme_4.jpg" style="width:255px;height:150px">
+                            <div style="width:255px;height:30px">
+                               <p style="float:left;padding:8px"><img src="images/share_1.png"></p>
+                               <p style="float:right;padding:5px"><img src="images/dislike.png">&nbsp;<span style="font-weight:100">0</span></p>
+                            </div>
+                        </div>
+                        <div style="float:right;width:589px"><!--right-->
+                            <div style="float:left;width:444px"><!--right中的left-->
+                                <div style="margin-top:5px">
+                                   <img src="images/style/tp01.png" style="">
+                                    <img src="images/style/tp02.png" style="">
+                                    <img src="images/style/tp03.png" style="">
+                                </div>
+                                <div>
+                                    <img src="images/style/group.png" style="vertical-align:middle">
+                                    <span class="fontSize16 fontWeight" style="vertical-align:middle;">皇家加勒比邮轮【海洋绿洲号】11晚12天澳洲新西兰游</span>
+                                </div>
+                                <p style="color:#F37041">【上海出发】出发日期:<span>2015-12-19</span></p>
+                                <p>奥斯卡的-涉及到-看大神-飞扑哥佛牌-死哦多久啊-的阿萨斯-盛大快乐静安寺-啊数据库的哈萨克</p>
+                                <p style="font-weight:bold;color:#666666">推荐理由</p>
+                                <p style="color:#666666">1.加快上课时间</p>
+                                <p style="color:#666666">2.啊尽快哈hi哦</p>
+                                <p style="color:#666666">3.加快递费是多少对方</p>
+                            </div>
+                            <div style="float:right;width:130px"><!--right中的right-->
+                                <img src="images/tp4.png" style="margin-top:40px;box-shadow:3px 3px 10px #8D8D8D;-webkit-box-shadow:3px 3px 10px #8D8D8D;-moz-box-shadow:3px 3px 10px #8D8D8D">
+                                <p style="padding-top:30px;text-align:left"><a href="" class="fontWeight" style="color:#F37041;font-size:14px;">了解详情>>></a></p>
+                            </div>
+                        </div>
+                           <div style="clear:both"></div>
+                    </div>
+                </li>
+            </ul>
+        </div><!--end产品-->
+
+        <div style="text-align:center;width:864px;height:30px;padding-top:10px;display:none">
+           <a href=""><img src="images/previours_page.png" style="vertical-align:sub"></a>
+            <span style="">第&nbsp;</span><input type="text" value="1" style="width:15px"><span>&nbsp;页</span>
+           <a href=""><img src="images/next_page.png" style="vertical-align:sub"></a>
+        </div>
+
+       
+        <span class="myh1" style="width:100%;text-align:center;display:inline-block;display:none">为您开启一段奇妙旅程。点击地图，发现更多航线。</span>
+        <table width="864px" id="maptb" style="height: 440px;background-image: url('/images/map.png');" border="0">
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH4" class="pointmap" onclick="window.location = ('loading?page=destination/hq4');"><img id="pd4" src="images/map_location.png" style="vertical-align:middle;">&nbsp;阿拉斯加</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH2" class="pointmap" onclick="window.location = ('loading?page=destination/hq2');"><img id="pd2" src="images/map_location.png" style="vertical-align:middle;">&nbsp;欧洲</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td></td>
+            <td colspan="3"><div id="pointDZH1" class="pointmap" onclick="window.location = ('loading?page=destination/hq1');"><img id="pd1" src="images/map_location.png" style="vertical-align:middle;">&nbsp;地中海</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH6" class="pointmap" onclick="window.location = ('loading?page=destination/hq6');"><img id="pd6" src="images/map_location.png" style="vertical-align:middle;">&nbsp;日韩</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH9" class="pointmap" onclick="window.location = ('loading?page=destination/hq9');"><img id="pd9" src="images/map_location.png" style="vertical-align:middle;">&nbsp;夏威夷</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH3" class="pointmap" onclick="window.location = ('loading?page=destination/hq3');"><img id="pd3" src="images/map_location.png" style="vertical-align:middle;">&nbsp;加勒比海</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH8" class="pointmap" onclick="window.location = ('loading?page=destination/hq8');"><img id="pd8" src="images/map_location.png" style="vertical-align:middle;">&nbsp;台湾</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH7" class="pointmap" onclick="window.location = ('loading?page=destination/hq7');"><img id="pd7" src="images/map_location.png" style="vertical-align:middle;">&nbsp;东南亚</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="3"><div id="pointDZH5" class="pointmap" onclick="window.location = ('loading?page=destination/hq5');"><img id="pd5" src="images/map_location.png" style="vertical-align:middle;">&nbsp;澳洲新西兰</div></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        </table>
+        <br/><br/>
+    </div>
+</div>
+<% include footer %>
