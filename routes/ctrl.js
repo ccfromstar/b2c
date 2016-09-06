@@ -6,6 +6,8 @@ module.exports = function (app, routes) {
 
 	app.get('/destination',routes.destination);
 
+    app.get('/c_destination',routes.c_destination);
+
     app.post('/curiseship', routes.curiseshipdo);
 
     app.get('/adv',routes.adv);

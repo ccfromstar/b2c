@@ -487,6 +487,45 @@ exports.destination = function (req, res) {
     });
 };
 
+exports.c_destination = function (req, res) {
+    var med = new Med();
+    med.get(function (result) {
+        if (result[1] == "r") {
+            console.log("get info error!");
+        } else {
+            var port = new Port();
+            port.get(function (result1) {
+                if (result1[1] == "r") {
+                    console.log("get info error!");
+                } else {
+                    var cruiselineinfo = new Cruiselineinfo();
+                    cruiselineinfo.get(function (result2) {
+                        if (result2[1] == "r") {
+                            console.log("get info error!");
+                        } else {
+                            var product = new Product();
+                            product.get(function (result3) {
+                                if (result3[1] == "r") {
+                                    console.log("get info error!");
+                                } else {
+                                    var lineTimes = new Linetimes();
+                                    lineTimes.get(function (result4) {
+                                        if (result4[1] == "r") {
+                                            console.log("get info error!");
+                                        } else {
+                                            res.render('c_destination', {layout:'c_layouts',title: '邮轮度假目的地', med: result, port: result1, lines: result2,product:result3,lines1:result4});
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+};
+
 exports.curiseship = function (req, res) {
     mysql.query("insert into log(pagename,time,ip) values('产品信息页','"+getNow()+"','"+getClientIp(req)+"')",function (err, rows) {});
     res.locals.mt1 ="";
